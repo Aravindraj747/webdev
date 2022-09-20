@@ -1,0 +1,21 @@
+.header a{
+    padding:6px 13px;
+    text-decoration: none;
+    color: black;  
+}
+.header a.active,
+.header a:hover{
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+}
+.date{
+    margin-top: 10px;
+}
+.date button{
+    color: blue;
+    border: 1px solid blue;   
+}
+.container{
+    top: 0px;
+}

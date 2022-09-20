@@ -1,0 +1,15 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing:border-box ;
+}
+table {
+    width: 100%;
+  }
+  .pagination{
+    justify-content: center;
+  }
+  .navbar{
+    position:fixed;
+    list-style: none;
+  }

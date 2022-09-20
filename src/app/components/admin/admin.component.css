@@ -1,0 +1,172 @@
+/* Admin form */
+/* .form-container{
+    display: block;
+    max-width: 450px;
+    margin: auto;
+
+    background: #eceff1;
+    padding: 48px;
+    border-radius: 16px;
+}
+
+.form-containerP{
+    width: 100%;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+}
+
+.margin-top{
+    margin-top: 16px;
+}
+
+.text-center{
+    text-align: center;
+} */
+
+/* Navbar */
+/* .mat-toolbar{
+    padding-top: 10px;
+    justify-content: space-between;
+}
+.sign-up-link{
+    font-size: 1.2rem;
+    margin-left: 8px;
+}
+.content{
+    padding:32px;
+}  */
+/*  */
+/* body{
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #485563;
+    background-color:#fff ;
+    background-size: cover;
+    background-image: linear-gradient( 95.2deg, rgba(173,252,234,1) 26.8%, rgba(192,229,246,1) 64% );
+    background-image: linear-gradient( 109.6deg, rgba(156,252,248,1) 11.2%, rgba(110,123,251,1) 91.1% );
+    background-image: linear-gradient(to right, #c6ffdd, #fbd786, #f7797d);
+    background-image:image-set('assets/adminlogin.jpg');
+}
+.main{
+    width: 400px;
+    height: 600px;
+    padding: 10px 25px 35px 35px;
+    margin-left: -100px;
+    margin-top: 120px;
+    border-radius: 20px;
+    font-family: sans-serif;
+    font-weight: 700;
+}
+.title{
+    text-align: center;
+    font-size: 40px;
+    color: #555;
+    letter-spacing: .5px;
+    margin-top: 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.credentials{
+    width: 100%;
+    padding: 2px 5px 0px 5px;
+}
+.credentials input{
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 18px;
+    color: #555;
+    padding: 20px 10px 20px 5px;
+    letter-spacing: .1px;
+}
+.username{
+margin-bottom: 20px;
+border-bottom: 2px solid #c2c4c3;
+transition: .5s ease;
+}
+.username:hover{
+    border-bottom: 3px solid #485563;
+}
+.password{
+    margin-bottom: 30px;
+    border-bottom: 2px solid #c2ccc3;
+    transition: .5s ease;
+}
+.password:hover{
+    border-bottom: 3px solid #485563;
+}
+.submit{
+    outline: none;
+    border: none;
+    width: 100%;
+    height: 60px;
+    border-radius: 30px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    background-image: linear-gradient(to right,#485563 0%,#29323c 51%,#485563 100%);
+    background-size: 200%;
+    box-shadow: 3px 3px 8px #b1b1b1,
+                -3px -3px 8px #fff;
+    transition: .5s;
+}
+.submit:hover{
+    background-position: right;
+} */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    background-color:#dfe9f5 ;
+}
+body{
+    background:#dfe9f5 ;
+}
+.wrapper{
+    width: 330px;
+    padding: 2rem 0 1rem 0;
+    margin: 45px auto;
+    background: #fff;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 20px 35px rgba(0,0,0,0.1);
+}
+h1{
+    font-size: 2rem;
+    color: #07001f;
+}
+p{
+    margin-bottom: 1.7rem;
+}
+form input{
+    width: 85%;
+    outline:none;
+    border:none;
+    background: #dfe9f5;
+    padding: 12px 14px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+button{
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    padding: 8px 0;
+    outline: none;
+    border: none;
+    width: 85%;
+    background: tomato;
+    color: #fff;
+    cursor: pointer;
+}
+button:hover{
+    background:rgba(122,30,30,0.767) ;
+}

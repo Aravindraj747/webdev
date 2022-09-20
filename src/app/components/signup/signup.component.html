@@ -1,0 +1,48 @@
+<!-- <div class="form-container shadow-lg p-3 mb-5 bg-body rounded" style="margin-top:100px;">
+    <h1 class="center">Sign Up a New User</h1>
+    <form>
+        <div class="fields margin-top">
+            <label  class="form-label">Name</label>
+            <input type="name" class="form-control" name="name" required [(ngModel)]="signupcredentials.name">
+        </div>
+        <div class="fields margin-top">
+            <label  class="form-label">Email</label>
+            <input type="email" class="form-control" name="email" required [(ngModel)]="signupcredentials.email" >
+        </div>
+        <div class="fields margin-top">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control" name="password" required [(ngModel)]="signupcredentials.password">
+        </div>
+        <div class="fields margin-top">
+            <label for="exampleInputPassword1" class="form-label">Confirmpassword</label>
+            <input type="password" class="form-control" name="confirmpassword" required [(ngModel)]="signupcredentials.confirmpassword">
+        </div>
+          <div class="center margin-top">
+            <button type="submit" class="btn btn-primary" (click)="submit()" >SignUp</button>
+          </div>
+    </form>
+</div> -->
+<div class="form-container shadow-lg p-3 mb-5 bg-body rounded" style="margin-top:100px;">
+    <h1 class="center">Sign Up a New User</h1>
+    <form [formGroup]="signUpForm" (ngSubmit)="submit()">
+        <div class="fields margin-top">
+            <label  class="form-label">Name</label>
+            <input type="name" class="form-control" name="name" required formControlName="name">
+        </div>
+        <div class="fields margin-top">
+            <label  class="form-label">Email</label>
+            <input type="email" class="form-control" name="email" required formControlName="email" >
+        </div>
+        <div class="fields margin-top">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control" name="password" required formControlName="password">
+        </div>
+        <div class="fields margin-top">
+            <label for="exampleInputPassword1" class="form-label">Confirmpassword</label>
+            <input type="password" class="form-control" name="confirmpassword" required formControlName="confirmPassword">
+        </div>
+          <div class="center margin-top">
+            <button type="submit" class="btn btn-primary" >SignUp</button>
+          </div>
+    </form>
+</div>

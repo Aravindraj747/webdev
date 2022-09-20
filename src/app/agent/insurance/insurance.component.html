@@ -1,0 +1,63 @@
+ <body>
+    <div class="container">
+        <span class="title">Insurance</span>
+        <form>
+            <div class="form-first">
+                <div class="details">
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Type</label>
+                            <select id="insurance" required style="margin-left:100px;">
+                                <option >select</option>
+                                <option value="insurance">Insurance</option>
+                                <option value="claim">Claim</option>
+                            </select>
+                        </div>
+                        <div class="input-field">
+                            <label>Vechicle</label>
+                            <select required style="margin-left:77px;">
+                                <option >select</option>
+                                <option value="car">Car</option>
+                                <option value="Two Wheeler">Two Wheeler</option>
+                                <option value="Commercial">Commercial</option>
+                                <option value="realestate">Real estate</option>
+                            </select>
+                        </div>
+                        <div class="input-field">
+                            <label >Vechicle number</label>
+                            <input type="text" placeholder="Enter vechile number" style="margin-left:30px;">
+                        </div>
+                        <div class="input-field">
+                            <label>Date</label>
+                            <input type="Date" placeholder="" style="margin-left:97px;">
+                        </div>
+                        <div class="input-field">
+                            <label>RC Photocopy</label>
+                            <input type="file" (change)="chooserc($event)" style="margin-left: 40px;">
+                        </div>
+                        <div class="input-field">
+                            <label>Vechicle Image</label>
+                            <input type="file" (change)="chooseVechile($event)" style="margin-left: 35px;">
+                        </div>
+                        <div>
+                            <div class="input-field" >
+                                <label>CSR copy</label>
+                                <input type="file" (change)="choosecsr($event)" style="margin-left: 65px;">
+                            </div>
+                            <div class="input-field">
+                                <label>Policy number</label>
+                                <input type="text" placeholder="Enter Policy number"style="margin-left: 40px;">
+                            </div>
+                        </div>
+                        <div class="input-field" style="margin-left:400px;" >
+                        <button type="button" class="btn btn-primary" style="background-color:red;padding: 4px;border: 5px red;" (click)="cancel()">Cancel</button>
+                        <button type="submit" style="margin-left:20px;padding:4px;border: 5px blue;"class="btn btn-primary">Proceed</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    
+ </body>
+    <!-- <h2 style="font-weight:bold;">Insurance</h2> -->

@@ -1,0 +1,36 @@
+<app-adminsidenav></app-adminsidenav>
+<div class="content">
+    <img class="logo" src="assets/agent.png" alt="">
+    <h1>Create Agent</h1>
+    <form [formGroup]="agentForm" (ngSubmit)="create()">
+            <label  class="form-label">Agent Name</label>
+            <input type="text" name="name" required formControlName="name">
+            <label  class="form-label">Email</label>
+            <input type="text"  required formControlName="email" >
+            <label class="form-label">Phone number</label>
+            <input type="text" name="Mobile number" required formControlName="phonenumber">
+            <button type="submit"><span>Create</span></button>
+
+    </form>
+    <!-- <form>
+        <div class="fields margin-top">
+            <label  class="form-label">Name</label>
+            <input type="name" class="form-control" name="name" required formControlName="name">
+        </div>
+        <div class="fields margin-top">
+            <label  class="form-label">Email</label>
+            <input type="email" class="form-control" name="email" required formControlName="email" >
+        </div>
+        <div class="fields margin-top">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control" name="password" required formControlName="password">
+        </div>
+        <div class="fields margin-top">
+            <label for="exampleInputPassword1" class="form-label">Confirmpassword</label>
+            <input type="password" class="form-control" name="confirmpassword" required formControlName="confirmPassword">
+        </div>
+          <div class="center margin-top">
+            <button type="submit" class="btn btn-primary" >SignUp</button>
+          </div>
+    </form> -->
+</div>
