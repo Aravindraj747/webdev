@@ -47,6 +47,9 @@ import { LeadsComponent } from './admin/leads/leads.component';
 import { AdminsidenavComponent } from './admin/adminsidenav/adminsidenav.component';
 import { AdminhomeComponent } from './components/adminhome/adminhome.component';
 import { FlexLayoutModule} from '@angular/flex-layout';
+// import { MatCardModule} from '@angular/material/card';
+// import { MatCardActions } from '@angular/material/card';
+// import {MatCardContent} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -78,6 +81,9 @@ import { FlexLayoutModule} from '@angular/flex-layout';
     AppRoutingModule,
     NgbModule,
     MatToolbarModule,
+    // MatCardModule,
+    // MatCardActions,
+    // MatCardContent,
     MatIconModule,
     MatButtonModule,
     MatSidenavModule,

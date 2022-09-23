@@ -19,15 +19,15 @@
         <time datetime="2021-03-30" class="card__date">Date:30 Mar 2022</time>
         <p>Sqfeet:</p>
         <p>Rate:</p> -->
-        <!-- <span class="card__title">Duis autem vel eum iriure dolor in hend in vulputate<span> -->
+<!-- <span class="card__title">Duis autem vel eum iriure dolor in hend in vulputate<span> -->
 
-<div class="container" style="margin-top:20px">
-<div class="location">
+<!-- <div class="container" style="margin-top:20px">
+<!-- <div class="location">
   <span style="font-weight:bold;font-size:15px;">Location</span>
     <input type="text"  style="margin-left: 10px;width: 40%;" placeholder="Enter location to buy">
     <a href="" style="margin-left:5px;"><button class="btn btn-primary"><span style="color:white ;">Search</span></button></a>
 </div>
-  <!-- <div class="containers" style="display:flex">
+<!-- <div class="containers" style="display:flex">
     <div class="containers">
       <div class="card">
         <div class="card__header">
@@ -67,14 +67,14 @@
       </div>
   </div> -->
 
-  <div class="videos">
+<!-- <div class="videos">
     <div class="containers">
         <div class="card">
           <div class="card__header">
             <img src="https://source.unsplash.com/600x400/?computer" alt="card__image" class="card__image" width="600">
           </div>
           <div class="card__body">
-            <!-- <h4>What's new in 2022 Tech</h4> -->
+
             <p>Sq.Feet:</p>
         <p>Date:Date of creation</p>
         <p>Rate:</p>
@@ -87,8 +87,6 @@
           <img src="https://source.unsplash.com/600x400/?computer" alt="card__image" class="card__image" width="600">
         </div>
         <div class="card__body">
-          <!-- <span class="tag tag-blue">Technology</span> -->
-          <!-- <h4>What's new in 2022 Tech</h4> -->
           <p>Sq.Feet:</p>
         <p>Date:Date of creation</p>
         <p>Rate:</p>
@@ -101,8 +99,6 @@
         <img src="https://source.unsplash.com/600x400/?computer" alt="card__image" class="card__image" width="600">
       </div>
       <div class="card__body">
-        <!-- <span class="tag tag-blue">Home</span> -->
-        <!-- <h4>Sq.Feet:</h4> -->
         <p>Sq.Feet:</p>
         <p>Date:Date of creation</p>
         <p>Rate:</p>
@@ -115,11 +111,46 @@
         <img src="https://source.unsplash.com/600x400/?computer" alt="card__image" class="card__image" width="600">
       </div>
       <div class="card__body">
-        <!-- <h4>What's new in 2022 Tech</h4> -->
         <p>Sq.Feet:</p>
     <p>Date:Date of creation</p>
     <p>Rate:</p>
       </div>
     </div>
 </div>
+</div> -->
+<!-- <div class="content">
+  <mat-card class="mat-elevation-z4">
+    <img src="https://source.unsplash.com/600x400/?computer" alt="card__image">
+    <mat-card-content>
+        <p>Sq.Feet:</p>
+        <p>Date:Date of creation</p>
+        <p>Rate:</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button>View</button>
+    </mat-card-actions>
+  </mat-card>
+</div> -->
+
+<div class="location" style="margin-left:10px;margin-top:10px;">
+  <span style="font-weight:bold;font-size:15px;">Location</span>
+    <input type="text"  style="margin-left: 10px;width: 40%;" placeholder="Enter location to buy">
+    <a href="" style="margin-left:5px;"><button class="btn btn-primary"><span style="color:white ;">Search</span></button></a>
+</div>
+<div class="content" style="padding: 16px;">
+  <div fxLayout="row wrap" fxLayoutGap="16px grid">
+    <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let num of [1,2,3,4,5,6]">
+      <div class="card">
+        <div class="card__header">
+          <img src="https://source.unsplash.com/600x400/?computer" alt="card__image" class="card__image">
+        </div>
+        <div class="card__body" style="margin-left:10px">
+          <p>Sq.Feet:</p>
+          <p>Date:Date of creation</p>
+          <p>Rate:</p>
+        </div>
+        <button style="width:40%;margin-left:80px;margin-bottom: 5px;">View</button>
+      </div>
+    </div>
+  </div>
 </div>

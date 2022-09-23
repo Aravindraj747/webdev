@@ -17,7 +17,7 @@
       border-radius: 20px;
       box-shadow: 0 10px 10px rgba(0,0,0,0.1);
     }
-    mat-icon{
+    mat-icon,i{
       margin-left: 25px;
       font-size: 50px;
       line-height: 90px;
