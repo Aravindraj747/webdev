@@ -3,7 +3,7 @@
   padding: 0;
   box-sizing:border-box ;
 }
-table {
+/* table {
     width: 100%;
   }
   .pagination{
@@ -12,4 +12,26 @@ table {
   .navbar{
     position:fixed;
     list-style: none;
+  } */
+  .header a{
+    padding:6px 13px;
+    text-decoration: none;
+    color: black;
+    cursor: pointer;  
+}
+.header a:hover{
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+}
+
+
+/* @media screen {
+  .row{
+    max-width: 600px;
+    margin-left: 0%;
   }
+  .container{
+    margin-left: 0%;
+  }
+} */

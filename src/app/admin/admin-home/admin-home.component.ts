@@ -9,6 +9,7 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 })
 export class AdminHomeComponent implements OnInit {
 
+  types:any[]=["ALL","COMPLETED","INCOMPLETED"];
   constructor(private authservice:AuthenticationService,private route:Router) { }
 
   ngOnInit(): void {

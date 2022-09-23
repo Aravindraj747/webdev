@@ -3,6 +3,7 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 import { UsersService } from 'src/app/services/users.service';
 import {Storage,ref,uploadBytesResumable,getDownloadURL} from '@angular/fire/storage'
 import { getStorage } from 'firebase/storage';
+import { Router } from '@angular/router';
 
 
 
@@ -16,7 +17,7 @@ export class HomeComponent implements OnInit {
   user$=this.authservice.currentUser$;
 
   public file:any={}
-  constructor(private authservice:AuthenticationService,private userservice:UsersService,public storage:Storage) {
+  constructor(private authservice:AuthenticationService,private userservice:UsersService,public storage:Storage,private route:Router) {
   }
   ngOnInit(): void {
   }
@@ -46,5 +47,8 @@ export class HomeComponent implements OnInit {
       });
     }
     )
+    }
+    explore(){
+      return this.route.navigate(['userhome']);
     }
 }

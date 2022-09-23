@@ -22,3 +22,33 @@
       font-size: 50px;
       line-height: 90px;
     }
+
+
+
+/*  */
+.navbar{
+  height: 50px;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+}
+.logo{
+  width: 140px;
+  height: auto;
+  padding: 20px 100px;
+}
+.navbar ul{
+  margin-right: 20px
+}
+.navbar ul li{
+  list-style: none;
+  display: inline-block;
+  line-height: 30px;
+}
+.navbar ul li a{
+  text-decoration: none;
+  color: white;
+  font-size:20px; 
+  padding: 6px 13px;
+  font-family:'Roboto',sans-serif;
+  transition: .4s;
+}

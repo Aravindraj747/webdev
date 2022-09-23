@@ -7,48 +7,69 @@
                     <div class="fields">
                         <div class="input-field">
                             <label>Type</label>
-                            <select id="insurance" required style="margin-left:100px;">
-                                <option >select</option>
-                                <option value="insurance">Insurance</option>
-                                <option value="claim">Claim</option>
+                            <select id="insurance" required style="margin-left:120px;">
+                                <option disabled>Select insurance type</option>
+                                <option class="input" *ngFor="let type of typeList"[value]="type">{{type}}</option>
                             </select>
                         </div>
                         <div class="input-field">
+                            <label >Name</label>
+                            <input class="input" type="text" placeholder="Enter vechile number" style="margin-left:110px;">
+                        </div>
+                        <!-- Vechicle -->
+                        <div class="input-field">
                             <label>Vechicle</label>
-                            <select required style="margin-left:77px;">
-                                <option >select</option>
-                                <option value="car">Car</option>
-                                <option value="Two Wheeler">Two Wheeler</option>
-                                <option value="Commercial">Commercial</option>
-                                <option value="realestate">Real estate</option>
+                            <select id=vechicle required style="margin-left:97px;">
+                                <option disabled>select Vechicle type</option>
+                                <option class="input" *ngFor="let vechicle of vechicleList">{{vechicle}}</option>
                             </select>
                         </div>
                         <div class="input-field">
                             <label >Vechicle number</label>
-                            <input type="text" placeholder="Enter vechile number" style="margin-left:30px;">
+                            <input  class="input" type="text" placeholder="Enter vechile number" style="margin-left:39px;">
                         </div>
                         <div class="input-field">
                             <label>Date</label>
-                            <input type="Date" placeholder="" style="margin-left:97px;">
+                            <input class="input" type="Date" placeholder="" style="margin-left:118px;">
                         </div>
                         <div class="input-field">
                             <label>RC Photocopy</label>
-                            <input type="file" (change)="chooserc($event)" style="margin-left: 40px;">
+                            <input class="input" type="file" (change)="chooserc($event)" style="margin-left: 57px;">
                         </div>
                         <div class="input-field">
                             <label>Vechicle Image</label>
-                            <input type="file" (change)="chooseVechile($event)" style="margin-left: 35px;">
+                            <input class="input" type="file" (change)="chooseVechile($event)" style="margin-left: 49px;">
                         </div>
+                        <!-- Vechicle claim -->
                         <div>
                             <div class="input-field" >
                                 <label>CSR copy</label>
-                                <input type="file" (change)="choosecsr($event)" style="margin-left: 65px;">
+                                <input class="input" type="file" (change)="choosecsr($event)" style="margin-left: 87px;">
                             </div>
                             <div class="input-field">
                                 <label>Policy number</label>
-                                <input type="text" placeholder="Enter Policy number"style="margin-left: 40px;">
+                                <input class="input" type="text" placeholder="Enter Policy number"style="margin-left: 53px;">
                             </div>
                         </div>
+                        <!-- Real estate -->
+                        <!-- <div>
+                            <div class="input-field" >
+                                <label>Owner name</label>
+                                <input type="text" placeholder="Enter Address"style="margin-left: 63px;">
+                            </div>
+                            <div class="input-field" >
+                                <label>Pictures</label>
+                                <input type="file" (change)="choosepicture($event)" style="margin-left: 93px;">
+                            </div>
+                            <div class="input-field" >
+                                <label>Address</label>
+                                <input type="text" placeholder="Enter Address"style="margin-left: 93px;">
+                            </div>
+                            <div class="input-field">
+                                <label>Land papers</label>
+                                <input type="file" (change)="chooseland($event)" style="margin-left: 63px;">
+                            </div>
+                        </div> -->
                         <div class="input-field" style="margin-left:400px;" >
                         <button type="button" class="btn btn-primary" style="background-color:red;padding: 4px;border: 5px red;" (click)="cancel()">Cancel</button>
                         <button type="submit" style="margin-left:20px;padding:4px;border: 5px blue;"class="btn btn-primary">Proceed</button>

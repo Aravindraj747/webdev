@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LeadsComponent implements OnInit {
 
+  types:any[]=["Agent","User"];
   constructor() { }
 
   ngOnInit(): void {

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormControlName, FormGroup, Validators } from '@angular/forms';
 
 import { Router } from '@angular/router';
+import { Console } from 'console';
+import { ColdObservable } from 'rxjs/internal/testing/ColdObservable';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 @Component({
   selector: 'app-login',
@@ -15,43 +17,35 @@ export class LoginComponent implements OnInit {
     password: new FormControl('',Validators.required),
   });
 
+  signUpForm = new FormGroup({
+    name: new FormControl('',Validators.required),
+    email:new FormControl('',[Validators.required,Validators.email]),
+    password: new FormControl('',Validators.required),
+});
 
-  isloggedin=false;
   // credentials={email:'',password:''}
   constructor(public authservice:AuthenticationService,private route:Router) {
    }
 
   ngOnInit(): void {
   }
-// toggleFormsignup(){
-//   const signUpButton=document.getElementById('signUp');
-//   const main=document.getElementById('main');
-//   signUpButton?.addEventListener('click',()=>{
-//     main?.classList.add("right-panel-active");
-//   });
-// }
-//   toggleFormsignin(){
-//     const signInButton=document.getElementById('signIn');
-//     const main=document.getElementById('main');
-
-//     signInButton?.addEventListener('click',()=>{
-//       main?.classList.remove("right-panel-active");
-//     });
-//   }
 toggleForm(){
+
 const signUpButton = document.getElementById('signUp');
 const signInButton = document.getElementById('signIn');
 const container = document.getElementById('container');
 
-signUpButton?.addEventListener('click', () => {
-	container?.classList.add("right-panel-active");
-});
-
 signInButton?.addEventListener('click', () => {
 	container?.classList.remove("right-panel-active");
 });
+signUpButton?.addEventListener('click', () => {
+	container?.classList.add("right-panel-active");
+});
 }
 
+get name(){
+  return this.signUpForm.get('name');
+}
   get email(){
     return this.loginForm.get('email');
   }
@@ -59,14 +53,20 @@ signInButton?.addEventListener('click', () => {
   get password(){
     return this.loginForm.get('password');
   }
-  submit(){
+  signIn(){
     const {email,password}=this.loginForm.value;
     this.authservice.login(email,password).then((res)=>{
-      this.isloggedin=true;
       console.log(res)
       this.route.navigate(['userhome']);
     });
     console.log(email,password);
+  }
+  signUp(){
+    const {name,email,password}=this.signUpForm.value;
+    this.authservice.register(name,email,password).then(async (res)=>{
+      console.log(res);
+      this.route.navigate(['login']);
+    });
   }
   // submit(){
   //   const { email,password }=this.credentials;

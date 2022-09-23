@@ -21,7 +21,6 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { MatTableModule } from '@angular/material/table'
 import { MatButtonModule} from '@angular/material/button';
 import { LoginComponent } from './components/login/login.component';
-import { SignupComponent } from './components/signup/signup.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { environment } from '../environments/environment';
 import { HotToastModule } from '@ngneat/hot-toast';
@@ -46,12 +45,13 @@ import { AgentComponent } from './admin/agent/agent.component';
 import { AgentCreationComponent } from './admin/agent-creation/agent-creation.component';
 import { LeadsComponent } from './admin/leads/leads.component';
 import { AdminsidenavComponent } from './admin/adminsidenav/adminsidenav.component';
+import { AdminhomeComponent } from './components/adminhome/adminhome.component';
+import { FlexLayoutModule} from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    SignupComponent,
     AdminComponent,
     HomeComponent,
     SidenavComponent,
@@ -71,6 +71,7 @@ import { AdminsidenavComponent } from './admin/adminsidenav/adminsidenav.compone
     AgentCreationComponent,
     LeadsComponent,
     AdminsidenavComponent,
+    AdminhomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -85,6 +86,7 @@ import { AdminsidenavComponent } from './admin/adminsidenav/adminsidenav.compone
     MatFormFieldModule,
     MatInputModule,
     RouterModule,
+    FlexLayoutModule,
     AngularFireModule,
     FormsModule,
     ReactiveFormsModule,

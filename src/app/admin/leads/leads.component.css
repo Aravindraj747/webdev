@@ -1,5 +1,16 @@
-.container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box ;
+  }
+.header a{
+    padding:6px 13px;
+    text-decoration: none;
+    color: black;
+    cursor: pointer;  
+}
+.header a:hover{
+  background-color: black;
+  color: white;
+  border-radius: 5px;
 }

@@ -29,7 +29,7 @@ export class AgentCreationComponent implements OnInit {
   create(){
     const{name,email,phonenumber}=this.agentForm.value
     console.log(name,email,phonenumber);
-
+    alert("created");
   }
 
 }

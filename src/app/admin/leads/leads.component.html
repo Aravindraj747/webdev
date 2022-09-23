@@ -1,4 +1,50 @@
 <app-adminsidenav></app-adminsidenav>
-<div class="container">
-  <p>leads works</p>
+<div class="container" style="margin-top:10px;margin-left: 150px;">
+  <div class="header">
+    <a *ngFor="let type of types">{{type}}</a>
+  </div>
+  <div class="row shadow-lg p-3 mb-5 bg-body rounded" style="margin-top:25px">
+    <div class="col-md-12">
+    <div class="table-wrap">
+    <table class="table">
+    <thead>
+    <tr>
+    <th>Policy ID</th>
+    <th>Customer Name</th>
+    <th>Agent Name </th>
+    <th>Policy date</th>
+    <th>Insurance type</th>
+    <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <th scope="row">21324354</th>
+    <td>Aravind</td>
+    <td>Sai</td>
+    <td>2022-09-18</td>
+    <td>Car</td>
+    <td><button type="button" class="btn btn-outline-success">View</button></td>
+    </tr>
+    <tr>
+    <th scope="row">21324354</th>
+    <td>Vignesh</td>
+    <td>Sasi</td>
+    <td>2022-09-18</td>
+    <td>Car</td>
+    <td><button type="button" class="btn btn-outline-success">View</button></td>
+    </tr>
+    <tr>
+      <th scope="row">21324354</th>
+      <td>Vignesh</td>
+      <td>Sasi</td>
+      <td>2022-09-18</td>
+      <td>Car</td>
+      <td><button type="button" class="btn btn-outline-success">View</button></td>
+      </tr>
+    </tbody>
+    </table>
+    </div>
+    </div>
+  </div>
 </div>

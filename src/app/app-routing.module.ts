@@ -10,10 +10,10 @@ import { InsuranceComponent } from './agent/insurance/insurance.component';
 import { LeadComponent } from './agent/lead/lead.component';
 import { SellnowComponent } from './agent/sellnow/sellnow.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { AdminhomeComponent } from './components/adminhome/adminhome.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
-import { SignupComponent } from './components/signup/signup.component';
 import { BuyComponent } from './user/buy/buy.component';
 import { CommercialComponent } from './user/commercial/commercial.component';
 import { LeaseComponent } from './user/lease/lease.component';
@@ -28,13 +28,13 @@ const routes: Routes = [
     component:HomeComponent
   },
   {path:'login',component:LoginComponent,},
-  {path:'sign-up',component:SignupComponent,},
   {path:'home',component:HomeComponent,
     // canActivate:[AuthGuardService]
   },
+  {path:'admin',component:AdminhomeComponent},
 // Admin
-  {path:'admin',component:AdminComponent},
-  {path:'admin-home',component:AdminHomeComponent},
+  {path:'adminlogin',component:AdminComponent},
+  {path:'adminhome',component:AdminHomeComponent},
   {path:'agent',component:AgentComponent},
   {path:'agent-create',component:AgentCreationComponent},
   {path:'leads',component:LeadsComponent},  

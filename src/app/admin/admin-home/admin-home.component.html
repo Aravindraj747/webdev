@@ -1,4 +1,61 @@
 <app-adminsidenav></app-adminsidenav>
-<div class="container" style="margin-left:100px;margin-top: 30px;">
-  <p>Admin home</p>
+<div class="container" style="margin-left:100px;margin-top: 10px;">
+  <div class="header">
+    <a *ngFor="let type of types">{{type}}</a>
+    <!-- <a href="" class=" active">All Policies</a>
+    <a href="">Completed</a>
+    <a href="">In completed</a> -->
+  </div>
+<div class="row shadow-lg mb-5 bg-body rounded" style="margin-top:25px">
+  <!-- <div class="col-md-12"> -->
+  <!-- <div class="table-wrap"> -->
+  <table class="table">
+  <thead>
+  <tr>
+  <th>Policy ID</th>
+  <th>Customer Name</th>
+  <th>Agent Name / User Name</th>
+  <th>Policy date</th>
+  <th>Insurance type</th>
+  <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+  <th scope="row">21324354</th>
+  <td>Aravind</td>
+  <td>Sai</td>
+  <td>2022-09-18</td>
+  <td>Car</td>
+  <td><button type="button" class="btn btn-outline-success">View</button></td>
+  </tr>
+  <tr>
+  <th scope="row">21324354</th>
+  <td>Vignesh</td>
+  <td>Sasi</td>
+  <td>2022-09-18</td>
+  <td>Car</td>
+  <td><button type="button" class="btn btn-outline-warning">View</button></td>
+  </tr>
+  <tr>
+  <th scope="row">21324354</th>
+  <td>Aravind</td>
+  <td>Sai</td>
+  <td>2022-09-18</td>
+  <td>Car</td>
+  <td><button type="button" class="btn btn-outline-success">View</button></td>
+  </tr>
+  <tr>
+  <th scope="row">21324354</th>
+  <td>Aravind</td>
+  <td>Sai</td>
+  <td>2022-09-18</td>
+  <td>Car</td>
+  <td><button type="button" class="btn btn-outline-warning">View</button></td>
+  </tr>
+  </tbody>
+  </table>
+  <!-- </div> -->
+  <!-- </div> -->
+</div>
 </div>

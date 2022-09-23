@@ -59,7 +59,7 @@
   </form>
   </div>
 </body> -->
-<body>
+<!-- <body>
   <div class="wrapper">
     <h1>Hello Admin!</h1>
     <p>Welcome back youv've been missed!</p>
@@ -69,4 +69,21 @@
     </form>
     <button>Sign in</button>
   </div>
-</body>
+</body> -->
+<div class="container">  
+  <div class="background">
+      <div class="shape"></div>
+      <div class="shape"></div>
+  </div>
+  <form [formGroup]="adminForm" (ngSubmit)="submit()" >
+      <h3>Admin Login</h3>
+
+      <label for="username">Username</label>
+      <input type="text" name="email" formControlName="email" placeholder="Email" id="username" required>
+
+      <label for="password">Password</label>
+      <input type="password" placeholder="Password" name="password" formControlName="password" id="password" required>
+
+      <button type="submit"><span style="color:white ;">Log In</span></button>
+  </form>
+</div>

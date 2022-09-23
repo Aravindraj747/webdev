@@ -43,7 +43,7 @@ export class AdminComponent implements OnInit {
     }
     this.authservice.adminlogin(email,password).then((res)=>{
       console.log(res.user.uid)
-      this.route.navigate(['admin-home']);
+      this.route.navigate(['adminhome']);
     })
   }
 

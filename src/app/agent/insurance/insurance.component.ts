@@ -8,8 +8,11 @@ import { Router } from '@angular/router';
 })
 export class InsuranceComponent implements OnInit {
 
-  constructor(private route:Router) { }
+  typeList:any[]=["Insurance","Claim"];
+  type:any;
+  vechicleList:any[]=["Car","Two Wheeler","Commercial"]
 
+  constructor(private route:Router) { }
   ngOnInit(): void {
   }
   chooserc(event:any){
@@ -20,7 +23,17 @@ choosecsr(event:any){
 chooseVechile(event:any){
 
 }
+chooseland(event:any){
+
+}
+choosepicture(event:any){
+
+}
+choosetype(event:any){
+  this.type=event;
+  console.log(this.type);
+}
 cancel(){
   return this.route.navigate(['sellnow']);
-}  
+}
 }

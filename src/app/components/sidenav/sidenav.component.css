@@ -93,6 +93,7 @@ label #cancel{
     border: none;
     text-decoration: none;
     box-sizing: border-box;
+    z-index: 1;
 }
 body{
     background:#dfe9f5 ;
@@ -134,7 +135,7 @@ a{
     width: 300px;
     padding: 10px;
 }
-mat-icon{
+mat-icon,i{
     position: relative;
     width: 70px;
     height: 40px;
@@ -157,4 +158,24 @@ a:hover{
 .logout{
     position: absolute;
     bottom: 0;
+}
+@media screen {
+    .class{
+        height: 100%;  
+    }
+}
+@media  screen and (max-width:600px) {
+    .class{
+        width:50px;
+    }
+    .class:hover{
+        width: 200px;
+    }
+    mat-icon,i{
+        text-align: left;
+        font-size:10px;
+    }
+    a{
+        width: 200px;
+    }
 }
