@@ -1,54 +1,60 @@
-.wrapper{
-    display: inline-flex;
-    height: 100%;
-    width: 100%;
-    place-content: center;
-    /* background: linear-gradient(315deg,#ffffff,#d7e1ec); */
-    }
-    .wrapper .icon{
-      margin: 0 40px;
-      cursor: pointer;
-    }
-    .wrapper .icon span{
-      height: 100px;
-      width: 100px;
-      display: block;
-      background: #fff;
-      border-radius: 20px;
-      box-shadow: 0 10px 10px rgba(0,0,0,0.1);
-    }
-    mat-icon,i{
-      margin-left: 25px;
-      font-size: 50px;
-      line-height: 90px;
-    }
+.wrapper {
+  display: inline-flex;
+  height: 100%;
+  width: 100%;
+  place-content: center;
+}
+
+.wrapper .icon {
+  margin: 0 40px;
+  cursor: pointer;
+}
+
+.wrapper .icon span {
+  height: 100px;
+  width: 100px;
+  display: block;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+}
+
+mat-icon {
+  margin-left: 25px;
+  font-size: 50px;
+  line-height: 90px;
+}
 
 
 
 /*  */
-.navbar{
+.navbar {
   height: 50px;
   width: 100%;
-  background: rgba(0, 0, 0, 0.4);
+  background: #ff1616;
 }
-.logo{
+
+.logo {
   width: 140px;
   height: auto;
   padding: 20px 100px;
 }
-.navbar ul{
+
+.navbar ul {
   margin-right: 20px
 }
-.navbar ul li{
+
+.navbar ul li {
   list-style: none;
   display: inline-block;
   line-height: 30px;
 }
-.navbar ul li a{
+
+.navbar ul li a {
   text-decoration: none;
   color: white;
-  font-size:20px; 
+  font-size: 20px;
   padding: 6px 13px;
-  font-family:'Roboto',sans-serif;
+  font-family: 'Roboto', sans-serif;
   transition: .4s;
 }

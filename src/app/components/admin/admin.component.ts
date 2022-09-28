@@ -15,6 +15,7 @@ export class AdminComponent implements OnInit {
     email: new FormControl('',[Validators.required,Validators.email]),
     password: new FormControl('',Validators.required),
   });
+
   // admincredentials={email:'',password:''};
   constructor(public authservice:AuthenticationService,private route:Router) { 
   }

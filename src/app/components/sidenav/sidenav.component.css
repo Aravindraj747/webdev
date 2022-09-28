@@ -1,91 +1,3 @@
-/* *{
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    text-decoration: none;
-}  */
-/* .sidenav{
-    top: 0;
-    position: fixed;
-    left: -250px;
-    width: 250px;
-    height: 100%;
-    background: #042331;
-    transition: all .5s ease;
-}
-.sidenav header{
-    font-size: 22px;
-    color: white;
-    text-align: center;
-    line-height: 70px;
-    background-color: #063146;
-    user-select: none;
-}
-.sidenav ul a{
-    display: block;
-    height: 100%;
-    width: 100%;
-    line-height: 65px;
-    font-size: 20px;
-    color: white;
-    padding-left: 40px;
-    box-sizing: border-box;
-    border-top: 1px solid rgba(255,255,255,.1);
-    border-bottom: 1px solid black;
-    transition: .4s;
-}
-ul li:hover a{
-    padding-left: 50px;
-}
-.sidenav ul a mat-icon{
-    margin-right: 16px;
-}
-#check{
-    display: none;
-}
-label #btn,label #cancel{
-    position: absolute;
-    cursor: pointer;
-    border-radius: 3px;
-}
-label #btn{
-    font-size: 35px;
-    color: black;
-    padding: 6px 12px;
-    transition: all;
-}
-label #cancel{
-    position: fixed;
-    z-index: 1111;
-    left: -195px;
-    top: 17px;
-    font-size: 30px;
-    color: #0a5275;
-    padding: 4px 9px;
-    transition: all .5s ease;
-}
-#check:checked ~ .sidenav{
-    top: 0;
-    left: 0;
-    transition: all .5s;
-}
-#check:checked ~label #btn{
-    left: 250px;
-    opacity: 0;
-    pointer-events: none;
-}
-#check:checked ~label #cancel{
-    left: 195px;
-} */
-/* *{
-    margin: 0;
-    padding: 0;
-    outline: none;
-    border:none;
-    text-decoration: none;
-    box-sizing: border-box;
-    font-family: "Poppins",sans-serif;
-} */
 *{
     margin: 0;
     padding: 0;
@@ -142,6 +54,11 @@ mat-icon,i{
     top: 14px;
     font-size: 20px;
     text-align: center;
+}
+.name{
+    top: 5px;
+    margin-left: 10px;
+    width: 90px;
 }
 .nav-item{
     position: relative;

@@ -1,39 +1,46 @@
-<body>
-<h1 style="margin-left:700px;">Welcom Admin!</h1>
-<div class="container">
-    <form>
+<div class="content">
+    <h1 style="display:flex;justify-content: center;">Welcom Admin!</h1>
+    <div class="container">
         <p>Real estate</p>
-        <div class="input-feilds">
-            <div class="fields">
-                <label>Owner Name</label>
-                <input type="text" placeholder="Land owner name" style="margin-left:30px;">
+        <form>
+            <div class="input-feilds">
+                <div class="fields">
+                    <label>Type</label>
+                    <select id="insurance" required style="margin-left:90px;">
+                        <option disabled>Select type</option>
+                        <option class="input" *ngFor="let type of typeList" [value]="type">{{type}}</option>
+                    </select>
+                </div>
+                <div class="fields">
+                    <label>Owner Name</label>
+                    <input type="text" class="input" placeholder="Land owner name" style="margin-left:30px;">
+                </div>
+                <div class="fields">
+                    <label>Date</label>
+                    <input type="Date" class="input" style="margin-left:90px;">
+                </div>
+                <div class="fields">
+                    <label>Photocopy</label>
+                    <input type="file" class="input" (change)="choosephoto($event)" style="margin-left: 47px;">
+                </div>
+                <div class="fields">
+                    <label>Address</label>
+                    <input type="text" class="input" placeholder="Land Address" style="margin-left: 65px;">
+                </div>
+                <div class="fields">
+                    <label>Sq.Feet</label>
+                    <input type="text" class="input" placeholder="Total Sq.feet" style="margin-left:69px;">
+                </div>
+                <div class="fields">
+                    <label>BHK</label>
+                    <input type="text" class="input" placeholder="BHK" style="margin-left:90px;">
+                </div>
+                <div class="fields">
+                    <label>Rate</label>
+                    <input type="text" placeholder="Land Rate" class="input" style="margin-left:89px;">
+                </div>
             </div>
-            <div class="fields">
-                <label>Date</label>
-                <input type="Date" style="margin-left:99px;">
-            </div>
-            <div class="fields">
-                <label>Photocopy</label>
-                <input type="file" (change)="choosephoto($event)" style="margin-left: 50px;">
-            </div>
-            <div class="fields">
-                <label>Address</label>
-                <input type="text" placeholder="Land Address" style="margin-left: 73px;">
-            </div>
-            <div class="fields">
-                <label>Sq.Feet</label>
-                <input type="text" placeholder="Total Sq.feet" style="margin-left:77px;">
-            </div>
-            <div class="fields">
-                <label>BHK</label>
-                <input type="text" placeholder="BHK" style="margin-left:99px;">
-            </div>
-            <div class="fields">
-                <label>Rate</label>
-                <input type="text" placeholder="Land Rate" style="margin-left:98px;">
-            </div>
-        </div>
-        <button style="justify-content: center;" type="button"><span>Upload</span></button>
-    </form>
+            <button style="justify-content: center;" type="button"><span>Upload</span></button>
+        </form>
+    </div>
 </div>
-</body>

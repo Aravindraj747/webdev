@@ -23,7 +23,6 @@ export class LoginComponent implements OnInit {
     password: new FormControl('',Validators.required),
 });
 
-  // credentials={email:'',password:''}
   constructor(public authservice:AuthenticationService,private route:Router) {
    }
 
@@ -68,23 +67,4 @@ get name(){
       this.route.navigate(['login']);
     });
   }
-  // submit(){
-  //   const { email,password }=this.credentials;
-  //   if (email==''){
-  //     alert('Please Enter Email')
-  //     return;
-  //   }
-  //   if(password==''){
-  //     alert('Please Enter Password')
-  //     return;
-  //   }
-  //   this.authservice.login(email,password).then((res)=>{
-  //     console.log(res);
-  //     this.route.navigate(['home']);
-
-  //   });
-  //   this.credentials.email='';
-  //   this.credentials.password='';
-  // }
-  
 }

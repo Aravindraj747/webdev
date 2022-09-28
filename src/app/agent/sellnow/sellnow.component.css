@@ -3,7 +3,6 @@
   height: 100%;
   width: 100%;
   place-content: center;
-  /* background: linear-gradient(315deg,#ffffff,#d7e1ec); */
   }
   .wrapper .icon{
     margin: 0 40px;
@@ -22,8 +21,3 @@
     font-size: 50px;
     line-height: 90px;
   }
-  /* i{
-    margin-left: 15px;
-    font-size: 50px;
-    line-height: 90px;
-  } */

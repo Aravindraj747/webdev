@@ -1,8 +1,10 @@
-<div class="location" style="margin-left:10px;margin-top:10px;">
-  <span style="font-weight:bold;font-size:15px;">Location</span>
-    <input type="text"  style="margin-left: 10px;width: 40%;" placeholder="Enter location to buy">
-    <a href="" style="margin-left:5px;"><button class="btn btn-primary"><span style="color:white ;">Search</span></button></a>
-</div>
+<nav class="navbar">
+  <ul>
+      <li><a href=""class="active">KHANZO ENTERPRISES</a></li>
+      <li><input type="text" class="search" placeholder="Enter location to Search"></li>
+      <li><a href="" class="logout"><span>Logout</span></a></li>
+  </ul>
+</nav>
 <div class="content" style="padding: 16px;">
   <div fxLayout="row wrap" fxLayoutGap="16px grid">
     <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let num of [1,2,3,4,5,6]">
@@ -15,7 +17,7 @@
           <p>Date:Date of creation</p>
           <p>Lease Rate:</p>
         </div>
-        <button style="width:40%;margin-left:80px;margin-bottom: 5px;">View</button>
+        <div><a href="" class="view-btn">View</a></div>
       </div>
     </div>
   </div>

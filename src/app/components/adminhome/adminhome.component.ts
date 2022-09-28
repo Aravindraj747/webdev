@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminhomeComponent implements OnInit {
 
+  typeList:any[]=["Buy","Rent","Land","Commericial","Lease","PG"]
   constructor() { }
 
   ngOnInit(): void {

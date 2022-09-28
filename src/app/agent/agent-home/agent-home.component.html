@@ -1,65 +1,46 @@
 <app-sidenav></app-sidenav>
-<div class="content" style="margin-left:120px;margin-top: 10px;">
-    <h1 style="font-weight:bold;">Dashboard</h1>
-        <div style="display:flex;">
-            <div class="container">
-                <a class="card2" >
-                    <h3>Total Policies</h3>
-                    <p class="small">number of policy</p>
-                    <div class="go-corner" >
-                    </div>
-                  </a>
-                  <a class="card2" >
-                    <h3>Total Premimum</h3>
-                    <p class="small">number of premimum</p>
-                    <div class="go-corner" >
-                    </div>
-                  </a>
-                  <a class="card2" >
-                    <h3>Total Renewals</h3>
-                    <p class="small">number of renewals</p>
-                    <div class="go-corner" >
-                    </div>
-                  </a>
-            </div>
+<div class="content" style="margin-left:100px;margin-top: 10px;">
+  <h1 style="font-weight:bold;">Dashboard</h1>
+  <div style="display:flex;">
+    <div class="container">
+      <a class="card2">
+        <h3>Total Policies</h3>
+        <p class="small">number of policy</p>
+        <div class="go-corner">
         </div>
-        <h2 style="margin-top: 30px;display: flex;">Trending Videos</h2>
-  <div class="videos">
-    <div class="containers">
-        <div class="card">
-          <div class="card__header">
-            <img src="https://source.unsplash.com/600x400/?computer" alt="card__image" class="card__image" width="600">
-          </div>
-          <div class="card__body">
-            <span class="tag tag-blue">Technology</span>
-            <h4>What's new in 2022 Tech</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi perferendis molestiae non nemo doloribus. Doloremque, nihil! At ea atque quidem!</p>
-          </div>
+      </a>
+      <a class="card2">
+        <h3>Total Premimum</h3>
+        <p class="small">number of premimum</p>
+        <div class="go-corner">
         </div>
+      </a>
+      <a class="card2">
+        <h3>Total Renewals</h3>
+        <p class="small">number of renewals</p>
+        <div class="go-corner">
+        </div>
+      </a>
     </div>
-    <div class="containers">
-      <div class="card">
-        <div class="card__header">
-          <img src="https://source.unsplash.com/600x400/?computer" alt="card__image" class="card__image" width="600">
-        </div>
-        <div class="card__body">
-          <span class="tag tag-blue">Technology</span>
-          <h4>What's new in 2022 Tech</h4>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi perferendis molestiae non nemo doloribus. Doloremque, nihil! At ea atque quidem!</p>
-        </div>
-      </div>
   </div>
-  <div class="containers">
-    <div class="card">
-      <div class="card__header">
-        <img src="https://source.unsplash.com/600x400/?computer" alt="card__image" class="card__image" width="600">
-      </div>
-      <div class="card__body">
-        <span class="tag tag-blue">Technology</span>
-        <h4>What's new in 2022 Tech</h4>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi perferendis molestiae non nemo doloribus. Doloremque, nihil! At ea atque quidem!</p>
+  <h2 style="margin-top: 30px;display: flex;">Trending Videos</h2>
+  <div style="margin-top:10px;">
+    <div class="content" style="padding: 16px;">
+      <div fxLayout="row wrap" fxLayoutGap="16px grid">
+        <div fxFlex="28%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let num of [1,2,3,4,5,6]">
+          <div class="card">
+            <div class="card__header">
+              <img src="https://source.unsplash.com/600x400/?computer" alt="card__image" class="card__image">
+            </div>
+            <div class="card__body" style="margin-left:10px">
+              <p>Sq.Feet:</p>
+              <p>Date:Date of creation</p>
+              <p>Rate:</p>
+            </div>
+            <div><a href="" class="view-btn">View</a></div>
+          </div>
+        </div>
       </div>
     </div>
-</div>
   </div>
 </div>

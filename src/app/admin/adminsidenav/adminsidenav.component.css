@@ -47,12 +47,6 @@ a{
     width: 300px;
     padding: 10px;
 }
-/* i{
-    position: relative;
-    width: 70px;
-    font-size: 15px;
-    text-align: center;   
-} */
 mat-icon{
     position: relative;
     width: 70px;
@@ -61,9 +55,14 @@ mat-icon{
     font-size: 20px;
     text-align: center;
 }
-.nav-item,.name{
+.name{
+    top: 5px;
+    margin-left: 10px;
+    width: 90px;
+}
+.nav-item{
     position: relative;
-    top: 12px;
+    top: 10px;
     margin-left: 10px;
 }
 a:hover{
