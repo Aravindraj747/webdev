@@ -24,14 +24,15 @@ mat-icon {
   font-size: 50px;
   line-height: 90px;
 }
-
-
+.wrapper .icon .toolpit{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+}
 
 /*  */
 .navbar {
   height: 50px;
-  width: 100%;
-  background: #ff1616;
+  background: #c40404;
 }
 
 .logo {
@@ -41,7 +42,8 @@ mat-icon {
 }
 
 .navbar ul {
-  margin-right: 20px
+  display: inline-flex;
+  justify-content: space-between;
 }
 
 .navbar ul li {

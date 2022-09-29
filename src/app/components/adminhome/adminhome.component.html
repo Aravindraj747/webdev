@@ -1,4 +1,4 @@
-<div class="content">
+<!-- <div class="content">
     <h1 style="display:flex;justify-content: center;">Welcom Admin!</h1>
     <div class="container">
         <p>Real estate</p>
@@ -43,4 +43,31 @@
             <button style="justify-content: center;" type="button"><span>Upload</span></button>
         </form>
     </div>
-</div>
+</div> -->
+<nav class="navbar">
+    <ul>
+        <li><a href=""class="active">HAYAT AMN ENTERPRISES</a></li>
+        <li><a href="" class="logout" (click)="logout()"><span>Logout</span></a></li>
+    </ul>
+  </nav>
+<body>
+    <div class="container">
+        <div class="form-container sign-in-container">
+            <form action="#">
+                <h1>Insurance</h1>
+                <select id="insurance" required>
+                    <option disabled>Select type</option>
+                    <option *ngFor="let type of typeList" [value]="type">{{type}}</option>
+                </select>
+                <input type="text" placeholder="Owner Name" name="name" required />
+                <input type="Date" placeholder="">
+                <input type="text" placeholder="Address" name="name" required />
+                <input type="text" placeholder="Sq.feet" name="name" required />
+                <input type="text" placeholder="BHK" name="name" required />
+                <input type="text" placeholder="Amount" name="name" required />
+                <span class="photo">Photocopy<input class="input_file" type="file" placeholder="Vechicle image"></span>
+                <button type="submit">CREATE</button>
+            </form>
+        </div>
+    </div>
+</body>

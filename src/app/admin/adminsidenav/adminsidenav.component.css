@@ -29,14 +29,14 @@ nav{
 }
 .logo img{
     margin-left: 15px;
-    width:45px ;
-    height: 45px;
+    width:55px ;
+    height: 55px;
     border-radius: 50%;
 }
 .logo span{
     font-weight: bold;
     padding-left: 15px;
-    font-size: 18px;
+    font-size: 15px;
     text-transform: uppercase;
 }
 a{
