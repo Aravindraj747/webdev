@@ -12,6 +12,7 @@ export class AgentCreationComponent implements OnInit {
     name: new FormControl('',Validators.required),
     email: new FormControl('',[Validators.required,Validators.email]),
     phonenumber: new FormControl('',Validators.required),
+    password: new FormControl('',Validators.required),
   });
   constructor() { }
 
@@ -26,8 +27,11 @@ export class AgentCreationComponent implements OnInit {
   get phonenumber(){
     return this.agentForm.get('phonenumber');
   }
+  get password(){
+    return this.agentForm.get('password');
+  }
   create(){
-    const{name,email,phonenumber}=this.agentForm.value
+    const{name,email,phonenumber,password}=this.agentForm.value;
     console.log(name,email,phonenumber);
     alert("created");
   }

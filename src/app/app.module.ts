@@ -51,6 +51,7 @@ import { AgentCreationComponent } from './admin/agent-creation/agent-creation.co
 import { LeadsComponent } from './admin/leads/leads.component';
 import { AdminsidenavComponent } from './admin/adminsidenav/adminsidenav.component';
 import { AdminhomeComponent } from './components/adminhome/adminhome.component';
+import { AgentloginComponent } from './agent/agentlogin/agentlogin.component';
 
 @NgModule({
   declarations: [
@@ -76,6 +77,7 @@ import { AdminhomeComponent } from './components/adminhome/adminhome.component';
     LeadsComponent,
     AdminsidenavComponent,
     AdminhomeComponent,
+    AgentloginComponent,
   ],
   imports: [
     BrowserModule,

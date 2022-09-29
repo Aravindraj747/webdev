@@ -1,5 +1,5 @@
 <app-adminsidenav></app-adminsidenav>
-<h1 style="display:flex;justify-content:center;font-weight:bold;margin-top: 10px;">Welcome Admin!</h1>
+<!-- <h1 style="display:flex;justify-content:center;font-weight:bold;margin-top: 10px;">Welcome Admin!</h1>
 <div class="content">
     <img class="logo" src="assets/agent.png" alt="">
     <h1>Create Agent</h1>
@@ -13,4 +13,18 @@
             <button type="submit"><span>Create</span></button>
 
     </form>
+</div> -->
+<body>
+<div class="container">
+<div class="form-container sign-in-container">
+    <form action="#" [formGroup]="agentForm" (ngSubmit)="create()">
+        <h1>Agent Creation</h1>
+        <input type="text" placeholder="Name" class="form-control" name="name"  required formControlName="name"/>
+        <input type="email" placeholder="Email" class="form-control" name="email"  required formControlName="email"/>
+        <input type="text" placeholder="Phone number" class="form-control" name="phonenumber"  required formControlName="phonenumber"/>
+        <input type="password" placeholder="Password" class="form-control" name="password" required formControlName="password"/>
+        <button type="submit">Sign In</button>
+    </form>
 </div>
+</div>
+</body>
