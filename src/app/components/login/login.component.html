@@ -1,34 +1,39 @@
 <body>
 <div class="container" id="container">
 	<div class="form-container sign-up-container">
-		<form action="#" [formGroup]="signUpForm" (ngSubmit)="signUp()">
+		<form [class.spinnerOverlay]="signUpSpinnerActive" action="#" [formGroup]="signUpForm" (ngSubmit)="signUp()">
 			<h1>Create Account</h1>
 			<input type="text" placeholder="Name" class="form-control" name="name"  required formControlName="name"/>
 			<input type="email" placeholder="Email" class="form-control" name="email"  required formControlName="email"/>
+			<input type="number" placeholder="Phone Number" class="form-control" name="phoneNumber"  required formControlName="phoneNumber"/>
 			<input type="password" placeholder="Password" class="form-control" name="password" required formControlName="password"/>
 			<button >Sign Up</button>
 		</form>
+		<mat-spinner *ngIf="signUpSpinnerActive" class="mat-spinner" diameter="60"></mat-spinner>
 	</div>
-	<div class="form-container sign-in-container">
-		<form action="#" [formGroup]="loginForm" (ngSubmit)="signIn()">
+	<div class="form-container sign-in-container" [hidden]="signUpSpinnerActive">
+		<form [class.spinnerOverlay]="loginSpinnerActive" action="#" [formGroup]="loginForm" (ngSubmit)="signIn()">
 			<h1>Sign in</h1>
 			<input type="email" placeholder="Email" class="form-control" name="email"  required formControlName="email"/>
+
 			<input type="password" placeholder="Password" class="form-control" name="password" required formControlName="password"/>
-			<a href="#">Forgot your password?</a>
-			<button type="submit">Sign In</button>
+<!--			<a href="#">Forgot your password?</a>-->
+			<button [disabled]="loginSpinnerActive" type="submit">Sign In</button>
 		</form>
+		<mat-spinner *ngIf="loginSpinnerActive" class="mat-spinner" diameter="60"></mat-spinner>
 	</div>
+
 	<div class="overlay-container">
 		<div class="overlay">
 			<div class="overlay-panel overlay-left">
 				<h1>Welcome Back!</h1>
 				<p>To keep connected with us please login with your personal info</p>
-				<button class="ghost" id="signIn" (click)="toggleForm()">Sign In</button>
+				<button [disabled]="signUpSpinnerActive" class="ghost" id="signIn" (click)="switchToSignIn()">Sign In</button>
 			</div>
 			<div class="overlay-panel overlay-right">
 				<h1>Hello, Friend!</h1>
 				<p>Enter your personal details and start journey with us</p>
-				<button class="ghost" id="signUp"(click)="toggleForm()">Sign Up</button>
+				<button [disabled]="loginSpinnerActive" class="ghost" id="signUp"(click)="switchToSignUp()">Sign Up</button>
 			</div>
 		</div>
 	</div>

@@ -13,23 +13,11 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-        <th scope="row">21324354</th>
-        <td>Aravind</td>
-        <td>2022-09-18</td>
-        <td>90XXXXXX98</td>
-        </tr>
-        <tr>
-        <th scope="row">24334456</th>
-        <td>Vignesh</td>
-        <td>2022-09-18</td>
-        <td>90XXXXXX98</td>
-        </tr>
-        <tr>
-        <th scope="row">33456578</th>
-        <td>Sita</td>
-        <td>2022-09-18</td>
-        <td>90XXXXXX98</td>
+        <tr *ngFor="let agent of agents">
+            <th scope="row">{{agent.agentID}}</th>
+            <td>{{ agent.name }}</td>
+            <td>{{ agent.creationDate.toDate() | date:'dd-MM-yyyy' }}</td>
+            <td>{{ agent.phoneNumber }}</td>
         </tr>
         </tbody>
         </table>

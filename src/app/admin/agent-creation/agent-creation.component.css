@@ -160,3 +160,11 @@ input {
 	margin: 8px 0;
 	width: 100%;
 }
+
+.mat-spinner {
+	position: absolute;
+}
+
+.spinnerOverlay {
+	opacity: 0.4;
+}

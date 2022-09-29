@@ -4,20 +4,20 @@
   <div style="display:flex;">
     <div class="container">
       <a class="card2">
-        <h3>Total Policies</h3>
-        <p class="small">number of policy</p>
+        <h3 class="policy-title-text">Total Policies</h3>
+        <p class="policy-text">32</p>
         <div class="go-corner">
         </div>
       </a>
       <a class="card2">
-        <h3>Total Premimum</h3>
-        <p class="small">number of premimum</p>
+        <h3 class="policy-title-text">Total Premimum</h3>
+        <p class="policy-text">10</p>
         <div class="go-corner">
         </div>
       </a>
       <a class="card2">
-        <h3>Total Renewals</h3>
-        <p class="small">number of renewals</p>
+        <h3 class="policy-title-text">Total Renewals</h3>
+        <p class="policy-text">18</p>
         <div class="go-corner">
         </div>
       </a>
@@ -27,17 +27,14 @@
   <div style="margin-top:10px;">
     <div class="content" style="padding: 16px;">
       <div fxLayout="row wrap" fxLayoutGap="16px grid">
-        <div fxFlex="28%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let num of [1,2,3,4,5,6]">
+        <div fxFlex="28%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let video of youtubeVideos">
           <div class="card">
-            <div class="card__header">
-              <img src="https://source.unsplash.com/600x400/?computer" alt="card__image" class="card__image">
+            <div class="card_header">
+              <iframe width="100%" height="100%" [src]="video.url | safe" allowfullscreen></iframe>
             </div>
             <div class="card__body" style="margin-left:10px">
-              <p>Sq.Feet:</p>
-              <p>Date:Date of creation</p>
-              <p>Rate:</p>
+              <p class="video-title">{{video.title}}</p>
             </div>
-            <div><a href="" class="view-btn">View</a></div>
           </div>
         </div>
       </div>

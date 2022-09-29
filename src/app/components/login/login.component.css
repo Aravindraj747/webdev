@@ -109,6 +109,16 @@ input {
 	transition: all 0.6s ease-in-out;
 }
 
+.spinnerOverlay {
+	opacity: 0.4;
+}
+.mat-spinner {
+	position: absolute;
+	left: 35%;
+	top: 35%;
+	margin: 10px;
+	padding: 10px;
+}
 .sign-in-container {
 	left: 0;
 	width: 50%;

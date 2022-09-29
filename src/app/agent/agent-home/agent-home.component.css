@@ -134,3 +134,22 @@ img {
   align-items: center;
   justify-content: center;
 }
+
+.policy-title-text {
+   font-weight: 500;
+   color: steelblue;
+}
+
+.policy-text {
+   font-weight: 600;
+   font-size: 20px;
+}
+
+.card_header {
+    height: 200px;
+}
+
+.video-title {
+  font-weight: 500;
+  font-size: 17px;
+}

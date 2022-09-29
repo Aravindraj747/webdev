@@ -1,11 +1,12 @@
 export const environment = {
   production:false,
   firebase: {
-    projectId: 'first-website-11955',
-    appId: '1:60847470334:web:2f620535eb94201c2c57af',
-    storageBucket: 'first-website-11955.appspot.com',
-    apiKey: 'AIzaSyA4TplTyaQIhxDetMVYazS1Krx17V68M5Y',
-    authDomain: 'first-website-11955.firebaseapp.com',
-    messagingSenderId: '60847470334',
+    apiKey: "AIzaSyCgmlTJCZ6oHJVMJ7dek-pYn9Ib9baK_zM",
+    authDomain: "khanzo-9df1c.firebaseapp.com",
+    projectId: "khanzo-9df1c",
+    storageBucket: "khanzo-9df1c.appspot.com",
+    messagingSenderId: "49223915470",
+    appId: "1:49223915470:web:bdf9c94477d9cbdabefd9f",
+    measurementId: "G-3PT64LFXTK"
   }
 };

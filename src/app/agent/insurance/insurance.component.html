@@ -3,31 +3,34 @@
 <body>
     <div class="container">
         <div class="form-container sign-in-container">
-            <form action="#">
+            <form [class.spinnerOverlay]="spinnerActive" (submit)="submitInsurance()">
                 <h1>Insurance</h1>
                 <!-- insurance type -->
-                <select id="insurance" required>
+                <select [ngModelOptions]="{standalone: true}" [(ngModel)]="insuranceType" id="insurance" required>
                     <option disabled>Select insurance type</option>
                     <option *ngFor="let type of typeList" [value]="type">{{type}}</option>
                 </select>
-                <input type="text" placeholder="Name" name="name" required />
-                <!-- Vechicle -->
-                <select id=vechicle required>
-                    <option disabled>select Vechicle type</option>
-                    <option *ngFor="let vechicle of vechicleList">{{vechicle}}</option>
+                <input [ngModelOptions]="{standalone: true}" [(ngModel)]="insurance.vehicleName" type="text" placeholder="Name" name="name" required />
+                <!-- Vehicle -->
+                <select [ngModelOptions]="{standalone: true}" [(ngModel)]="insurance.vehicleType" id=vehicle required>
+                    <option disabled>select Vehicle type</option>
+                    <option *ngFor="let vechicle of vehicleList">{{vechicle}}</option>
                 </select>
-                <input type="text" placeholder="Vechile number">
-                <input type="Date" placeholder="">
+                <input [ngModelOptions]="{standalone: true}" [(ngModel)]="insurance.vehicleNumber" type="text" placeholder="Vehicle number">
+                <input [ngModelOptions]="{standalone: true}" [(ngModel)]="insurance.date" type="Date" placeholder="">
                 <span class="rc">RC Photocopy<input class="input_file" type="file" placeholder="RC"
-                        (change)="chooserc($event)"></span>
-                <span>Vechicle Image<input class="input_file" type="file" placeholder="Vechicle image"
-                        (change)="chooseVechile($event)"></span>
+                        (change)="chooseRC($event)"></span>
+                <span>Vehicle Image<input class="input_file" type="file" placeholder="Vechicle image"
+                        (change)="chooseVehicle($event)"></span>
                 <!-- Claim -->
-                <span>CSR Photocopy<input class="input_file" type="file" arial-placeholder="CSR copy"
-                        (change)="choosecsr($event)"></span>
-                <input type="text" placeholder="Policy number">
-                <button type="submit">CREATE</button>
+                <ng-template [ngIf]="insuranceType === 'Claim'">
+                    <span>CSR Photocopy<input class="input_file" type="file" arial-placeholder="CSR copy"
+                            (change)="chooseCSR($event)"></span>
+                    <input [ngModelOptions]="{standalone: true}" [(ngModel)]="insurance.policyNumber" type="text" placeholder="Policy number">
+                </ng-template>
+                <button (submit)="submitInsurance()" type="submit">CREATE</button>
             </form>
+            <mat-spinner *ngIf="spinnerActive" class="mat-spinner" diameter="60"></mat-spinner>
         </div>
     </div>
 </body>

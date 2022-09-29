@@ -86,3 +86,11 @@ button:focus {
 .rc input{
     margin-left: 10px;
 }
+
+.mat-spinner {
+	position: absolute;
+}
+
+.spinnerOverlay {
+	opacity: 0.4;
+}

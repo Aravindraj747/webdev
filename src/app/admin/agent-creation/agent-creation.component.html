@@ -16,15 +16,38 @@
 </div> -->
 <body>
 <div class="container">
-<div class="form-container sign-in-container">
-    <form action="#" [formGroup]="agentForm" (ngSubmit)="create()">
-        <h1>Agent Creation</h1>
-        <input type="text" placeholder="Name" class="form-control" name="name"  required formControlName="name"/>
-        <input type="email" placeholder="Email" class="form-control" name="email"  required formControlName="email"/>
-        <input type="text" placeholder="Phone number" class="form-control" name="phonenumber"  required formControlName="phonenumber"/>
-        <input type="password" placeholder="Password" class="form-control" name="password" required formControlName="password"/>
-        <button type="submit">Sign In</button>
-    </form>
-</div>
+    <div class="form-container sign-in-container">
+        <form [class.spinnerOverlay]="signUpSpinnerActive" action="#" [formGroup]="agentForm"
+              (ngSubmit)="createAgent()">
+            <h1 style="margin-bottom: 30px">Agent Creation</h1>
+            <input type="text" placeholder="Name" class="form-control" name="name" required formControlName="name"/>
+            <input type="email" placeholder="Email" class="form-control" name="email" required formControlName="email"/>
+            <input type="number" placeholder="Phone number" class="form-control" name="phoneNumber" required
+                   formControlName="phoneNumber"/>
+            <input type="password" placeholder="Password" class="form-control" name="password" required
+                   formControlName="password"/>
+<!--            <mat-select>-->
+<!--                <mat-option>Car</mat-option>-->
+<!--                <mat-option>Two wheeler</mat-option>-->
+<!--                <mat-option>asds</mat-option>-->
+<!--            </mat-select>-->
+            <mat-form-field appearance="fill">
+                <mat-label>Favorite food</mat-label>
+                <mat-select>
+                    <mat-option value="Car">Car</mat-option>
+                    <mat-option value="Two wheeler">Two wheeler</mat-option>
+                    <mat-option>asds</mat-option>
+                </mat-select>
+            </mat-form-field>
+<!--            <select matNativeControl required>-->
+<!--                <option value="volvo">Volvo</option>-->
+<!--                <option value="saab">Saab</option>-->
+<!--                <option value="mercedes">Mercedes</option>-->
+<!--                <option value="audi">Audi</option>-->
+<!--            </select>-->
+            <button type="submit">Sign In</button>
+            <mat-spinner *ngIf="signUpSpinnerActive" class="mat-spinner" diameter="60"></mat-spinner>
+        </form>
+    </div>
 </div>
 </body>

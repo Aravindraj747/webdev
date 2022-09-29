@@ -17,7 +17,10 @@ export class HomeComponent implements OnInit {
   user$=this.authservice.currentUser$;
 
   public file:any={}
-  constructor(private authservice:AuthenticationService,private userservice:UsersService,public storage:Storage,private route:Router) {
+  constructor(private authservice: AuthenticationService,
+              private userservice: UsersService,
+              public storage: Storage,
+              private route: Router) {
   }
   ngOnInit(): void {
   }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {AngularFirestore} from "@angular/fire/compat/firestore";
+import {DomSanitizer} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-agent-home',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AgentHomeComponent implements OnInit {
 
-  constructor() { }
+    youtubeVideos: {url: any, title: string}[] = [];
 
-  ngOnInit(): void {
-  }
+    ngOnInit(): void {
+    }
 
+    constructor(private firestore: AngularFirestore) {
+        this.firestore.collection<{url: string, title: string}>("youtubeVideos").valueChanges()
+            .subscribe(res => {
+                console.log(res);
+                this.youtubeVideos = res;
+            })
+    }
 }
