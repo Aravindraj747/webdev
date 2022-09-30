@@ -53,21 +53,27 @@
 <body>
     <div class="container">
         <div class="form-container sign-in-container">
-            <form action="#">
+            <form action="#" (submit)="save()" [class.spinnerOverlay]="spinnerActive" >
                 <h1>Details</h1>
-                <select id="insurance" required>
+                <select [ngModelOptions]="{standalone: true}" [(ngModel)]="property.type" id="propertyType" required>
                     <option disabled>Select type</option>
                     <option *ngFor="let type of typeList" [value]="type">{{type}}</option>
                 </select>
-                <input type="text" placeholder="Owner Name" name="name" required />
-                <input type="Date" placeholder="">
-                <input type="text" placeholder="Address" name="name" required />
-                <input type="text" placeholder="Sq.feet" name="name" required />
-                <input type="text" placeholder="BHK" name="name" required />
-                <input type="text" placeholder="Amount" name="name" required />
-                <span class="photo">Photocopy<input class="input_file" type="file" placeholder="Vechicle image"></span>
-                <button type="submit">CREATE</button>
+                <input [ngModelOptions]="{standalone: true}" [(ngModel)]="property.ownerName"
+                       type="text" placeholder="Owner Name" name="name" required />
+                <input [ngModelOptions]="{standalone: true}" [(ngModel)]="property.date" type="Date" placeholder="">
+                <input [ngModelOptions]="{standalone: true}" [(ngModel)]="property.address"
+                       type="text" placeholder="Address" name="name" required />
+                <input [ngModelOptions]="{standalone: true}" [(ngModel)]="property.sqFeet"
+                       type="number" placeholder="Sq.feet" name="name" required />
+                <input [ngModelOptions]="{standalone: true}" [(ngModel)]="property.bhk"
+                       type="text" placeholder="BHK" name="name" required />
+                <input [ngModelOptions]="{standalone: true}" [(ngModel)]="property.amount"
+                       type="number" placeholder="Amount" name="name" required />
+                <span class="photo">Photocopy<input (change)="choosePhoto($event)" class="input_file" type="file" placeholder="Image"></span>
+                <button type="submit">Save</button>
             </form>
+            <mat-spinner *ngIf="spinnerActive" class="mat-spinner" diameter="60"></mat-spinner>
         </div>
     </div>
 </body>

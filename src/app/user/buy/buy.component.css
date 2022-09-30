@@ -49,9 +49,9 @@
 
   .card__image {
     width: 100%;
-    max-height: 300px;
+    height: 150px;
     /* border-radius: var(--border-radius-primary); */
-    object-fit: cover;
+    object-fit: fill;
     margin-bottom: 18px;
   }
 

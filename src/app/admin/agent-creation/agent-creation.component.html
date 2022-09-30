@@ -1,53 +1,44 @@
 <app-adminsidenav></app-adminsidenav>
-<!-- <h1 style="display:flex;justify-content:center;font-weight:bold;margin-top: 10px;">Welcome Admin!</h1>
-<div class="content">
-    <img class="logo" src="assets/agent.png" alt="">
-    <h1>Create Agent</h1>
-    <form [formGroup]="agentForm" (ngSubmit)="create()">
-            <label  class="form-label">Agent Name</label>
-            <input type="text" name="name" required formControlName="name">
-            <label  class="form-label">Email</label>
-            <input type="text"  required formControlName="email" >
-            <label class="form-label">Phone number</label>
-            <input type="text" name="Mobile number" required formControlName="phonenumber">
-            <button type="submit"><span>Create</span></button>
-
-    </form>
-</div> -->
 <body>
 <div class="container">
     <div class="form-container sign-in-container">
-        <form [class.spinnerOverlay]="signUpSpinnerActive" action="#" [formGroup]="agentForm"
-              (ngSubmit)="createAgent()">
-            <h1 style="margin-bottom: 30px">Agent Creation</h1>
-            <input type="text" placeholder="Name" class="form-control" name="name" required formControlName="name"/>
-            <input type="email" placeholder="Email" class="form-control" name="email" required formControlName="email"/>
-            <input type="number" placeholder="Phone number" class="form-control" name="phoneNumber" required
-                   formControlName="phoneNumber"/>
-            <input type="password" placeholder="Password" class="form-control" name="password" required
-                   formControlName="password"/>
-<!--            <mat-select>-->
-<!--                <mat-option>Car</mat-option>-->
-<!--                <mat-option>Two wheeler</mat-option>-->
-<!--                <mat-option>asds</mat-option>-->
-<!--            </mat-select>-->
-            <mat-form-field appearance="fill">
-                <mat-label>Favorite food</mat-label>
-                <mat-select>
-                    <mat-option value="Car">Car</mat-option>
-                    <mat-option value="Two wheeler">Two wheeler</mat-option>
-                    <mat-option>asds</mat-option>
-                </mat-select>
-            </mat-form-field>
-<!--            <select matNativeControl required>-->
-<!--                <option value="volvo">Volvo</option>-->
-<!--                <option value="saab">Saab</option>-->
-<!--                <option value="mercedes">Mercedes</option>-->
-<!--                <option value="audi">Audi</option>-->
-<!--            </select>-->
-            <button type="submit">Sign In</button>
+        <form *ngIf="step === '1'" [class.spinnerOverlay]="signUpSpinnerActive" action="#"
+              (ngSubmit)="goToStep2()">
+            <h1 style="margin-bottom: 30px">Agent Details</h1>
+            <input [(ngModel)]="agent.name" type="text" placeholder="Name" class="form-control" name="name" required/>
+            <input [(ngModel)]="agent.email" type="email" placeholder="Email" class="form-control" name="email" required/>
+            <input [(ngModel)]="agent.phoneNumber" type="number" placeholder="Phone number" class="form-control" name="phoneNumber" required/>
+            <input [(ngModel)]="agent.password" type="password" placeholder="Password" class="form-control" name="password" required/>
+            <button type="submit">Next</button>
             <mat-spinner *ngIf="signUpSpinnerActive" class="mat-spinner" diameter="60"></mat-spinner>
         </form>
+
+        <form *ngIf="step === '2'" [class.spinnerOverlay]="signUpSpinnerActive" action="#"
+              (ngSubmit)="goToStep3()">
+            <h1 style="margin-bottom: 30px">Agent Address</h1>
+            <input [(ngModel)]="agent.address" type="text" placeholder="Address" class="form-control" name="address" required/>
+            <input [(ngModel)]="agent.city" type="text" placeholder="City" class="form-control" name="city" required/>
+            <input [(ngModel)]="agent.state" type="text" placeholder="State" class="form-control" name="state" required/>
+            <input [(ngModel)]="agent.pinCode" type="number" placeholder="PinCode" class="form-control" name="pinCode" required/>
+            <button type="submit">Next</button>
+            <mat-spinner *ngIf="signUpSpinnerActive" class="mat-spinner" diameter="60"></mat-spinner>
+        </form>
+
+        <form *ngIf="step === '3'" [class.spinnerOverlay]="signUpSpinnerActive" action="#"
+              (ngSubmit)="createAgent()">
+            <h1 style="margin-bottom: 30px">Agent Bank Details</h1>
+            <input [(ngModel)]="agent.bankAccountHolderName" type="text" placeholder="Account Holder Name" class="form-control" name="accountHolderName"
+                   required/>
+            <input [(ngModel)]="agent.bankName" type="text" placeholder="Bank Name" class="form-control" name="bankName" required/>
+            <input [(ngModel)]="agent.accountNumber" type="number" placeholder="Account number" class="form-control" name="accountNumber" required
+                   />
+            <input [(ngModel)]="agent.bankCity" type="text" placeholder="Bank City" class="form-control" name="bankCity" required
+                   />
+            <input [(ngModel)]="agent.bankPinCode" type="number" placeholder="Bank PinCode" class="form-control" name="bankPinCode" required
+                   />
+            <button type="submit">Save</button>
+        </form>
+        <mat-spinner *ngIf="signUpSpinnerActive" class="mat-spinner" diameter="60"></mat-spinner>
     </div>
 </div>
 </body>

@@ -39,5 +39,9 @@ export class AuthenticationService {
     const auth = getAuth(this.app)
     return signInWithEmailAndPassword(auth,email,password);
   }
+
+  getUser() {
+    return this.fireauth.user;
+  }
 }
 

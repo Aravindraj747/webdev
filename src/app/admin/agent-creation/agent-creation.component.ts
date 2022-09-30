@@ -15,13 +15,26 @@ import Timestamp = firebase.firestore.Timestamp;
 export class AgentCreationComponent implements OnInit {
 
   signUpSpinnerActive: boolean = false;
+  step = '1';
 
-  agentForm=new FormGroup({
-    name: new FormControl('',Validators.required),
-    email: new FormControl('',[Validators.required,Validators.email]),
-    phoneNumber: new FormControl('',Validators.required),
-    password: new FormControl('',Validators.required),
-  });
+  agent: Agent = {
+    accountNumber: "",
+    address: "",
+    agentID: "",
+    bankAccountHolderName: "",
+    bankCity: "",
+    bankName: "",
+    bankPinCode: "",
+    city: "",
+    creationDate: Timestamp.now(),
+    email: "",
+    ifscCode: "",
+    name: "",
+    password: "",
+    phoneNumber: "",
+    pinCode: "",
+    state: ""
+  }
   constructor(private authService: AuthenticationService,
               private firestoreService: FirestoreService,
               private _snackBar: MatSnackBar) {
@@ -29,51 +42,82 @@ export class AgentCreationComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  get name(){
-    return this.agentForm.get('name');
+  // get name(){
+  //   return this.agentForm.get('name');
+  // }
+  // get email(){
+  //   return this.agentForm.get('email');
+  // }
+  // get phoneNumber(){
+  //   return this.agentForm.get('phoneNumber');
+  // }
+  // get password(){
+  //   return this.agentForm.get('password');
+  // }
+  // get address() {
+  //   return this.agentForm.get('address');
+  // }
+  // get state() {
+  //   return this.agentForm.get('state');
+  // }
+  // get city() {
+  //   return this.agentForm.get('city');
+  // }
+  // get pinCode() {
+  //   return this.agentForm.get('pinCode');
+  // }
+  // get ifscCode() {
+  //   return this.agentForm.get('ifscCode');
+  // }
+  // get bankAccountHolderName() {
+  //   return this.agentForm.get('bankAccountHolderName');
+  // }
+  // get bankName() {
+  //   return this.agentForm.get('bankName');
+  // }
+  // get accountNumber() {
+  //   return this.agentForm.get('accountNumber');
+  // }
+  // get bankCity() {
+  //   return this.agentForm.get('bankCity');
+  // }
+  // get bankPinCode() {
+  //   return this.agentForm.get('bankPinCode');
+  // }
+
+  goToStep2() {
+    this.step = '2';
   }
-  get email(){
-    return this.agentForm.get('email');
-  }
-  get phonenumber(){
-    return this.agentForm.get('phonenumber');
-  }
-  get password(){
-    return this.agentForm.get('password');
+
+  goToStep3() {
+    this.step = '3';
   }
 
   createAgent(){
-    const{name,email,phoneNumber,password}=this.agentForm.value;
-    console.log(name,email,phoneNumber);
+    // const{ name, email, phoneNumber, password } = this.agentForm.value;
 
-    if (name === '') {
-      this.openSnackBar('Enter the Name', 'Undo');
-      return
-    }
-    if (email === '') {
-      this.openSnackBar('Enter the Email', 'Undo');
-      return;
-    }
-    if (phoneNumber === '') {
-      this.openSnackBar('Enter the Phone number', 'undo');
-      return;
-    }
-    if (password === '') {
-      this.openSnackBar('Enter the Password', 'Undo')
-      return;
-    }
+    // if (name === '') {
+    //   this.openSnackBar('Enter the Name', 'Undo');
+    //   return
+    // }
+    // if (email === '') {
+    //   this.openSnackBar('Enter the Email', 'Undo');
+    //   return;
+    // }
+    // if (phoneNumber === '') {
+    //   this.openSnackBar('Enter the Phone number', 'undo');
+    //   return;
+    // }
+    // if (password === '') {
+    //   this.openSnackBar('Enter the Password', 'Undo')
+    //   return;
+    // }
     this.signUpSpinnerActive = true;
-    this.authService.register(name, email, password)
+    this.authService.register(this.agent.name, this.agent.email, this.agent.password)
         .then(res => {
-          const agent: Agent = {
-            name: name,
-            email: email,
-            password: password,
-            phoneNumber: phoneNumber,
-            agentID: Math.floor(Date.now()/1000).toString(),
-            creationDate:  Timestamp.now()
-          }
-          this.firestoreService.saveAgent(agent)
+          this.agent.agentID = Math.floor(Date.now()/1000).toString();
+          this.agent.creationDate = Timestamp.now();
+          this.firestoreService.saveAgent(this.agent)
               .then(res => {
                 console.log("Agent Saved");
                 this.openSnackBar("User Created Successfully", "Close");

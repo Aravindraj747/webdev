@@ -5,19 +5,9 @@
         <div class="form-container sign-in-container">
             <form [class.spinnerOverlay]="spinnerActive" (submit)="submitInsurance()">
                 <h1>Insurance</h1>
-                <!-- insurance type -->
-                <select [ngModelOptions]="{standalone: true}" [(ngModel)]="insuranceType" id="insurance" required>
-                    <option disabled>Select insurance type</option>
-                    <option *ngFor="let type of typeList" [value]="type">{{type}}</option>
-                </select>
                 <input [ngModelOptions]="{standalone: true}" [(ngModel)]="insurance.vehicleName" type="text" placeholder="Name" name="name" required />
-                <!-- Vehicle -->
-                <select [ngModelOptions]="{standalone: true}" [(ngModel)]="insurance.vehicleType" id=vehicle required>
-                    <option disabled>select Vehicle type</option>
-                    <option *ngFor="let vechicle of vehicleList">{{vechicle}}</option>
-                </select>
                 <input [ngModelOptions]="{standalone: true}" [(ngModel)]="insurance.vehicleNumber" type="text" placeholder="Vehicle number">
-                <input [ngModelOptions]="{standalone: true}" [(ngModel)]="insurance.date" type="Date" placeholder="">
+                <input [ngModelOptions]="{standalone: true}" [(ngModel)]="insurance.createdDate" type="Date" placeholder="">
                 <span class="rc">RC Photocopy<input class="input_file" type="file" placeholder="RC"
                         (change)="chooseRC($event)"></span>
                 <span>Vehicle Image <input class="input_file" type="file" placeholder="Vechicle image"

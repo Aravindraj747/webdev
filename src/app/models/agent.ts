@@ -8,4 +8,14 @@ export interface Agent {
     phoneNumber: string;
     creationDate: Timestamp;
     agentID: string;
+    address: string;
+    state: string;
+    city: string;
+    pinCode: string;
+    ifscCode: string;
+    bankAccountHolderName: string;
+    bankName: string;
+    accountNumber: string;
+    bankCity: string;
+    bankPinCode: string;
 }

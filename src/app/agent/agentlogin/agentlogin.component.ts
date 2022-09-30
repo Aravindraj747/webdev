@@ -1,45 +1,70 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { AuthenticationService } from 'src/app/services/authentication.service';
+import {Component, OnInit} from '@angular/core';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
+import {AuthenticationService} from 'src/app/services/authentication.service';
+import {MatSnackBar} from "@angular/material/snack-bar";
+import {AgentService} from "../../services/agent.service";
 
 @Component({
-  selector: 'app-agentlogin',
-  templateUrl: './agentlogin.component.html',
-  styleUrls: ['./agentlogin.component.css']
+    selector: 'app-agentlogin',
+    templateUrl: './agentlogin.component.html',
+    styleUrls: ['./agentlogin.component.css']
 })
 export class AgentloginComponent implements OnInit {
 
-  agentForm=new FormGroup({
-    email: new FormControl('',[Validators.required,Validators.email]),
-    password: new FormControl('',Validators.required),
-  });
-  
-  constructor(private authservice:AuthenticationService,private route:Router) { }
+    loginSpinnerActive: boolean = false;
+    agentForm = new FormGroup({
+        email: new FormControl('', [Validators.required, Validators.email]),
+        password: new FormControl('', Validators.required),
+    });
 
-  ngOnInit(): void {
-  }
-  get email(){
-    return this.agentForm.get('email');
-  }
-  
-  get password(){
-    return this.agentForm.get('password');
+    constructor(private authService: AuthenticationService,
+                private route: Router,
+                private _snackBar: MatSnackBar,
+                private agentService: AgentService) {
+    }
+
+    ngOnInit(): void {
+    }
+
+    get email() {
+        return this.agentForm.get('email');
+    }
+
+    get password() {
+        return this.agentForm.get('password');
+    }
+
+    submit() {
+        const {email, password} = this.agentForm.value;
+        if (email === " ") {
+          this.openSnackBar('Enter Email', 'Retry');
+          return;
+        }
+        if (password === " ") {
+          this.openSnackBar('Enter Password', 'Retry');
+          return;
+        }
+        this.loginSpinnerActive = true;
+        this.authService.login(email, password).then((res) => {
+            console.log(res.user);
+            this.getAgentDetails(email);
+            console.log('user got')
+            return this.route.navigate(['agenthome']);
+        }).catch(err => {
+            this.openSnackBar('Unable to login', 'Retry');
+            this.loginSpinnerActive = false;
+        })
+    }
+
+    async getAgentDetails(email: string) {
+        await this.agentService.getAgent(email);
+    }
+
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      duration: 2000,
+    });
   }
 
-  submit(){
-    const{email,password}=this.agentForm.value;
-    if (email === " ")
-    {
-      return alert("Enter Email")
-    }
-    if (password === " ")
-    {
-      return alert("Enter Password")
-    }
-    this.authservice.adminlogin(email,password).then((res)=>{
-      console.log(res.user.uid)
-      return this.route.navigate(['agenthome']);
-  })
-}
 }

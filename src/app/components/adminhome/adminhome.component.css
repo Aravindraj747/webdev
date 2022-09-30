@@ -112,3 +112,11 @@ padding: 6px 13px;
 font-family: 'Roboto', sans-serif;
 transition: .4s;
 }
+
+.mat-spinner {
+	position: absolute;
+}
+
+.spinnerOverlay {
+	opacity: 0.4;
+}

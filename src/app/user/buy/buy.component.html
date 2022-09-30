@@ -8,15 +8,16 @@
 <div style="margin-top:10px;">
 <div class="content" style="padding: 16px;">
   <div fxLayout="row wrap" fxLayoutGap="16px grid">
-    <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let num of [1,2,3,4,5,6]">
+    <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let property of properties">
       <div class="card">
         <div class="card__header">
-          <img src="https://source.unsplash.com/600x400/?computer" alt="card__image" class="card__image">
+<!--          <img src="https://source.unsplash.com/600x400/?computer" alt="card__image" class="card__image">-->
+          <img [src]="property.photo" alt="card__image" class="card__image">
         </div>
         <div class="card__body" style="margin-left:10px">
-          <p>Sq.Feet: 3421</p>
-          <p>Date: 20-09-2022</p>
-          <p>Rate: 549042</p>
+          <p>Sq.Feet: {{property.sqFeet}}</p>
+          <p>Date: {{ property.date | date:'dd-MM-yyyy'}}</p>
+          <p>Rate: Rs {{property.amount}}</p>
         </div>
         <div><a href="" class="view-btn">View</a></div>
       </div>
