@@ -1,4 +1,4 @@
-<app-sidenav></app-sidenav>
+<!-- <app-sidenav></app-sidenav> -->
 
 <body>
     <div class="container">
@@ -20,7 +20,7 @@
                 <input [ngModelOptions]="{standalone: true}" [(ngModel)]="insurance.date" type="Date" placeholder="">
                 <span class="rc">RC Photocopy<input class="input_file" type="file" placeholder="RC"
                         (change)="chooseRC($event)"></span>
-                <span>Vehicle Image<input class="input_file" type="file" placeholder="Vechicle image"
+                <span>Vehicle Image <input class="input_file" type="file" placeholder="Vechicle image"
                         (change)="chooseVehicle($event)"></span>
                 <!-- Claim -->
                 <ng-template [ngIf]="insuranceType === 'Claim'">

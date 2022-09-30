@@ -26,6 +26,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTableModule } from '@angular/material/table'
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatDialogModule} from '@angular/material/dialog';
+// import { MatdialogAction} from '@angular/material/dialog';
 
 import { FlexLayoutModule} from '@angular/flex-layout';
 
@@ -56,6 +58,7 @@ import { SafePipe } from './safe.pipe';
 import { MatSnackBarModule} from "@angular/material/snack-bar";
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import {MatSelectModule} from "@angular/material/select";
+import { DialogComponent } from './admin/dialog/dialog.component';
 
 @NgModule({
   declarations: [
@@ -82,8 +85,10 @@ import {MatSelectModule} from "@angular/material/select";
     AdminsidenavComponent,
     AdminhomeComponent,
     AgentloginComponent,
-    SafePipe
+    SafePipe,
+    DialogComponent
   ],
+  entryComponents: [DialogComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -93,6 +98,7 @@ import {MatSelectModule} from "@angular/material/select";
     MatButtonModule,
     MatSidenavModule,
     MatTableModule,
+    MatDialogModule,
     MatSnackBarModule,
     AngularFireAuthModule,
     MatFormFieldModule,

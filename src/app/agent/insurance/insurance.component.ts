@@ -104,7 +104,7 @@ export class InsuranceComponent implements OnInit {
                 });
             });
     }
-
+    
     saveInsurance() {
         console.log('saving insurance');
         this.firestoreService.saveInsurance(this.insurance).then(res => {

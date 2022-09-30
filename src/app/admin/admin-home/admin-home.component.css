@@ -14,3 +14,15 @@
   color: white;
   border-radius: 5px;
 }
+/* viewbutton */
+.view-btn {
+  text-decoration: none;
+  width: 100%;
+  margin-bottom: 5px;
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+}
+.row .table a{
+  cursor: pointer;
+}

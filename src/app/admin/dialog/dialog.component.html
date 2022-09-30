@@ -1,0 +1,8 @@
+<!-- <p>dialog works!</p> -->
+<h2 mat-dialog-title>Choose the file to send</h2>
+<!-- <mat-dialog-content>Choose the file to send</mat-dialog-content> -->
+<input type="file" (change)="chooseFile($event)">
+<mat-dialog-actions>
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button mat-dialog-close (click)="sendFile()">Send</button>
+</mat-dialog-actions>
