@@ -1,15 +1,51 @@
+<mat-toolbar style="background:white;justify-content:space-between;">
+  bug
+  <ul style="list-style:none;">
+    <li>
+      <span style="font-size:15px;"><img src="../../../assets/agent.png" alt="Avatar" class="avatar">agentname and agentID
+        <mat-icon class="avatharexp">expand_more</mat-icon>
+      </span>
+      <ul style="list-style:none;display:block;align-items:center;">
+        <li class="sub-item">
+          <p>
+            <mat-icon>account_balance</mat-icon>My Account
+          </p>
+        </li>
+        <li class="sub-item">
+          <p>
+            <mat-icon>cloud_download</mat-icon>Download Certificate
+          </p>
+        </li>
+        <li class="sub-item">
+          <p (click)="viewProfile()">
+            <mat-icon>account_circle</mat-icon>Profile
+          </p>
+        </li>
+        <li class="sub-item">
+          <p (click)="logout()">
+            <mat-icon>logout</mat-icon>logout
+          </p>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</mat-toolbar>
 <div class="class">
-    <ul>
-      <li>
-        <a href="" class="logo">
-          <img src="../../../assets/homelogo.png" alt="logo">
-          <span class="name">Hayatamn ENTERPRISES</span>
-        </a>
-      </li>
-      <li><a><i class='fas fa-circle-user'></i><span class="nav-item">"Agent name"</span></a></li>
-      <li><a href="agenthome"><mat-icon>home</mat-icon><span class="nav-item">Dashboard</span></a></li>
-      <li><a href="sellnow"><mat-icon>shopping_cart</mat-icon><span class="nav-item">Sell Now</span></a></li>
-      <li><a href="lead"><mat-icon>folder</mat-icon><span class="nav-item">Lead</span></a></li>
-      <li><a (click)="logout()" class="logout"><mat-icon>logout</mat-icon><span class="nav-item">Logout</span></a></li>
-    </ul>
+  <ul>
+    <li>
+      <a href="" class="logo">
+        <img src="../../../assets/homelogo.png" alt="logo">
+        <span class="name">Hayatamn ENTERPRISES</span>
+      </a>
+    </li>
+    <li><a href="agenthome">
+        <mat-icon>home</mat-icon><span class="nav-item">Dashboard</span>
+      </a></li>
+    <li><a href="sellnow">
+        <mat-icon>shopping_cart</mat-icon><span class="nav-item">Sell Now</span>
+      </a></li>
+    <li><a href="lead">
+        <mat-icon>folder</mat-icon><span class="nav-item">Lead</span>
+      </a></li>
+  </ul>
 </div>

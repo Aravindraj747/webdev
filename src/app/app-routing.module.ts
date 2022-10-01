@@ -6,6 +6,7 @@ import { AgentCreationComponent } from './admin/agent-creation/agent-creation.co
 import { AgentComponent } from './admin/agent/agent.component';
 import { LeadsComponent } from './admin/leads/leads.component';
 import { AgentHomeComponent } from './agent/agent-home/agent-home.component';
+import { AgentProfileComponent } from './agent/agent-profile/agent-profile.component';
 import { AgentloginComponent } from './agent/agentlogin/agentlogin.component';
 import { InsuranceComponent } from './agent/insurance/insurance.component';
 import { LeadComponent } from './agent/lead/lead.component';
@@ -55,7 +56,8 @@ const routes: Routes = [
   {path:'sellnow',component:SellnowComponent},
   {path:'agent',component:AgentHomeComponent},
   {path:'lead',component:LeadComponent},
-  {path:'insurance',component:InsuranceComponent}
+  {path:'insurance',component:InsuranceComponent},
+  {path:'agentprofile',component:AgentProfileComponent},
 ];
 
 @NgModule({

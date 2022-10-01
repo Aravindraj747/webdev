@@ -1,0 +1,61 @@
+<app-sidenav></app-sidenav>
+<div class="content" style="margin-left:120px;">
+    <h2>Basic Information</h2>
+    <div class="container">
+        <div class="row" style="font-weight:500;">
+          <div class="col">Person Name</div>
+          <div class="col">Agent ID</div>
+          <div class="col">Mobile Number</div>
+          <div class="col">Email</div>
+        </div>
+        <div class="row" style="margin-top:10px">
+            <div class="col">{{agent.name}}</div>
+            <div class="col">{{agent.agentID}}</div>
+            <div class="col">{{agent.phoneNumber}}</div>
+            <div class="col">{{agent.email}}</div>
+        </div>
+    </div>
+    <div class="container"  >
+        <div class="row" style="margin-top:40px;font-weight: 500;">
+          <div class="col">Address</div>
+          <div class="col">State</div>
+          <div class="col">City</div>
+          <div class="col">Pincode</div>
+        </div>
+        <div class="row" style="margin-top:10px">
+            <div class="col">{{agent.address}}</div>
+            <div class="col">{{agent.state}}</div>
+            <div class="col">{{agent.city}}</div>
+            <div class="col">{{agent.pinCode}}</div>
+        </div>
+    </div>
+    <h2 style="margin-top:20px;">Bank Information</h2>
+    <div class="container" >
+        <div class="row" style="font-weight:500;">
+          <div class="col">NFET IFSC Code</div>
+          <div class="col">Account Holder Name</div>
+          <div class="col">Bank Name</div>
+          <div class="col">Account number</div>
+        </div>
+        <div class="row" style="margin-top:10px">
+            <div class="col">{{agent.ifscCode}}</div>
+            <div class="col">{{agent.bankAccountHolderName}}</div>
+            <div class="col">{{agent.bankName}}</div>
+            <div class="col">{{agent.accountNumber}}</div>
+        </div>
+    </div>
+    <div class="container"  >
+        <div class="row" style="margin-top:40px;font-weight: 500;">
+          <div class="col">Branch City</div>
+          <div class="col">Pincode</div>
+          <div class="col"></div>
+          <div class="col"></div>
+        </div>
+        <div class="row" style="margin-top:10px">
+            <div class="col">{{agent.bankCity}}</div>
+            <div class="col">{{agent.bankPinCode}}</div>
+            <div class="col"></div>
+            <div class="col"></div>
+        </div>
+    </div>
+</div>

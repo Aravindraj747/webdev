@@ -59,6 +59,7 @@ import { MatSnackBarModule} from "@angular/material/snack-bar";
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import {MatSelectModule} from "@angular/material/select";
 import { DialogComponent } from './admin/dialog/dialog.component';
+import { AgentProfileComponent } from './agent/agent-profile/agent-profile.component';
 
 @NgModule({
   declarations: [
@@ -86,7 +87,8 @@ import { DialogComponent } from './admin/dialog/dialog.component';
     AdminhomeComponent,
     AgentloginComponent,
     SafePipe,
-    DialogComponent
+    DialogComponent,
+    AgentProfileComponent
   ],
   entryComponents: [DialogComponent],
   imports: [

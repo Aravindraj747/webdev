@@ -1,5 +1,5 @@
 <app-sidenav></app-sidenav>
-<div class="content" style="margin-left:100px;margin-top: 10px;">
+<div class="contents" style="margin-left:250px;margin-top: 10px;">
   <h1 style="font-weight:bold;">Dashboard</h1>
   <div style="display:flex;">
     <div class="container">
@@ -27,7 +27,7 @@
   <div style="margin-top:10px;">
     <div class="content" style="padding: 16px;">
       <div fxLayout="row wrap" fxLayoutGap="16px grid">
-        <div fxFlex="28%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let video of youtubeVideos">
+        <div fxFlex="28%" fxFlex.xs="100%" fxFlex.sm="43%" *ngFor="let video of youtubeVideos">
           <div class="card">
             <div class="card_header">
               <iframe width="100%" height="100%" [src]="video.url | safe" allowfullscreen></iframe>

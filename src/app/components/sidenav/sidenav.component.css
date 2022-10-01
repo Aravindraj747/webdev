@@ -16,7 +16,7 @@ body{
     bottom: 0;
     height: 100vh;
     background:#fff;
-    width: 90px;
+    width: 240px;
     overflow: hidden;
     transition: width 0.2s linear;
     box-shadow: 0 20px 35px rgba(0,0,0,0.1);
@@ -68,10 +68,10 @@ mat-icon,i{
 a:hover{
     background: #eee;
 }
-.class:hover{
+/* .class:hover{
     width: 280px;
     transition: all 0.5s ease;
-}
+} */
 .logout{
     position: absolute;
     bottom: 0;
@@ -96,3 +96,118 @@ a:hover{
         width: 200px;
     }
 }
+
+/*avatar */
+.avatar{
+    width: 40px;
+}
+.avatharexp{
+    top: 6px;
+    width:40px;
+}
+/* mat-toolbar ul li ul {
+    display:none;
+    position:absolute;
+    left:0;
+    background:#37bc9b;
+    float:left;
+  }
+  mat-toolbar ul li ul li {
+    width:100%;
+    border-bottom:1px solid rgba(255,255,255,.3);
+  }
+  
+  mat-toolbar ul li:hover ul {
+    margin-left: 1350px;
+    display:block;
+  }
+  mat-toolbar .actions{
+    text-decoration: none;
+  } */
+  /* nav {
+    background-color: #fff;
+    padding: 0 3rem;
+    border-radius: 0.625rem;
+  } */
+ mat-tolbar ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+  }
+  
+  mat-toolbar ul li {
+    list-style-type: none;
+    position: relative;
+    padding: 0.6rem 0 0.2rem;
+  }
+  mat-toolbar li ul {
+    flex-direction: column;
+    position: absolute;
+    background-color: white;
+    /* align-items:flex-end; */
+    transition: all 0.3s ease;
+    width: 10rem;
+    /* gap: 0; */
+    display: none;
+    /* padding: 1rem 0rem; */
+    opacity: 0;
+  }
+  /* .uli:hover{
+    visibility:visible;
+  } */
+  ul li span:hover >ul,
+   ul li ul:hover {
+    visibility: visible;
+    opacity: 1;
+    display: flex;
+  }
+  /* .mat-icon {
+    top: 1%;
+    transition: all 0.3s ease-out;
+  }
+  
+  .mat-icon:hover {
+    color: #ff9800;
+    transform: scale(1.25) translateY(-4px);
+    cursor: pointer;
+  } */
+  
+  /* .profile {
+    height: 3rem;
+    width: auto;
+    cursor: pointer;
+  } */
+  
+  .sub-item {
+    width: 100%;
+    display: flex;
+    align-items:flex-end;
+    gap: 0.725rem;
+    cursor: pointer;
+    padding: 0.2rem 1.0rem;
+  }
+  
+  /* .sub-item:hover {
+    background-color: rgba(232, 232, 232, 0.4);
+  } */
+  
+  .sub-item:hover .mat-icon {
+    color: #ff9800;
+    transform: scale(1.08) translateY(-2px);
+    cursor: pointer;
+  }
+  
+  .sub-item:hover p {
+    color: #000;
+    cursor: pointer;
+  }
+  
+  .sub-item p {
+    font-size: 0.85rem;
+    color: #888888;
+    font-weight: 500;
+    margin: 0.4rem 0;
+    flex: 1;
+  }

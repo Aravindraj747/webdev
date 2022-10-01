@@ -16,7 +16,7 @@ nav{
     height: 100vh;
     height: 100%;
     background:#fff;
-    width: 90px;
+    width: 240px;
     overflow: hidden;
     transition: width 0.2s linear;
     box-shadow: 0 20px 35px rgba(0,0,0,0.1);
@@ -68,10 +68,10 @@ mat-icon{
 a:hover{
     background: #eee;
 }
-nav:hover{
+/* nav:hover{
     width: 280px;
     transition: all 0.5s ease;
-}
+} */
 .logout{
     position: absolute;
     bottom: 0;
