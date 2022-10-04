@@ -27,6 +27,7 @@ import { MatTableModule } from '@angular/material/table'
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDialogModule} from '@angular/material/dialog';
+import {MatSliderModule} from '@angular/material/slider';
 // import { MatdialogAction} from '@angular/material/dialog';
 
 import { FlexLayoutModule} from '@angular/flex-layout';
@@ -100,6 +101,7 @@ import { AgentProfileComponent } from './agent/agent-profile/agent-profile.compo
     MatButtonModule,
     MatSidenavModule,
     MatTableModule,
+    MatSliderModule,
     MatDialogModule,
     MatSnackBarModule,
     AngularFireAuthModule,

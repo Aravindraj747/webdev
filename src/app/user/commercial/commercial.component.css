@@ -2,6 +2,11 @@
   font-family: 'Montserrat', sans-serif;
 }
 
+body {
+  min-height: 100vh;
+  display: flex;
+}
+
 /* navbar */
 .navbar {
   height: 50px;
@@ -54,17 +59,20 @@
   object-fit: cover;
   margin-bottom: 18px;
 }
+
 /* logout */
-.navbar ul li .logout{
-  color:#004aad; 
+.navbar ul li .logout {
+  color: #004aad;
   background-color: white;
   border-radius: 2px;
   margin-left: 900px;
   padding: 3px;
 }
-.navbar ul li .logout span{
+
+.navbar ul li .logout span {
   font-size: 15px;
 }
+
 /* viewbutton */
 .view-btn {
   text-decoration: none;
@@ -73,4 +81,139 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* side filter */
+.filter {
+  font-family: 'Montserrat', sans-serif;
+  min-width: 300px;
+  border-radius: 2px;
+  background-color: #9090c8;
+}
+
+.filter_text {
+  color: black;
+  display: flex;
+  justify-content: center;
+  font-weight: 600;
+}
+
+.rangeslider,
+.rangeslider__fill {
+  display: block;
+  border-radius: 10px;
+}
+
+.rangeslider {
+  position: relative;
+}
+
+.rangeslider:after {
+  top: 0%;
+  left: 0;
+  right: 0;
+  content: '';
+  width: 100%;
+  height: 5px;
+  margin-top: -2.5px;
+  border-radius: 5px;
+  position: absolute;
+  background: #212131;
+}
+
+.rangeslider--horizontal {
+  width: 100%;
+  height: 28px;
+}
+
+.rangeslider--vertical {
+  width: 5px;
+  min-height: 150px;
+  max-height: 100%;
+}
+
+.rangeslider--disabled {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=40);
+  opacity: 0.4;
+}
+
+.rangeslider__fill {
+  position: absolute;
+  background: #ff637b;
+}
+
+.rangeslider--horizontal .rangeslider__fill {
+  top: 0;
+  height: 100%;
+}
+
+.rangeslider--vertical .rangeslider__fill {
+  bottom: 0;
+  width: 100%;
+}
+
+.rangeslider__handle {
+  top: 50%;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  margin-top: -14px;
+  background: white;
+  position: absolute;
+  background: #ff637b;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.rangeslider__handle:active {
+  background: #ff5a7b;
+}
+
+.rangeslider__fill,
+.rangeslider__handle {
+  z-index: 1;
+}
+
+.rangeslider--horizontal .rangeslider__fill {
+  top: 50%;
+  height: 5px;
+  margin-top: -2.5px;
+}
+
+.budget-wrap {
+  padding: 40px;
+}
+
+.budget-wrap .header .title {
+  font-size: 18px;
+  margin-bottom: 30px;
+  color: black;
+  margin-top: 20px;
+}
+
+.budget-wrap .header .title .pull-right {
+  color: #ff5a84;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+/* sidefilter button */
+.footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.footer .btn {
+  color: inherit;
+  padding: 12px 24px;
+  border-radius: 50px;
+  display: inline-block;
+  text-decoration: none;
+  border: none;
+}
+
+/* slider */
+mat-slider {
+  width: 200px;
 }
