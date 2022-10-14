@@ -90,7 +90,6 @@ button:focus {
 .navbar {
 height: 50px;
 width: 100%;
-/* background: rgba(0, 0, 0, 0.4); */
 background: #004aad;
 }
 
@@ -119,4 +118,12 @@ transition: .4s;
 
 .spinnerOverlay {
 	opacity: 0.4;
+}
+/* logout */
+.logout{
+	position: absolute;
+    top: 5px;
+    right: 10px;
+    border-radius: 2px;
+    padding: 3px;
 }
