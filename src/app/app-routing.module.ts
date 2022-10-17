@@ -16,6 +16,7 @@ import { AdminhomeComponent } from './components/adminhome/adminhome.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
+import { UserprofileComponent } from './components/userprofile/userprofile.component';
 import { BuyComponent } from './user/buy/buy.component';
 import { CommercialComponent } from './user/commercial/commercial.component';
 import { LeaseComponent } from './user/lease/lease.component';
@@ -49,6 +50,7 @@ const routes: Routes = [
   {path:'commercial',component:CommercialComponent,},
   {path:'plot',component:PlotComponent},
   {path:'pg',component:PgComponent},
+  {path:'userprofile',component:UserprofileComponent},
 // Agents
   {path:'agentlogin',component:AgentloginComponent},
   {path:'sidenav',component:SidenavComponent},

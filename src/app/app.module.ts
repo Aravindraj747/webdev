@@ -61,6 +61,7 @@ import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import {MatSelectModule} from "@angular/material/select";
 import { DialogComponent } from './admin/dialog/dialog.component';
 import { AgentProfileComponent } from './agent/agent-profile/agent-profile.component';
+import { UserprofileComponent } from './components/userprofile/userprofile.component';
 
 @NgModule({
   declarations: [
@@ -89,7 +90,8 @@ import { AgentProfileComponent } from './agent/agent-profile/agent-profile.compo
     AgentloginComponent,
     SafePipe,
     DialogComponent,
-    AgentProfileComponent
+    AgentProfileComponent,
+    UserprofileComponent
   ],
   entryComponents: [DialogComponent],
   imports: [

@@ -1,9 +1,11 @@
-export interface ProfileUser{
+export interface ProfileUser {
     uid:string;
-    email?:string;
-    name?:string;
+    name: string;
+    email: string;
+    password: string;
+    phoneNumber: string;
+    Address:string;
+    city:string;
+    state:string;
+    princode:string;
 }
-// export interface notes{
-//     id:string;
-//     name:string;
-// }
