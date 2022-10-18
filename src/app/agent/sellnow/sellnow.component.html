@@ -4,14 +4,14 @@
     <div class="wrapper" style="margin-top: 30px;">
         <div class="icon buy">
             <a [routerLink]="['/insurance']"
-               [queryParams]="{ type: 'insurance', vehicleType: 'car'}" style="text-decoration: none;">
+               [queryParams]="{ type: 'insurance', vehicleType: 'car', createdBy: 'Agent', createdByName: agent.name, createdByID: agent.email}" style="text-decoration: none;">
                 <span><i class="fa fa-car" aria-hidden="true" style="font-size:50px;margin-left:25px;line-height: 90px;"></i></span>
                 <div class="toolpit" style="color: black;margin-top: 15px;margin-left: 35px;">Car</div>
             </a>
         </div>
         <div class="icon buy">
             <a [routerLink]="['/insurance']"
-               [queryParams]="{ type: 'insurance', vehicleType: 'twoWheeler'}" style="text-decoration: none;">
+               [queryParams]="{ type: 'insurance', vehicleType: 'twoWheeler', createdBy: 'Agent', createdByName: agent.name, createdByID: agent.email}" style="text-decoration: none;">
                 <span class="i"><i class='fas fa-motorcycle' style="font-size:50px;margin-left:18px;line-height: 90px;"></i></span>
                 <div class="toolpit"style="color: black;margin-top: 15px;margin-left: 15px;">Two Wheeler</div>
             </a>

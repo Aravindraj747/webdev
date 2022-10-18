@@ -69,7 +69,7 @@ export class InsuranceComponent implements OnInit {
 
     ngOnInit(): void {
         this.activateRoute.queryParams.subscribe(params => {
-            console.log(params['type']);
+            console.log(params);
             this.insurance.vehicleType = params['vehicleType'];
             this.insurance.type = params['type'];
             this.insurance.createdBy = params['createdBy'];
