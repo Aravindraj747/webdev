@@ -1,0 +1,22 @@
+<!-- <app-sidenav></app-sidenav> -->
+
+<body>
+<div class="container">
+    <div class="form-container sign-in-container">
+        <form [class.spinnerOverlay]="spinnerActive" (submit)="submitClaim()">
+
+            <input [ngModelOptions]="{standalone: true}" [(ngModel)]="claim.customerName" type="text" placeholder="Name as per RC" name="name" required />
+            <input [ngModelOptions]="{standalone: true}" [(ngModel)]="claim.vehicleNumber" type="text" placeholder="Vehicle number">
+            <input [ngModelOptions]="{standalone: true}" [(ngModel)]="claim.policyNumber" type="text" placeholder="Policy Number">
+            <input [ngModelOptions]="{standalone: true}" [(ngModel)]="claim.emailID" type="text" placeholder="Email ID">
+            <input [ngModelOptions]="{standalone: true}" [(ngModel)]="claim.phoneNumber" type="text" placeholder="Phone Number">
+            <input [ngModelOptions]="{standalone: true}" [(ngModel)]="claim.vehicleType" type="text" placeholder="Vehicle Type">
+            <span>Vehicle Image <input class="input_file" type="file" placeholder="Vehicle image" (change)="chooseVehicle($event)"></span>
+            <!-- Claim -->
+            <span>CSR Photocopy<input class="input_file" type="file" arial-placeholder="CSR copy" (change)="chooseCSR($event)"></span>
+            <button (submit)="submitClaim()" type="submit">CREATE</button>
+        </form>
+        <mat-spinner *ngIf="spinnerActive" class="mat-spinner" diameter="60"></mat-spinner>
+    </div>
+</div>
+</body>

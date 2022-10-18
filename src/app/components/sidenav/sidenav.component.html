@@ -4,25 +4,19 @@
     <ul>
       <li>
         <img class="profile" src="../../../assets/agent.png" alt="avatar">
-        <span class="agent">Agent name and agent ID</span>
+        <span class="agent">{{agent?.name}}</span>
         <ul>
-          <li class="sub">
-            <span class="material-icons-outlined">
-              <mat-icon>account_balance</mat-icon>
-            </span>
-            <p>Account</p>
-          </li>
+<!--          <li class="sub">-->
+<!--            <span class="material-icons-outlined">-->
+<!--              <mat-icon>account_balance</mat-icon>-->
+<!--            </span>-->
+<!--            <p>Account</p>-->
+<!--          </li>-->
           <li class="sub">
             <span class="material-icons-outlined">
               <mat-icon>account_circle</mat-icon>
             </span>
-            <p (click)="viewProfile()">profile</p>
-          </li>
-          <li class="sub">
-            <span class="material-icons-outlined">
-              <mat-icon>cloud_download</mat-icon>
-            </span>
-            <p>download</p>
+            <p (click)="viewProfile()">Profile</p>
           </li>
           <li class="sub">
             <span class="material-icons-outlined">

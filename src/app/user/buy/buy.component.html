@@ -1,59 +1,65 @@
 <nav class="navbar">
-  <ul>
-    <li><a class="active">HAYAT AMN ENTERPRISES</a></li>
-    <li><a href="" class="logout"><span>Logout</span></a></li>
-  </ul>
+    <ul>
+        <li><a class="active">HAYAT AMN ENTERPRISES</a></li>
+        <li><a href="" class="logout"><span>Logout</span></a></li>
+    </ul>
 </nav>
 
 <body>
-  <aside class="filter">
+<aside class="filter">
     <span class="filter_text">Filters</span>
     <div class="budget-wrap">
-      <div class="budget">
-        <label>Location</label>
-        <br>
-        <input type="text" class="search" placeholder="Enter location to Search" style="margin-top:10px">
-        <div class="header">
-          <div class="title clearfix">Set your budget! <span class="pull-right"></span></div>
+        <div class="budget">
+            <label>Location</label>
+            <br>
+            <form class="example-form">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Enter the city</mat-label>
+                    <input [(ngModel)]="filterLocation" [ngModelOptions]="{standalone: true}" matInput placeholder="Ex. Chennai" value="">
+                </mat-form-field>
+            </form>
+            <div class="header">
+                <div class="title clearfix">Set your budget! <span class="pull-right"></span></div>
+            </div>
+            <mat-slider [(ngModel)]="filterPrice" class="input_range" thumbLabel [displayWith]="formatLabel" tickInterval="1000" step="1000"
+                        min="0"
+                        max="100000" aria-label="units">
+            </mat-slider>
         </div>
-        <mat-slider class="input_range" thumbLabel [displayWith]="formatLabel" tickInterval="1000" step="1000" min="0"
-          max="100000" aria-label="units"></mat-slider>
-      </div>
-      <label style="margin-top:20px;">BHK</label>
-      <br>
-      <mat-form-field style="margin-top:10px;">
-        <mat-label>Choose BHK</mat-label>
-        <select matNativeControl [disabled]="disableSelect.value">
-          <option value="" selected></option>
-          <option value="2">2 BHK</option>
-          <option value="3">3 BHK</option>
-          <option value="4">4 BHK</option>
-          <option value="5">5 BHK</option>
-        </select>
-      </mat-form-field>
+        <label style="margin-top:20px;">BHK</label>
+        <br>
+        <mat-form-field style="margin-top:10px;">
+            <mat-label>Choose BHK</mat-label>
+            <mat-select [(value)]="filterBHK">
+                <mat-option [value]="2">2 BHK</mat-option>
+                <mat-option [value]="3">3 BHK</mat-option>
+                <mat-option [value]="4">4 BHK</mat-option>
+                <mat-option [value]="5">5 BHK</mat-option>
+            </mat-select>
+        </mat-form-field>
     </div>
     <div class="footer clearfix">
-      <div class="pull-right">
-        <a href="javascript:void(0)" class="btn btn-def">Clear All</a>
-        <a href="javascript:void(0)" class="btn btn-def">Filter</a>
-      </div>
-    </div>
-  </aside>
-  <div class="content" style="padding: 16px;flex-grow: 1;">
-    <div fxLayout="row wrap" fxLayoutGap="16px grid">
-      <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let property of properties">
-        <div class="card">
-          <div class="card__header">
-            <img [src]="property.photo" alt="card__image" class="card__image">
-          </div>
-          <div class="card__body" style="margin-left:10px">
-            <p>Sq.Feet: {{property.sqFeet}}</p>
-            <p>Date: {{ property.date | date:'dd-MM-yyyy'}}</p>
-            <p>Rate: Rs {{property.amount}}</p>
-          </div>
-          <div><a href="" class="view-btn">View</a></div>
+        <div class="pull-right">
+            <a href="javascript:void(0)" (click)="clearAll()" class="btn btn-def">Clear All</a>
+            <button mat-flat-button color="primary" (click)="filter()">Filter</button>
         </div>
-      </div>
     </div>
-  </div>
+</aside>
+<div class="content" style="padding: 16px;flex-grow: 1;">
+    <div fxLayout="row wrap" fxLayoutGap="16px grid">
+        <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let property of properties">
+            <div class="card">
+                <div class="card__header">
+                    <img [src]="property.photo" alt="card__image" class="card__image">
+                </div>
+                <div class="card__body" style="margin-left:10px">
+                    <p>Sq.Feet: {{property.sqFeet}}</p>
+                    <p>Date: {{ property.date | date:'dd-MM-yyyy'}}</p>
+                    <p>Rate: Rs {{property.amount}}</p>
+                </div>
+                <div><a href="" class="view-btn">View</a></div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>

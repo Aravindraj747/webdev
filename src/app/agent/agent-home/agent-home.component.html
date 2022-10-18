@@ -3,24 +3,44 @@
   <h1 style="font-weight:bold;">Dashboard</h1>
   <div style="display:flex;">
     <div class="container">
-      <a class="card2">
-        <h3 class="policy-title-text">Total Policies</h3>
-        <p class="policy-text">32</p>
-        <div class="go-corner">
+
+        <div class="flip flip-vertical">
+          <div class="front">
+            <h3 class="policy-title-text">Total Policies</h3>
+            <p class="policy-text">{{ totalPolicies.length }}</p>
+            <div class="go-corner">
+            </div>
+          </div>
+          <div class="back">
+            <h2>Policies</h2>
+            <p>CAR {{ map.get('car') || 0 }}</p>
+            <p>Two wheeler {{ map.get('Two wheeler') }}</p>
+          </div>
         </div>
-      </a>
-      <a class="card2">
-        <h3 class="policy-title-text">Total Premimum</h3>
-        <p class="policy-text">10</p>
-        <div class="go-corner">
+
+<!--        <h3 class="policy-title-text">Total Policies</h3>-->
+<!--        <p class="policy-text">{{ totalPolicies.length }}</p>-->
+<!--        <div class="go-corner">-->
+<!--        </div>-->
+
+      <div class="flip flip-vertical" style="left: 10px">
+        <div class="front">
+          <h3 class="policy-title-text">Total Premium</h3>
+          <p class="policy-text">{{ totalAmount }}</p>
+          <div class="go-corner">
+          </div>
         </div>
-      </a>
-      <a class="card2">
-        <h3 class="policy-title-text">Total Renewals</h3>
-        <p class="policy-text">18</p>
-        <div class="go-corner">
+        <div class="back">
+          <h2>Premium</h2>
+          <p></p>
         </div>
-      </a>
+      </div>
+<!--      <a class="card2">-->
+<!--        <h3 class="policy-title-text">Total Renewals</h3>-->
+<!--        <p class="policy-text">18</p>-->
+<!--        <div class="go-corner">-->
+<!--        </div>-->
+<!--      </a>-->
     </div>
   </div>
   <h2 style="margin-top: 30px;display: flex;">Trending Videos</h2>

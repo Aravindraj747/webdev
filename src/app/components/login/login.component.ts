@@ -2,10 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormControlName, FormGroup, Validators } from '@angular/forms';
 
 import { Router } from '@angular/router';
-import { Console } from 'console';
-import { ColdObservable } from 'rxjs/internal/testing/ColdObservable';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {UsersService} from "../../services/users.service";
+import firebase from "firebase/compat";
+import {User} from "../../models/user";
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -29,7 +31,9 @@ export class LoginComponent implements OnInit {
   signUpSpinnerActive: boolean = false;
 
   constructor(public authService: AuthenticationService,
-              private route: Router, private _snackBar: MatSnackBar) {
+              private route: Router,
+              private _snackBar: MatSnackBar,
+              private userService: UsersService) {
    }
 
   ngOnInit(): void {
@@ -55,6 +59,7 @@ export class LoginComponent implements OnInit {
   get password(){
     return this.loginForm.get('password');
   }
+
   signIn(){
     const {email,password}=this.loginForm.value;
 
@@ -67,15 +72,29 @@ export class LoginComponent implements OnInit {
       return;
     }
     this.loginSpinnerActive = true;
-    this.authService.login(email,password).then((res)=>{
-      console.log(res)
-      this.route.navigate(['userhome']);
-    }, err => {
-      console.log('error', err);
-      this.openSnackBar('Invalid Email or password', 'Undo');
-      this.loginSpinnerActive = false;
+    this.userService.isUser(email).subscribe(res => {
+      console.log(res);
+      if (res.length > 0)
+      {
+        this.authService.login(email, password).then((res)=>{
+          console.log(res)
+          this.getUserDetails(email);
+          this.route.navigate(['userhome']);
+        }, err => {
+          console.log('error', err);
+          this.openSnackBar('Invalid Email or password', 'Undo');
+          this.loginSpinnerActive = false;
+        });
+        console.log(email,password);
+      }
+      else
+      {
+        this.openSnackBar('User does not exist', 'Retry');
+        this.loginSpinnerActive = false;
+        return;
+      }
     });
-    console.log(email,password);
+
   }
 
   signUp(){
@@ -97,13 +116,24 @@ export class LoginComponent implements OnInit {
       return;
     }
     this.signUpSpinnerActive = true;
+    const userID = Math.floor(Date.now()/1000).toString();
+    let user: User = {email: email, id: userID, name: name, password: password, phoneNumber: phoneNumber}
     this.authService.register(name,email,password).then((res)=>{
       console.log(res);
-      this.route.navigate(['userhome']);
+      this.userService.saveUser(user).then(res => {
+        this.userService.saveUserDetails(user);
+        this.route.navigate(['userhome']);
+      }).catch(err => {
+        this.openSnackBar('Error occurred', 'Retry');
+      });
     }, err => {
       console.log('Error', err);
       this.signUpSpinnerActive = false;
     });
+  }
+
+  async getUserDetails(email: string) {
+    await this.userService.getUser(email);
   }
 
   openSnackBar(message: string, action: string) {

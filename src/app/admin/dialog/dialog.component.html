@@ -1,5 +1,23 @@
-<!-- <p>dialog works!</p> -->
-<h2 mat-dialog-title>Choose the file to send</h2>
+<div *ngIf="insurance.rcImage.length != 0" style="display: flex">
+    <h3 mat-dialog-title> RC Book Photo</h3>
+    <a [href]="insurance.rcImage" style="margin-left: 30px; text-decoration: none" target="_blank">Download</a>
+</div>
+<div *ngIf="insurance.vehicleImage.length != 0" style="display: flex; margin-top: 40px">
+    <h3 mat-dialog-title> Vehicle Photo</h3>
+    <a [href]="insurance.vehicleImage" style="margin-left: 30px; text-decoration: none" target="_blank">Download</a>
+</div>
+
+<div *ngIf="insurance.csrImage.length != 0" style="display: flex; margin-top: 40px">
+    <h3 mat-dialog-title> CSR Photo</h3>
+    <a [href]="insurance.csrImage" style="margin-left: 30px; text-decoration: none" target="_blank">Download</a>
+</div>
+<div style="display: flex">
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Insurance Amount</mat-label>
+        <input [(ngModel)]="insurance.insuranceAmount" matInput placeholder="Ex. 10000">
+    </mat-form-field>
+</div>
+<h2 style="margin-top: 10px;">Choose the file to send</h2>
 <!-- <mat-dialog-content>Choose the file to send</mat-dialog-content>-->
 <input type="file" class="btn btn-primary" (change)="chooseFile($event)">
 <mat-dialog-actions>

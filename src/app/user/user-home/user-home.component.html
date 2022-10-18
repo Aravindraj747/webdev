@@ -7,13 +7,13 @@
       <ul>
         <li>
           <img class="profile" src="../../../assets/agent.png" alt="avatar">
-          <span class="agent">User name and Email</span>
+          <span class="agent">{{ user?.name }}</span>
           <ul>
             <li class="sub">
               <span class="material-icons-outlined">
                 <mat-icon>account_circle</mat-icon>
               </span>
-              <p (click)="viewProfile()">profile</p>
+              <p (click)="viewProfile()">Profile</p>
             </li>
             <li class="sub">
                 <span class="material-icons-outlined">
@@ -23,9 +23,9 @@
               </li>
             <li class="sub">
               <span class="material-icons-outlined">
-                <mat-icon>logout</mat-icon>
+                <mat-icon>Logout</mat-icon>
               </span>
-              <p>logout</p>
+              <p (click)="logout()">logout</p>
             </li>
           </ul>
         </li>
@@ -75,7 +75,8 @@
         </div>
         <!-- Only if user logged in -->
         <div class="icon">
-            <a href="insurance"  style="text-decoration: none;">
+            <a [routerLink]="['/insurance']"
+               [queryParams]="{ type: 'insurance', vehicleType: 'commercial', createdBy: 'User', createdByName: user?.name, createdByID: user?.email}" style="text-decoration: none;">
                 <span class="i"><mat-icon class="mat">home</mat-icon></span>
                 <div class="toolpit"style="color: black;margin-top: 15px;margin-left: 35px;">Policy</div>
             </a>

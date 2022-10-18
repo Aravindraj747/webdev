@@ -3,7 +3,9 @@
 <h1 style="display:flex;justify-content:center;font-weight:bold;margin-top: 10px;">Welcome Admin!</h1>
 <div class="container" style="margin-left:100px;margin-top: 10px;">
     <div class="header">
-        <a *ngFor="let type of types">{{type}}</a>
+        <a *ngFor="let type of types">
+            <button (click)="filterPolicies(type)" mat-button>{{ type }}</button>
+        </a>
     </div>
     <div class="row shadow-lg mb-5 bg-body rounded" style="margin-top:25px">
         <table class="table">
@@ -20,11 +22,11 @@
             <tbody>
             <tr *ngFor="let insurance of insurances">
                 <th scope="row">{{ insurance.id }}</th>
-                <td>Aravind</td>
+                <td>{{ insurance.vehicleName }}</td>
                 <td>{{ insurance.createdByName }}</td>
                 <td>{{ insurance.createdDate.toDate() | date:'dd-MM-yyyy'}}</td>
                 <td>{{ insurance.vehicleType }}</td>
-                <td><a class="view-btn" (click)="openDialog()">View</a></td>
+                <td><a class="view-btn" (click)="openDialog(insurance)">View</a></td>
             </tr>
             </tbody>
         </table>

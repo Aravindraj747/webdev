@@ -14,17 +14,20 @@ export class SidenavComponent implements OnInit {
 
   agent: Agent;
 
-  constructor(public authservice: AuthenticationService, private route: Router, private agentservice: AgentService) { 
-    this.agent=this.agentservice.agent;
+  constructor(public authService: AuthenticationService, private route: Router, private agentService: AgentService) {
+    this.agent=this.agentService.getAgentDetails();
+    console.log(this.agent);
   }
 
   ngOnInit(): void {
   }
+
   logout(){
-    this.authservice.logout().then(()=>{
+    this.authService.logout().then(()=>{
       this.route.navigate(['']);
     });
   }
+
   viewProfile(){
       this.route.navigate(['agentprofile']);
   }

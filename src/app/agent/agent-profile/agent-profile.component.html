@@ -1,5 +1,6 @@
 <app-sidenav></app-sidenav>
-<div class="content" style="margin-left:120px;">
+<div class="content" style="margin-left:250px;">
+    <mat-card>
     <h2>Basic Information</h2>
     <div class="container">
         <div class="row">
@@ -9,12 +10,13 @@
           <div class="col"><strong>Email</strong></div>
         </div>
         <div class="row" style="margin-top:10px">
-            <div class="col">{{agent.name}}</div>
-            <div class="col">{{agent.agentID}}</div>
-            <div class="col">{{agent.phoneNumber}}</div>
-            <div class="col">{{agent.email}}</div>
+            <div class="col">{{agent?.name}}</div>
+            <div class="col">{{agent?.agentID}}</div>
+            <div class="col">{{agent?.phoneNumber}}</div>
+            <div class="col">{{agent?.email}}</div>
         </div>
     </div>
+
     <div class="container"  >
         <div class="row" style="margin-top:40px;">
           <div class="col"><strong>Address</strong></div>
@@ -23,12 +25,14 @@
           <div class="col"><strong>Pincode</strong></div>
         </div>
         <div class="row" style="margin-top:10px">
-            <div class="col">{{agent.address}}</div>
-            <div class="col">{{agent.state}}</div>
-            <div class="col">{{agent.city}}</div>
-            <div class="col">{{agent.pinCode}}</div>
+            <div class="col">{{agent?.address}}</div>
+            <div class="col">{{agent?.state}}</div>
+            <div class="col">{{agent?.city}}</div>
+            <div class="col">{{agent?.pinCode}}</div>
         </div>
     </div>
+    </mat-card>
+    <mat-card style="margin-top: 20px">
     <h2 style="margin-top:20px;">Bank Information</h2>
     <div class="container" >
         <div class="row">
@@ -38,10 +42,10 @@
           <div class="col"><strong>Account number</strong></div>
         </div>
         <div class="row" style="margin-top:10px">
-            <div class="col">{{agent.ifscCode}}</div>
-            <div class="col">{{agent.bankAccountHolderName}}</div>
-            <div class="col">{{agent.bankName}}</div>
-            <div class="col">{{agent.accountNumber}}</div>
+            <div class="col">{{agent?.ifscCode}}</div>
+            <div class="col">{{agent?.bankAccountHolderName}}</div>
+            <div class="col">{{agent?.bankName}}</div>
+            <div class="col">{{agent?.accountNumber}}</div>
         </div>
     </div>
     <div class="container"  >
@@ -52,10 +56,11 @@
           <div class="col"></div>
         </div>
         <div class="row" style="margin-top:10px">
-            <div class="col">{{agent.bankCity}}</div>
-            <div class="col">{{agent.bankPinCode}}</div>
+            <div class="col">{{agent?.bankCity}}</div>
+            <div class="col">{{agent?.bankPinCode}}</div>
             <div class="col"></div>
             <div class="col"></div>
         </div>
     </div>
+    </mat-card>
 </div>

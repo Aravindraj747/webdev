@@ -25,6 +25,7 @@ import { PlotComponent } from './user/plot/plot.component';
 import { RentComponent } from './user/rent/rent.component';
 import { UserHomeComponent } from './user/user-home/user-home.component';
 import { UserpolicyComponent } from './user/userpolicy/userpolicy.component';
+import {ClaimComponent} from "./agent/claim/claim.component";
 const routes: Routes = [
   {
     path: '',
@@ -54,14 +55,15 @@ const routes: Routes = [
   {path: 'userprofile',component: UserprofileComponent},
   {path: 'userpolicy',component:  UserpolicyComponent},
 // Agents
-  {path: 'agentlogin',component: AgentloginComponent},
-  {path: 'sidenav',component: SidenavComponent},
-  {path: 'agenthome',component: AgentHomeComponent},
-  {path: 'sellnow',component: SellnowComponent},
-  {path: 'agent',component: AgentHomeComponent},
-  {path: 'lead',component: LeadComponent},
-  {path: 'insurance',component: InsuranceComponent},
-  {path: 'agentprofile',component: AgentProfileComponent},
+  {path:'agentlogin',component:AgentloginComponent},
+  {path:'sidenav',component:SidenavComponent},
+  {path:'agenthome',component:AgentHomeComponent},
+  {path:'sellnow',component:SellnowComponent},
+  {path:'agent',component:AgentHomeComponent},
+  {path:'lead',component:LeadComponent},
+  {path:'insurance',component:InsuranceComponent},
+  {path:'agentprofile',component:AgentProfileComponent},
+  {path:'claim',component:ClaimComponent}
 ];
 
 @NgModule({

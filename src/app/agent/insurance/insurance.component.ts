@@ -9,6 +9,7 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 import firebase from "firebase/compat/app";
 import Timestamp = firebase.firestore.Timestamp;
 import {AgentService} from "../../services/agent.service";
+import {Agent} from "../../models/agent";
 
 enum InsuranceImageType {
     vehicleImage = 'vehicleImage',
@@ -31,6 +32,7 @@ export class InsuranceComponent implements OnInit {
         id: "",
         type: this.insuranceType,
         createdDate: Timestamp.now(),
+        address: "",
         vehicleName: "",
         rcImage: "",
         vehicleType: "",
@@ -39,12 +41,22 @@ export class InsuranceComponent implements OnInit {
         vehicleNumber: "",
         policyNumber: "",
         createdBy: "",
-        createdByName: ""
+        createdByName: "",
+        emailID: "",
+        phoneNumber: "",
+        policyType: "",
+        insuranceAmount: "",
+        finalDocument: "",
+        createdByID: "",
+        customerName: "",
+        status: "INCOMPLETE"
     };
 
-    rcImageFile: any = {}
-    csrImageFile: any = {}
-    vehicleImageFile: any = {}
+    rcImageFile: any = undefined;
+    csrImageFile: any = {};
+    vehicleImageFile: any = undefined;
+    files: [any, InsuranceImageType][] = [];
+    agent: Agent;
 
     constructor(private route: Router,
                 private storage: AngularFireStorage,
@@ -52,6 +64,7 @@ export class InsuranceComponent implements OnInit {
                 private _snackBar: MatSnackBar,
                 private agentService: AgentService,
                 private activateRoute: ActivatedRoute) {
+        this.agent = this.agentService.getAgentDetails();
     }
 
     ngOnInit(): void {
@@ -59,6 +72,9 @@ export class InsuranceComponent implements OnInit {
             console.log(params['type']);
             this.insurance.vehicleType = params['vehicleType'];
             this.insurance.type = params['type'];
+            this.insurance.createdBy = params['createdBy'];
+            this.insurance.createdByName = params['createdByName'];
+            this.insurance.createdByID = params['createdByID'];
         });
     }
 
@@ -78,26 +94,29 @@ export class InsuranceComponent implements OnInit {
         return this.route.navigate(['sellnow']);
     }
 
-    submitInsurance() {
+    submitInsurance(policyType: string) {
         this.spinnerActive = true;
         this.current = 0;
         this.insurance.type = this.insuranceType;
-        this.insurance.createdByName = 'Admin';
-        this.insurance.createdBy = 'Agent';
+        this.insurance.policyType = policyType;
         this.insurance.createdDate = Timestamp.now();
         this.insurance.id = Math.floor(Date.now()/1000).toString();
-        if (this.agentService.agent != undefined)
-            this.insurance.createdByName = this.agentService.agent.name;
 
-        let files: [any, InsuranceImageType][] = [[this.rcImageFile, InsuranceImageType.rcImage],
-            [this.vehicleImageFile, InsuranceImageType.vehicleImage]];
+        this.files = [];
+        if (this.rcImageFile !== undefined) {
+            console.log(this.rcImageFile);
+            this.files.push([this.rcImageFile, InsuranceImageType.rcImage]);
+        }
+        if (this.vehicleImageFile !== undefined) {
+            this.files.push([this.vehicleImageFile, InsuranceImageType.vehicleImage]);
+        }
 
         if (this.insurance.type === 'Claim') {
             this.req = 3;
-            files.push([this.csrImageFile, InsuranceImageType.csrImage]);
+            this.files.push([this.csrImageFile, InsuranceImageType.csrImage]);
         }
         Promise.all(
-            files.map((item) => this.putStorageItem(item[0], item[1]))
+            this.files.map((item) => this.putStorageItem(item[0], item[1]))
         )
             .then((url) => {
                 console.log(`All success`);
@@ -125,10 +144,12 @@ export class InsuranceComponent implements OnInit {
                     this.insurance[imageType] = downloadURL;
                     this.current += 1;
                     this.spinnerActive = false
-                    this.openSnackBar('Insurance Saved', 'Undo');
-                    if (this.current === this.req) {
+                    // this.openSnackBar('Insurance Saved', 'Undo');
+                    if (this.current === this.files.length) {
+                        this.openSnackBar('Insurance Saved', 'Undo');
                         this.firestoreService.saveInsurance(this.insurance).then(res => {
                             console.log('saved');
+                            // this.openSnackBar('Insurance Saved', 'Undo');
                         }).catch(err => {
                             this.openSnackBar('Error Occurred while saving insurance', 'Retry');
                         }).finally( ()=> {

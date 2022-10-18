@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {AgentService} from "../../services/agent.service";
+import {Agent} from "../../models/agent";
 
 @Component({
   selector: 'app-sellnow',
@@ -7,7 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SellnowComponent implements OnInit {
 
-  constructor() { }
+  agent: Agent;
+
+  constructor(private agentService: AgentService) {
+    this.agent = this.agentService.getAgentDetails();
+  }
 
   ngOnInit(): void {
   }

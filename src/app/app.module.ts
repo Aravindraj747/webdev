@@ -63,6 +63,9 @@ import { DialogComponent } from './admin/dialog/dialog.component';
 import { AgentProfileComponent } from './agent/agent-profile/agent-profile.component';
 import { UserprofileComponent } from './components/userprofile/userprofile.component';
 import { UserpolicyComponent } from './user/userpolicy/userpolicy.component';
+import {MatCardModule} from "@angular/material/card";
+import {MatTabsModule} from "@angular/material/tabs";
+import { ClaimComponent } from './agent/claim/claim.component';
 
 @NgModule({
   declarations: [
@@ -93,37 +96,40 @@ import { UserpolicyComponent } from './user/userpolicy/userpolicy.component';
     DialogComponent,
     AgentProfileComponent,
     UserprofileComponent,
-    UserpolicyComponent
+    UserpolicyComponent,
+    ClaimComponent
   ],
   entryComponents: [DialogComponent],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    NgbModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatTableModule,
-    MatSliderModule,
-    MatDialogModule,
-    MatSnackBarModule,
-    AngularFireAuthModule,
-    MatFormFieldModule,
-    MatInputModule,
-    RouterModule,
-    FlexLayoutModule,
-    AngularFireModule,
-    FormsModule,
-    ReactiveFormsModule,
-    BrowserAnimationsModule,
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideFirestore(() => getFirestore()),
-    AngularFireModule.initializeApp(environment.firebase),
-    provideStorage(() => getStorage()),
-    MatProgressSpinnerModule,
-    MatSelectModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        NgbModule,
+        MatToolbarModule,
+        MatIconModule,
+        MatButtonModule,
+        MatSidenavModule,
+        MatTableModule,
+        MatSliderModule,
+        MatDialogModule,
+        MatSnackBarModule,
+        AngularFireAuthModule,
+        MatFormFieldModule,
+        MatInputModule,
+        RouterModule,
+        FlexLayoutModule,
+        AngularFireModule,
+        FormsModule,
+        ReactiveFormsModule,
+        BrowserAnimationsModule,
+        provideFirebaseApp(() => initializeApp(environment.firebase)),
+        provideFirestore(() => getFirestore()),
+        AngularFireModule.initializeApp(environment.firebase),
+        provideStorage(() => getStorage()),
+        MatProgressSpinnerModule,
+        MatSelectModule,
+        MatCardModule,
+        MatTabsModule
+    ],
   providers: [
     AuthGuardService,
     AdminAuthGuardService,

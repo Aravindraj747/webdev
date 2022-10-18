@@ -14,6 +14,9 @@ export class BuyComponent implements OnInit {
 
   disableSelect = new FormControl(false);
   properties: Property[];
+  filterLocation: string;
+  filterBHK: any;
+  filterPrice: any;
 
   constructor(private authService: AuthenticationService,
     private route: Router,
@@ -35,6 +38,7 @@ export class BuyComponent implements OnInit {
       this.route.navigate(['login']);
     })
   }
+
   formatLabel(value: number) {
     if (value >= 1000) {
       return Math.round(value / 1000) + 'K';
@@ -42,5 +46,20 @@ export class BuyComponent implements OnInit {
     else {
       return value;
     }
+  }
+
+  clearAll() {}
+
+  filter() {
+    console.log(this.filterBHK, this.filterLocation, this.filterPrice);
+    this.properties = [];
+    let propertyArray: Property[] = [];
+    this.firestoreService.getPropertyByFilter('buy', this.filterPrice, this.filterLocation).get().subscribe(res => {
+      res.forEach(function (doc) {
+        propertyArray.push(<Property>doc.data());
+        console.log(doc.data());
+      });
+    });
+    this.properties = propertyArray;
   }
 }

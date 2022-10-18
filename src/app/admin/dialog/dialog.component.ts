@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import { getDownloadURL, getStorage, ref, uploadBytesResumable } from 'firebase/storage';
 import { MatSnackBar } from "@angular/material/snack-bar";
+import { MAT_DIALOG_DATA } from "@angular/material/dialog";
+import {Insurance} from "../../models/insurance";
+import {FirestoreService} from "../../services/firestore.service";
 
 @Component({
   selector: 'app-dialog',
@@ -11,7 +14,15 @@ import { MatSnackBar } from "@angular/material/snack-bar";
 export class DialogComponent implements OnInit {
 
   uploadFile: any = {};
-  constructor(private route: Router, private _snackBar: MatSnackBar) { }
+  insurance: Insurance;
+
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any,
+              private route: Router,
+              private _snackBar: MatSnackBar,
+              private firestoreService: FirestoreService) {
+    console.log(data);
+    this.insurance = data['insurance'];
+  }
 
   ngOnInit(): void {
   }
@@ -44,13 +55,24 @@ export class DialogComponent implements OnInit {
         console.log(error.message);
       },
       () => {
-        getDownloadURL(uploadTask.snapshot.ref).then((downLoadURL) => {
-          console.log('files', downLoadURL);
-          this.openSnackBar('File uploaded','close')
+        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+          console.log('files', downloadURL);
+          this.saveDetails(downloadURL);
         });
       }
     )
   }
+
+  saveDetails(downloadUrl: string) {
+    this.insurance.finalDocument = downloadUrl;
+    console.log(this.insurance);
+    this.firestoreService.updateInsurance(this.insurance).then(res => {
+      this.openSnackBar('Insurance Saved', 'close');
+    }).then(err => {
+      this.openSnackBar('Insurance Saved', 'Retry');
+    });
+  }
+
   openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action, {
         verticalPosition: 'bottom',

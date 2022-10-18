@@ -18,13 +18,13 @@
         </div>
         <div class="icon buy">
             <a [routerLink]="['/insurance']"
-               [queryParams]="{ type: 'insurance', vehicleType: 'commercial'}" style="text-decoration: none;">
+               [queryParams]="{ type: 'insurance', vehicleType: 'commercial', createdBy: 'Agent', createdByName: agent.name, createdByID: agent.email}" style="text-decoration: none;">
                 <span><mat-icon>domain</mat-icon></span>
                 <div class="toolpit" style="color: black;margin-top: 15px;margin-left: 20px;">Commercial</div>
             </a>
         </div>
         <div class="icon buy">
-            <a href="insurance" style="text-decoration: none;">
+            <a href="claim" style="text-decoration: none;">
                 <span class="i"><i class="fa fa-home" aria-hidden="true" style="font-size:50px;margin-left:25px;line-height: 90px;"></i></span>
                 <div class="toolpit" style="color: black;margin-top: 15px; margin-left: 30px;">Claim</div>
             </a>

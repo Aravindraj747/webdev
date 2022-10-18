@@ -11,9 +11,9 @@ export class AgentProfileComponent implements OnInit {
 
   agent: Agent;
 
-  constructor(private agentservice: AgentService) { 
-    this.agent=this.agentservice.agent;
-    console.log(this.agentservice.agent);
+  constructor(private agentService: AgentService) {
+    this.agent = this.agentService.getAgentDetails();
+    console.log(this.agentService.agent);
   }
 
   ngOnInit(): void {

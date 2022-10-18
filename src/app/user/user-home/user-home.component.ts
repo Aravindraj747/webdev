@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import {User} from "../../models/user";
+import {UsersService} from "../../services/users.service";
+import {AuthenticationService} from "../../services/authentication.service";
 
 @Component({
   selector: 'app-user-home',
@@ -8,18 +11,26 @@ import { Router } from '@angular/router';
 })
 export class UserHomeComponent implements OnInit {
 
-  constructor(private route: Router) { }
+  user: User;
+
+  constructor(private route: Router, private userService: UsersService, private authService: AuthenticationService) {
+    this.user = this.userService.getUserDetails();
+  }
 
   ngOnInit(): void {
   }
 
-  logout(){
-    
+  logout() {
+    this.authService.logout().then(res => {
+      this.route.navigate(['/']);
+    })
   }
+
   viewProfile(){
     this.route.navigate(['userprofile']);
-}
-viewPolicy(){
-  this.route.navigate(['userpolicy']);
-}
+  }
+
+  viewPolicy(){
+    this.route.navigate(['userpolicy']);
+  }
 }

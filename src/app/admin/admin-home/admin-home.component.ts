@@ -5,7 +5,6 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 import { DialogComponent } from '../dialog/dialog.component';
 import {FirestoreService} from "../../services/firestore.service";
 import {Insurance} from "../../models/insurance";
-import {Agent} from "../../models/agent";
 
 @Component({
   selector: 'app-admin-home',
@@ -25,13 +24,8 @@ export class AdminHomeComponent implements OnInit {
               private dialog: MatDialog) { }
 
   ngOnInit(): void {
-    const insuranceArray: Insurance[] = []
-    this.firestoreService.getInsurance().ref.get().then(res => {
-      res.forEach(function(doc) {
-        insuranceArray.push(<Insurance>doc.data());
-      });
-    });
-    this.insurances = insuranceArray;
+    this.getAllPolicies();
+    console.log(this.insurances);
   }
 
   logout(){
@@ -39,10 +33,42 @@ export class AdminHomeComponent implements OnInit {
       this.route.navigate(['admin']);
     });
   }
-  openDialog(){
+
+  getAllPolicies() {
+    const insuranceArray: Insurance[] = []
+    this.firestoreService.getAllPolicies().ref.get().then(res => {
+      console.log(res);
+      res.forEach(function(doc) {
+        insuranceArray.push(<Insurance>doc.data());
+      });
+    });
+    this.insurances = []
+    this.insurances = insuranceArray;
+    console.log(this.insurances);
+  }
+
+  filterPolicies(status: string) {
+    if (status === 'ALL') {
+      this.getAllPolicies();
+      return
+    }
+    const insuranceArray: Insurance[] = []
+    this.firestoreService.getPoliciesByStatus(status).get().then(res => {
+      console.log(res);
+      res.forEach(function(doc) {
+        insuranceArray.push(<Insurance>doc.data());
+      });
+    });
+    this.insurances = []
+    this.insurances = insuranceArray;
+    console.log(this.insurances);
+  }
+
+  openDialog(insurance: Insurance){
     return this.dialog.open(DialogComponent,{
-    //   height: '200px',
-    // width: '300x',
+      data: {
+        insurance: insurance
+      }
     });
   }
 }

@@ -23,21 +23,24 @@
         <th>Mobile number</th>
         <th>Insurance name</th>
         <th>Plan name</th>
-        <th>Product</th>
+        <th>Type</th>
         <th class="action">Actions</th>
         </tr>
         </thead>
         <tbody>
-        <tr>
-        <th scope="row">21324354</th>
-        <td>Aravind</td>
+        <tr *ngFor="let policy of allPolicies">
+        <th scope="row">{{ policy.id }}</th>
+        <td>{{ policy.customerName }}</td>
         <td>Sai</td>
-        <td>2022-09-18</td>
-        <td>90XXXXXX98</td>
+        <td>{{ policy.createdDate.toDate() | date:'dd-MM-yyyy'}}</td>
+        <td>{{ policy.phoneNumber }}</td>
         <td>Bajaj</td>
-        <td>Standard</td>
-        <td>Car</td>
-        <td><button type="button" class="btn btn-primary"><span>Change</span></button><button type="button" class="btn btn-success"><span>Success</span></button></td>
+        <td>{{ policy.policyType }}</td>
+        <td>{{ policy.type }}</td>
+        <td>
+<!--            <button type="button" class="btn btn-primary"><span>Change</span></button>-->
+            <a [href]="policy.finalDocument" style="text-decoration: none; margin-left: 20px;" target="_blank">Download</a>
+<!--            <button type="button" class="btn btn-success"><span>Success</span></button></td>-->
         </tr>
         <tr>
         <th scope="row">24334456</th>
@@ -48,18 +51,10 @@
         <td>Bajaj</td>
         <td>Standard</td>
         <td>Commercial</td>
-        <td><button type="button" class="btn btn-primary"><span>Change</span></button><button type="button" class="btn btn-success"><span>Success</span></button></td>
-        </tr>
-        <tr>
-        <th scope="row">33456578</th>
-        <td>Ramana</td>
-        <td>Ram</td>
-        <td>2022-09-18</td>
-        <td>90XXXXXX98</td>
-        <td>Royal</td>
-        <td>Standard</td>
-        <td>Car</td>
-        <td><button type="button" class="btn btn-primary"><span>Change</span></button><button type="button" class="btn btn-success"><span>Success</span></button></td>
+        <td>
+<!--            <button type="button" class="btn btn-primary"><span>Change</span></button>-->
+            <a href="#" style="text-decoration: none; margin-left: 20px" target="_blank">Download</a>
+<!--            <button type="button" class="btn btn-success"><span>Success</span></button></td>-->
         </tr>
         </tbody>
         </table>

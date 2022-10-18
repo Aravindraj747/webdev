@@ -8,37 +8,19 @@
                         <thead>
                             <tr>
                                 <th>Policy ID</th>
-                                <th>Policy Type</th>
+                                <th>Type</th>
                                 <th>Created On</th>
-                                <th>Insurance type</th>
-                                <th>Plan</th>
-                                <th>Product</th>
+                                <th>Amount</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row">21324354</th>
-                                <td>Type</td>
-                                <td>2022-09-18</td>
-                                <td>Insurance type</td>
-                                <td>policy plan</td>
-                                <td>product</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">21324354</th>
-                                <td>Type</td>
-                                <td>2022-09-18</td>
-                                <td>Insurance type</td>
-                                <td>policy plan</td>
-                                <td>product</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">21324354</th>
-                                <td>Type</td>
-                                <td>2022-09-18</td>
-                                <td>Insurance type</td>
-                                <td>policy plan</td>
-                                <td>product</td>
+                            <tr *ngFor="let policy of allPolicies">
+                                <th scope="row">{{ policy.id }}</th>
+                                <td>{{ policy.policyType }}</td>
+                                <td>{{ policy.createdDate.toDate() | date:'dd-MM-yyyy'}}</td>
+                                <td>{{ policy.insuranceAmount }}</td>
+                                <td><button mat-raised-button>Download</button></td>
                             </tr>
                         </tbody>
                     </table>

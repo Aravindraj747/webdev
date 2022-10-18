@@ -3,6 +3,7 @@ import {AngularFirestore} from "@angular/fire/compat/firestore";
 import {Insurance} from "../models/insurance";
 import { Agent } from "../models/agent";
 import {Property} from "../models/property";
+import {Claim} from "../models/claim";
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,7 @@ export class FirestoreService {
   }
 
   saveInsurance(insurance: Insurance) {
-    return this.firestore.collection('insurance').add(insurance);
+    return this.firestore.collection('insurance').doc(insurance.id).set(insurance);
   }
 
   getInsurance() {
@@ -33,5 +34,46 @@ export class FirestoreService {
 
   getProperty(type: string) {
     return this.firestore.collection('property', ref => ref.where('type', '==', type));
+  }
+
+  updateInsurance(insurance: Insurance) {
+    console.log(insurance.id);
+    let data = {
+      'finalDocument': insurance.finalDocument,
+      'insuranceAmount': insurance.insuranceAmount,
+      'status': 'COMPLETED'
+    }
+    return this.firestore.collection('insurance').doc(insurance.id).update(data);
+  }
+
+  getPropertyByFilter(type: string, price: string, location: string) {
+    return this.firestore.collection('property', ref => {
+      if (type !== undefined && type !== '') {
+        ref.where('type', '==', type)
+      }
+      if (location !== undefined && location !== '') {
+        ref.where('location', '==', location);
+      }
+      if (price !== undefined && price !== '0') {
+        ref.where('amount', '<=', price)
+      }
+      return ref;
+    })
+  }
+
+  getPolicies(id: string) {
+    return this.firestore.collection('insurance').ref.where('createdByID', '==', id);
+  }
+
+  saveClaim(claim: Claim) {
+    return this.firestore.collection('claim').doc(claim.id).set(claim);
+  }
+
+  getPoliciesByStatus(status: string) {
+    return this.firestore.collection('insurance').ref.where( 'status', '==', status);
+  }
+
+  getAllPolicies() {
+    return this.firestore.collection('insurance');
   }
 }
