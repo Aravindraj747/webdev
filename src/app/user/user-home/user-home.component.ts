@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-home',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserHomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: Router) { }
 
   ngOnInit(): void {
   }
@@ -15,4 +16,10 @@ export class UserHomeComponent implements OnInit {
   logout(){
     
   }
+  viewProfile(){
+    this.route.navigate(['userprofile']);
+}
+viewPolicy(){
+  this.route.navigate(['userpolicy']);
+}
 }

@@ -24,42 +24,44 @@ import { PgComponent } from './user/pg/pg.component';
 import { PlotComponent } from './user/plot/plot.component';
 import { RentComponent } from './user/rent/rent.component';
 import { UserHomeComponent } from './user/user-home/user-home.component';
+import { UserpolicyComponent } from './user/userpolicy/userpolicy.component';
 const routes: Routes = [
   {
-    path:'',
-    pathMatch:'full',
-    component:HomeComponent
+    path: '',
+    pathMatch: 'full',
+    component: HomeComponent
   },
-  {path:'login',component:LoginComponent,},
-  {path:'home',component:HomeComponent,
+  {path: 'login',component: LoginComponent,},
+  {path: 'home',component: HomeComponent,
     // canActivate:[AuthGuardService]
   },
-  {path:'admin',component:AdminhomeComponent},
+  {path: 'admin',component: AdminhomeComponent},
 // Admin
-  {path:'adminlogin',component:AdminComponent},
-  {path:'adminhome',component:AdminHomeComponent},
-  {path:'agent',component:AgentComponent},
-  {path:'agent-create',component:AgentCreationComponent},
-  {path:'leads',component:LeadsComponent},  
-  {path:'adminsidenav',component:AdminsidenavComponent},
+  {path: 'adminlogin',component: AdminComponent},
+  {path: 'adminhome',component: AdminHomeComponent},
+  {path: 'agent',component: AgentComponent},
+  {path: 'agent-create',component: AgentCreationComponent},
+  {path: 'leads',component: LeadsComponent},  
+  {path: 'adminsidenav',component: AdminsidenavComponent},
 // Users
-  {path:'userhome',component:UserHomeComponent},
-  {path:'buy',component:BuyComponent},
-  {path:'rent',component:RentComponent},
-  {path:'lease',component:LeaseComponent},
-  {path:'commercial',component:CommercialComponent,},
-  {path:'plot',component:PlotComponent},
-  {path:'pg',component:PgComponent},
-  {path:'userprofile',component:UserprofileComponent},
+  {path: 'userhome',component: UserHomeComponent},
+  {path: 'buy',component: BuyComponent},
+  {path: 'rent',component: RentComponent},
+  {path: 'lease',component: LeaseComponent},
+  {path: 'commercial',component: CommercialComponent,},
+  {path: 'plot',component: PlotComponent},
+  {path: 'pg',component: PgComponent},
+  {path: 'userprofile',component: UserprofileComponent},
+  {path: 'userpolicy',component:  UserpolicyComponent},
 // Agents
-  {path:'agentlogin',component:AgentloginComponent},
-  {path:'sidenav',component:SidenavComponent},
-  {path:'agenthome',component:AgentHomeComponent},
-  {path:'sellnow',component:SellnowComponent},
-  {path:'agent',component:AgentHomeComponent},
-  {path:'lead',component:LeadComponent},
-  {path:'insurance',component:InsuranceComponent},
-  {path:'agentprofile',component:AgentProfileComponent},
+  {path: 'agentlogin',component: AgentloginComponent},
+  {path: 'sidenav',component: SidenavComponent},
+  {path: 'agenthome',component: AgentHomeComponent},
+  {path: 'sellnow',component: SellnowComponent},
+  {path: 'agent',component: AgentHomeComponent},
+  {path: 'lead',component: LeadComponent},
+  {path: 'insurance',component: InsuranceComponent},
+  {path: 'agentprofile',component: AgentProfileComponent},
 ];
 
 @NgModule({

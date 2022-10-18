@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Agent } from 'src/app/models/agent';
-import { AgentService } from 'src/app/services/agent.service';
+import { Router } from '@angular/router';
+import { UserProfile } from 'firebase/auth';
+import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-userprofile',
@@ -9,14 +10,19 @@ import { AgentService } from 'src/app/services/agent.service';
 })
 export class UserprofileComponent implements OnInit {
 
-  agent: Agent;
+  user: UserProfile;
   
-  constructor(private agentservice: AgentService) { 
-    this.agent=this.agentservice.agent;
-    console.log(this.agentservice.agent);
+  constructor(private userservice:UsersService ,private route:Router) { 
+    // this.user=this.userservice.user;
+    // console.log(this.userservice.user);
   }
 
   ngOnInit(): void {
   }
-
+  viewProfile(){
+    this.route.navigate(['userprofile']);
+}
+viewPolicy(){
+  this.route.navigate(['userpolicy']);
+}
 }

@@ -62,6 +62,7 @@ import {MatSelectModule} from "@angular/material/select";
 import { DialogComponent } from './admin/dialog/dialog.component';
 import { AgentProfileComponent } from './agent/agent-profile/agent-profile.component';
 import { UserprofileComponent } from './components/userprofile/userprofile.component';
+import { UserpolicyComponent } from './user/userpolicy/userpolicy.component';
 
 @NgModule({
   declarations: [
@@ -91,7 +92,8 @@ import { UserprofileComponent } from './components/userprofile/userprofile.compo
     SafePipe,
     DialogComponent,
     AgentProfileComponent,
-    UserprofileComponent
+    UserprofileComponent,
+    UserpolicyComponent
   ],
   entryComponents: [DialogComponent],
   imports: [
