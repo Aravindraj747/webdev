@@ -76,4 +76,8 @@ export class FirestoreService {
   getAllPolicies() {
     return this.firestore.collection('insurance');
   }
+
+  getPoliciesCreatedBy(createdBy: string) {
+    return this.firestore.collection('insurance').ref.where('createdBy', '==', createdBy);
+  }
 }

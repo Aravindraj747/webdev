@@ -3,7 +3,9 @@
 <h1 style="display:flex;justify-content:center;font-weight:bold;margin-top: 10px;">Welcome Admin!</h1>
 <div class="container" style="margin-top:10px;margin-left: 100px;">
   <div class="header">
-    <a *ngFor="let type of types">{{type}}</a>
+    <a *ngFor="let type of types">
+      <button (click)="filterPolicies(type)" mat-button>{{ type }}</button>
+    </a>
   </div>
   <div class="row shadow-lg p-3 mb-5 bg-body rounded" style="margin-top:25px;width: 95%;">
     <div class="col-md-12">
@@ -20,30 +22,14 @@
     </tr>
     </thead>
     <tbody>
-    <tr>
-    <th scope="row">21324354</th>
-    <td>Aravind</td>
-    <td>Sai</td>
-    <td>2022-09-18</td>
-    <td>Car</td>
-    <td><a href="" class="view-btn">View</a></td>
+    <tr *ngFor="let insurance of policies">
+      <th scope="row">{{ insurance.id }}</th>
+      <td>{{ insurance.customerName }}</td>
+      <td>{{ insurance.createdByName }}</td>
+      <td>{{ insurance.createdDate.toDate() | date:'dd-MM-yyyy'}}</td>
+      <td>{{ insurance.vehicleType }}</td>
+      <td><a class="view-btn" style="cursor:pointer;" (click)="openDialog(insurance)">View</a></td>
     </tr>
-    <tr>
-    <th scope="row">21324354</th>
-    <td>Vignesh</td>
-    <td>Sasi</td>
-    <td>2022-09-18</td>
-    <td>Car</td>
-    <td><a href="" class="view-btn">View</a></td>
-    </tr>
-    <tr>
-      <th scope="row">21324354</th>
-      <td>Vignesh</td>
-      <td>Sasi</td>
-      <td>2022-09-18</td>
-      <td>Car</td>
-      <td><a href="" class="view-btn">View</a></td>
-      </tr>
     </tbody>
     </table>
     </div>
