@@ -6,6 +6,7 @@ import {FirestoreService} from "../../services/firestore.service";
 import {AgentService} from "../../services/agent.service";
 import {Agent} from "../../models/agent";
 import {Property} from "../../models/property";
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-agent-home',
@@ -25,7 +26,9 @@ export class AgentHomeComponent implements OnInit {
 
     constructor(private firestore: AngularFirestore,
                 private firestoreService: FirestoreService,
-                private agentService: AgentService) {
+                private agentService: AgentService,
+                private authService: AuthenticationService) {
+        console.log('agenthome:',this.authService.isAgentLogin);
         this.firestore.collection<{url: string, title: string}>("youtubeVideos").valueChanges()
             .subscribe(res => {
                 console.log(res);

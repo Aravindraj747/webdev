@@ -803,7 +803,7 @@ h6{
 --------------------------------*/
 
 #call-to-action {
-  background: #2d2b46;
+  background: #c40404;
   background-size: cover;
   padding: 40px 0;
 }
@@ -1767,7 +1767,7 @@ h6{
 
 .footer-container{
   width: 100%;
-  background: #3D444A;
+  background: #020069;
   color: #fff;
 }
 
@@ -1777,7 +1777,7 @@ h6{
   content: "";
   width: 40px;
   height: 40px;
-  background-color: #3D444A;
+  background-color: #020069;
   position: absolute;
   top: -39px;
   left: 0;

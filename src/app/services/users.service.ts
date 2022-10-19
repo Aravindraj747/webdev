@@ -56,7 +56,11 @@ export class UsersService {
   }
 
   isUser(id: string) {
-      return this.angularFirestore.collection('users', ref => ref.where('email', "==", id)).snapshotChanges();
+      return this.angularFirestore.collection('users', ref => ref.where('email', "==", id)).get();
+  }
+
+  isAdmin(id:string){
+      return this.angularFirestore.collection('admin',ref=> ref.where("email", "==",id)).get();
   }
 
   saveUserDetails(user: User) {

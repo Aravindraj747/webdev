@@ -23,12 +23,16 @@ export class SidenavComponent implements OnInit {
   }
 
   logout(){
-    this.authService.logout().then(()=>{
-      this.route.navigate(['']);
+    this.authService.agentLogout().then(()=>{
+      this.route.navigate(['agentlogin']);
     });
   }
 
   viewProfile(){
       this.route.navigate(['agentprofile']);
+  }
+
+  sellnow(){
+    return this.route.navigate(['sellnow']);
   }
 }

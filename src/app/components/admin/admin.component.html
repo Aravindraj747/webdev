@@ -1,13 +1,13 @@
 <div class="container">  
-  <div class="background">
+  <!-- <div class="background">
       <div class="shape"></div>
       <div class="shape"></div>
-  </div>
+  </div> -->
   <form [formGroup]="adminForm" (ngSubmit)="submit()" >
       <h3>ADMIN LOGIN</h3>
 
       <label for="username">Username</label>
-      <input type="text" name="email" formControlName="email" placeholder="Email" id="username" required>
+      <input type="text" name="email" formControlName="email" placeholder="john@gmail.com" id="username" required>
 
       <label for="password">Password</label>
       <input type="password" placeholder="Password" name="password" formControlName="password" id="password" required>

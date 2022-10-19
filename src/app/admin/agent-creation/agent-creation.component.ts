@@ -120,7 +120,7 @@ export class AgentCreationComponent implements OnInit {
           this.firestoreService.saveAgent(this.agent)
               .then(res => {
                 console.log("Agent Saved");
-                this.openSnackBar("User Created Successfully", "Close");
+                this.openSnackBar("Agent Created Successfully", "Close");
                 this.signUpSpinnerActive = false;
               }, err => {
                 this.openSnackBar("Error Occurred while saving agent", "Retry");

@@ -74,7 +74,7 @@ export class LoginComponent implements OnInit {
     this.loginSpinnerActive = true;
     this.userService.isUser(email).subscribe(res => {
       console.log(res);
-      if (res.length > 0)
+      if (res.docs.length > 0)
       {
         this.authService.login(email, password).then((res)=>{
           console.log(res)

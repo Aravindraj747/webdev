@@ -20,6 +20,9 @@ export class UserHomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  buy(){
+    return this.route.navigate(['buy']);
+  }
   logout() {
     this.authService.logout().then(res => {
       this.route.navigate(['/']);

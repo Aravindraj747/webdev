@@ -12,6 +12,7 @@ import {AgentService} from "../../services/agent.service";
 })
 export class AgentloginComponent implements OnInit {
 
+    // isAgentLogin:boolean = false;
     loginSpinnerActive: boolean = false;
     agentForm = new FormGroup({
         email: new FormControl('', [Validators.required, Validators.email]),
@@ -46,10 +47,12 @@ export class AgentloginComponent implements OnInit {
           return;
         }
         this.loginSpinnerActive = true;
-        this.authService.login(email, password).then((res) => {
-            console.log(res.user);
+        this.authService.agentLogin(email, password).then((res) => {
+            // console.log(res.user);
             this.getAgentDetails(email);
             console.log('user got')
+            // this.isAgentLogin=true;
+            this.getAgentDetails(email);
             return this.route.navigate(['agenthome']);
         }).catch(err => {
             this.openSnackBar('Unable to login', 'Retry');

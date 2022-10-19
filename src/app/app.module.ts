@@ -8,8 +8,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule} from '@angular/router';
 import { environment } from '../environments/environment';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AuthGuardService } from './services/auth-guard.service';
-import { AdminAuthGuardService } from './services/admin-auth-guard.service';
+import { AgentAuthGuardService } from './services/Agent-auth-guard.service';
+import { UserAuthGuardService} from './services/user-auth-guard.service';
 
 //Firebase 
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
@@ -131,8 +131,8 @@ import { ClaimComponent } from './agent/claim/claim.component';
         MatTabsModule
     ],
   providers: [
-    AuthGuardService,
-    AdminAuthGuardService,
+    AgentAuthGuardService,
+    UserAuthGuardService,
   ],
   bootstrap: [AppComponent]
 })

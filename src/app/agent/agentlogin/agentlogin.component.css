@@ -19,15 +19,15 @@
     position: absolute;
     border-radius: 50%;
 }
-.shape:first-child{
+/* .shape:first-child{
     background: linear-gradient(
         #1845ad,
         #23a2f6
     );
     left: -80px;
     top: -80px;
-}
-.shape:last-child{
+} */
+/* .shape:last-child{
     background: linear-gradient(
         to right,
         #ff512f,
@@ -35,7 +35,7 @@
     );
     right: -30px;
     bottom: -80px;
-}
+} */
 form{
     height: 520px;
     width: 400px;
@@ -81,7 +81,7 @@ input{
     font-weight: 300;
 }
 ::placeholder{
-    color: #e5e5e5;
+    color: #565353;
 }
 button{
     margin-top: 50px;

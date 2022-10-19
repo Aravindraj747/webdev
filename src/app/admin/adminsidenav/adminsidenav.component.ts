@@ -15,7 +15,7 @@ export class AdminsidenavComponent implements OnInit {
   }
   logout(){
     this.authservice.logout().then(()=>{
-      return this.route.navigate(['admin']);
+      return this.route.navigate(['adminlogin']);
     });
   }
 }

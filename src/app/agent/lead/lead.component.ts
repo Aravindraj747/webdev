@@ -20,7 +20,7 @@ export class LeadComponent implements OnInit {
 
   ngOnInit(): void {
     let policyArray: Insurance[] = []
-    this.firestoreService.getPolicies(this.agent.agentID).get().then(res => {
+    this.firestoreService.getPolicies(this.agent.email).get().then(res => {
       res.forEach(function (doc) {
         policyArray.push(<Insurance>doc.data());
         console.log(doc.data());
