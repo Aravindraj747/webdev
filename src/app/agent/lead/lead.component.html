@@ -34,7 +34,12 @@
         <td>{{ policy.type }}</td>
         <td>
 <!--            <button type="button" class="btn btn-primary"><span>Change</span></button>-->
-            <a [href]="policy.finalDocument" style="text-decoration: none; margin-left: 20px;" target="_blank">Download</a>
+            <ng-template [ngIf]="policy.finalDocument === ''">
+                <button disabled mat-flat-button>Download</button>
+            </ng-template>
+            <ng-template [ngIf]="policy.finalDocument !== ''">
+                <a [href]="policy.finalDocument" style="text-decoration: none; margin-left: 20px;" target="_blank">Download</a>
+            </ng-template>
 <!--            <button type="button" class="btn btn-success"><span>Success</span></button></td>-->
         </tr>
         </tbody>

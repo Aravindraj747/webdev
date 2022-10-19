@@ -14,6 +14,7 @@ import {Agent} from "../models/agent";
 export class UsersService {
 
     user: User;
+    userLoggedIn: string;
 
   get currentUserProfile$():Observable<ProfileUser | null>{
     return this.authservice.currentUser$.pipe(
@@ -51,8 +52,16 @@ export class UsersService {
       this.angularFirestore.collection('users').doc<User>(id).get().subscribe(res => {
           this.user = <User>res.data();
           console.log(res.data());
+          sessionStorage.setItem('userLogin', 'true');
           sessionStorage.setItem('userData', JSON.stringify(this.user));
       });
+  }
+
+  getAgentLogin() {
+      if (this.userLoggedIn === undefined) {
+          this.userLoggedIn = sessionStorage.getItem('userLogin')!;
+      }
+      return this.userLoggedIn;
   }
 
   isUser(id: string) {

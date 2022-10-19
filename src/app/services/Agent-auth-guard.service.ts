@@ -9,7 +9,7 @@ import { AuthenticationService } from './authentication.service';
 })
 export class AgentAuthGuardService implements CanActivate {
 
-  constructor(private authservice: AuthenticationService, private route: Router, private agentService: AgentService) {
+  constructor(private authService: AuthenticationService, private route: Router, private agentService: AgentService) {
   }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {

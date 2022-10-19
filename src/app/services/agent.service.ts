@@ -9,17 +9,14 @@ export class AgentService {
 
   agent: Agent;
 
-  isAgent: string = 'false';
+  isAgent: string;
 
   constructor(private firestore: AngularFirestore) { }
 
   getAgent(email: string) {
     this.firestore.collection('agent').doc<Agent>(email).get().subscribe(res => {
       this.agent = <Agent>res.data();
-      console.log(res.data());
-      this.isAgent = 'true';
-      console.log('getisAgent', this.isAgent);
-      sessionStorage.setItem('agentLogin', JSON.stringify(this.isAgent))
+      sessionStorage.setItem('agentLogin', this.isAgent);
       sessionStorage.setItem('agentData', JSON.stringify(this.agent));
     });
   }
@@ -32,9 +29,13 @@ export class AgentService {
   }
 
   getAgentLogin() {
-    if (this.isAgent == undefined) {
-      this.isAgent = JSON.parse(sessionStorage.getItem('agentLogin')!);
+    if (this.isAgent === undefined) {
+      this.isAgent = sessionStorage.getItem('agentLogin')!;
     }
     return this.isAgent;
+  }
+
+  checkIfAgent(id:string){
+    return this.firestore.collection('agent',ref=> ref.where("email", "==",id)).get();
   }
 }

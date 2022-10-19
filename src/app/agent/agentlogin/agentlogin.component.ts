@@ -4,6 +4,7 @@ import {Router} from '@angular/router';
 import {AuthenticationService} from 'src/app/services/authentication.service';
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {AgentService} from "../../services/agent.service";
+import {timeSinceInMicros} from "@angular/compiler-cli/src/ngtsc/perf/src/clock";
 
 @Component({
     selector: 'app-agentlogin',
@@ -47,17 +48,27 @@ export class AgentloginComponent implements OnInit {
           return;
         }
         this.loginSpinnerActive = true;
-        this.authService.agentLogin(email, password).then((res) => {
-            // console.log(res.user);
-            this.getAgentDetails(email);
-            console.log('user got')
-            // this.isAgentLogin=true;
-            this.getAgentDetails(email);
-            return this.route.navigate(['agenthome']);
-        }).catch(err => {
-            this.openSnackBar('Unable to login', 'Retry');
-            this.loginSpinnerActive = false;
+        console.log(email);
+        this.agentService.checkIfAgent(email).subscribe(res => {
+            this.agentService.isAgent = 'true';
+            console.log(res);
+            if (res.docs.length > 0){
+                this.authService.agentLogin(email, password).then((res) => {
+                    // console.log(res.user);
+                    this.getAgentDetails(email);
+                    console.log('admin got')
+                    this.route.navigate(['/agenthome']);
+                    console.log('navigation is not working')
+                }).catch(err => {
+                    this.openSnackBar('Unable to login', 'Retry');
+                    this.loginSpinnerActive = false;
+                })
+            } else {
+                this.openSnackBar('Errored Occurred', 'Retry');
+                this.loginSpinnerActive = false;
+            }
         })
+
     }
 
     async getAgentDetails(email: string) {
