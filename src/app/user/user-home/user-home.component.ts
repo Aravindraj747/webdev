@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {User} from "../../models/user";
-import {UsersService} from "../../services/users.service";
-import {AuthenticationService} from "../../services/authentication.service";
+import { User } from "../../models/user";
+import { UsersService } from "../../services/users.service";
+import { AuthenticationService } from "../../services/authentication.service";
 
 @Component({
   selector: 'app-user-home',
@@ -11,29 +11,31 @@ import {AuthenticationService} from "../../services/authentication.service";
 })
 export class UserHomeComponent implements OnInit {
 
+  isUserLogin:boolean=false;
+
   user: User;
 
-  constructor(private route: Router, private userService: UsersService, private authService: AuthenticationService) {
+  constructor(private route: Router, private userService: UsersService, private authService: AuthenticationService, private userSerice:UsersService) {
     this.user = this.userService.getUserDetails();
+    if(this.userSerice.getUserLogin()){
+      this.isUserLogin=true;
+    }
+    console.log('home',this.isUserLogin);
   }
-
   ngOnInit(): void {
   }
 
-  buy(){
-    return this.route.navigate(['buy']);
-  }
   logout() {
     this.authService.logout().then(res => {
-      this.route.navigate(['/']);
+      this.route.navigate(['login']);
     })
   }
 
-  viewProfile(){
+  viewProfile() {
     this.route.navigate(['userprofile']);
   }
 
-  viewPolicy(){
+  viewPolicy() {
     this.route.navigate(['userpolicy']);
   }
 }

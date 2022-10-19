@@ -1,27 +1,27 @@
-  <app-adminsidenav></app-adminsidenav>
-  <div class="content">
+<app-adminsidenav></app-adminsidenav>
+<div class="content">
   <h1 style="display:flex;justify-content:center;font-weight:bold;">Welcome Admin!</h1>
   <h2 style="font-weight:500; margin-left:100px;display:flex;margin-top: 10px;">Agent Information</h2>
-  <div class="container" style="margin-top: 20px; margin-left: 100px;">  
+  <div class="container" style="margin-top: 20px; margin-left: 100px;">
     <div class="row shadow-lg p-3 rounded" style="margin-top:30px;width: 95%;">
-        <table class="table">
+      <table class="table">
         <thead>
-        <tr>
-        <th>Agent ID</th>
-        <th>Agent Name</th>
-        <th>Created on</th>
-        <th>Mobile number</th>
-        </tr>
+          <tr>
+            <th>Agent ID</th>
+            <th>Agent Name</th>
+            <th>Created on</th>
+            <th>Mobile number</th>
+          </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let agent of agents">
+          <tr *ngFor="let agent of agents">
             <th scope="row">{{agent.agentID}}</th>
             <td>{{ agent.name }}</td>
             <td>{{ agent.creationDate.toDate() | date:'dd-MM-yyyy' }}</td>
             <td>{{ agent.phoneNumber }}</td>
-        </tr>
+          </tr>
         </tbody>
-        </table>
-      </div>
+      </table>
     </div>
   </div>
+</div>

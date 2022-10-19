@@ -1,85 +1,100 @@
 <mat-toolbar>
-    <a href="" class="logo">
-      <a href=""><img src="../../../assets/homelogo.png" alt="logo"></a>
-      <span class="name">Hayatamn ENTERPRISES</span>
-    </a>
-    <nav class="profileuser">
-      <ul>
-        <li>
-          <img class="profile" src="../../../assets/agent.png" alt="avatar">
-          <span class="agent">{{ user?.name }}</span>
-          <ul>
-            <li class="sub">
-              <span class="material-icons-outlined">
-                <mat-icon>account_circle</mat-icon>
-              </span>
-              <p (click)="viewProfile()">Profile</p>
-            </li>
-            <li class="sub">
-                <span class="material-icons-outlined">
-                  <mat-icon>receipt</mat-icon>
-                </span>
-                <p (click)="viewPolicy()">My Policy</p>
-              </li>
-            <li class="sub">
-              <span class="material-icons-outlined">
-                <mat-icon>logout</mat-icon>
-              </span>
-              <p (click)="logout()">Logout</p>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </nav>
-  </mat-toolbar>
+  <a href="" class="logo">
+    <a href=""><img src="../../../assets/homelogo.png" alt="logo"></a>
+    <span class="name">Hayatamn ENTERPRISES</span>
+  </a>
+  <nav class="profileuser" *ngIf="isUserLogin">
+    <ul>
+      <li>
+        <img class="profile" src="../../../assets/agent.png" alt="avatar">
+        <span class="agent">{{ user?.name }}</span>
+        <ul>
+          <li class="sub">
+            <span class="material-icons-outlined">
+              <mat-icon>account_circle</mat-icon>
+            </span>
+            <p (click)="viewProfile()">Profile</p>
+          </li>
+          <li class="sub">
+            <span class="material-icons-outlined">
+              <mat-icon>receipt</mat-icon>
+            </span>
+            <p (click)="viewPolicy()">My Policy</p>
+          </li>
+          <li class="sub">
+            <span class="material-icons-outlined">
+              <mat-icon>logout</mat-icon>
+            </span>
+            <p (click)="logout()">Logout</p>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</mat-toolbar>
 
 <div class="container" style="margin-top: 60px;">
-    <h1 style="margin-left: 60px; font-weight: 600;  font-family: 'Montserrat', sans-serif;">Get Started With</h1>
-    <p style="margin-left: 60px;  font-family: 'Montserrat', sans-serif;">Explore the real estate option in top cities</p>
-    <div class="wrapper" style="margin-top: 30px;">
-        <div class="icon">
-            <a href="buy" style="text-decoration: none;">
-                <span><mat-icon class="mat">home</mat-icon></span>
-                <div class="toolpit" style="color: black;margin-top: 15px;margin-left: 35px;">Buy</div>
-            </a>
-        </div>
-        <div class="icon">
-            <a href="rent"  style="text-decoration: none;">
-                <span class="i"><mat-icon class="mat">home</mat-icon></span>
-                <div class="toolpit"style="color: black;margin-top: 15px;margin-left: 35px;">Rent</div>
-            </a>
-        </div>
-        <div class="icon">
-            <a href="plot"  style="text-decoration: none;">
-                <span><mat-icon class="mat">landscape</mat-icon></span>
-                <div class="toolpit" style="color: black;margin-top: 15px;margin-left: 20px;">Plot/Land</div>
-            </a>
-        </div>
-        <div class="icon">
-            <a href="commercial"  style="text-decoration: none;">
-                <span><mat-icon class="mat">location_city</mat-icon></span>
-                <div class="toolpit" style="color: black;margin-top: 15px; margin-left: 10px;">Commercial</div>
-            </a>
-        </div>
-        <div class="icon">
-            <a href="lease"  style="text-decoration: none;">
-                <span><mat-icon class="mat">home</mat-icon></span>
-                <div class="toolpit" style="color: black;margin-top: 15px;margin-left: 30px;">Lease</div>
-            </a>
-        </div>
-        <div class="icon buy">
-            <a href="pg"  style="text-decoration: none;">
-                <span><mat-icon class="mat"> local_hotel</mat-icon></span>
-                <div class="toolpit" style="color: black;margin-top: 15px;margin-left: 40px;">PG</div>
-            </a>
-        </div>
-        <!-- Only if user logged in -->
-        <div class="icon">
-            <a [routerLink]="['/insurance']"
-               [queryParams]="{ type: 'insurance', vehicleType: 'commercial', createdBy: 'User', createdByName: user?.name, createdByID: user?.email}" style="text-decoration: none;">
-                <span class="i"><mat-icon class="mat">home</mat-icon></span>
-                <div class="toolpit"style="color: black;margin-top: 15px;margin-left: 35px;">Policy</div>
-            </a>
-        </div>
+  <h1 style="margin-left: 60px; font-weight: 600;  font-family: 'Montserrat', sans-serif;">Get Started With</h1>
+  <p style="margin-left: 60px;  font-family: 'Montserrat', sans-serif;">Explore the real estate option in top cities</p>
+  <div class="wrapper" style="margin-top: 30px;">
+    <div class="icon">
+      <a href="buy" style="text-decoration: none;">
+        <span>
+          <mat-icon class="mat">home</mat-icon>
+        </span>
+        <div class="toolpit" style="color: black;margin-top: 15px;margin-left: 35px;">Buy</div>
+      </a>
     </div>
+    <div class="icon">
+      <a href="rent" style="text-decoration: none;">
+        <span class="i">
+          <mat-icon class="mat">home</mat-icon>
+        </span>
+        <div class="toolpit" style="color: black;margin-top: 15px;margin-left: 35px;">Rent</div>
+      </a>
+    </div>
+    <div class="icon">
+      <a href="plot" style="text-decoration: none;">
+        <span>
+          <mat-icon class="mat">landscape</mat-icon>
+        </span>
+        <div class="toolpit" style="color: black;margin-top: 15px;margin-left: 20px;">Plot/Land</div>
+      </a>
+    </div>
+    <div class="icon">
+      <a href="commercial" style="text-decoration: none;">
+        <span>
+          <mat-icon class="mat">location_city</mat-icon>
+        </span>
+        <div class="toolpit" style="color: black;margin-top: 15px; margin-left: 10px;">Commercial</div>
+      </a>
+    </div>
+    <div class="icon">
+      <a href="lease" style="text-decoration: none;">
+        <span>
+          <mat-icon class="mat">home</mat-icon>
+        </span>
+        <div class="toolpit" style="color: black;margin-top: 15px;margin-left: 30px;">Lease</div>
+      </a>
+    </div>
+    <div class="icon buy">
+      <a href="pg" style="text-decoration: none;">
+        <span>
+          <mat-icon class="mat"> local_hotel</mat-icon>
+        </span>
+        <div class="toolpit" style="color: black;margin-top: 15px;margin-left: 40px;">PG</div>
+      </a>
+    </div>
+    <!-- Only if user logged in -->
+    <div class="icon" *ngIf="isUserLogin">
+      <a [routerLink]="['/insurance']"
+        [queryParams]="{ type: 'insurance', vehicleType: 'commercial', createdBy: 'User', createdByName: user?.name, createdByID: user?.email}"
+        style="text-decoration: none;">
+        <span class="i">
+          <mat-icon class="mat">home</mat-icon>
+        </span>
+        <div class="toolpit" style="color: black;margin-top: 15px;margin-left: 35px;">Policy</div>
+      </a>
+    </div>
+  </div>
 </div>

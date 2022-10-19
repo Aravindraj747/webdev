@@ -3,10 +3,10 @@ import { FormControl, FormControlName, FormGroup, Validators } from '@angular/fo
 
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/services/authentication.service';
-import {MatSnackBar} from "@angular/material/snack-bar";
-import {UsersService} from "../../services/users.service";
+import { MatSnackBar } from "@angular/material/snack-bar";
+import { UsersService } from "../../services/users.service";
 import firebase from "firebase/compat";
-import {User} from "../../models/user";
+import { User } from "../../models/user";
 
 @Component({
   selector: 'app-login',
@@ -15,26 +15,27 @@ import {User} from "../../models/user";
 })
 export class LoginComponent implements OnInit {
 
-  loginForm=new FormGroup({
-    email: new FormControl('',[Validators.required,Validators.email]),
-    password: new FormControl('',Validators.required),
+
+  loginForm = new FormGroup({
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', Validators.required),
   });
 
   signUpForm = new FormGroup({
-    name: new FormControl('',Validators.required),
-    email:new FormControl('',[Validators.required,Validators.email]),
+    name: new FormControl('', Validators.required),
+    email: new FormControl('', [Validators.required, Validators.email]),
     phoneNumber: new FormControl('', Validators.required),
-    password: new FormControl('',Validators.required),
+    password: new FormControl('', Validators.required),
   });
 
   loginSpinnerActive: boolean = false;
   signUpSpinnerActive: boolean = false;
 
   constructor(public authService: AuthenticationService,
-              private route: Router,
-              private _snackBar: MatSnackBar,
-              private userService: UsersService) {
-   }
+    private route: Router,
+    private _snackBar: MatSnackBar,
+    private userService: UsersService) {
+  }
 
   ngOnInit(): void {
   }
@@ -49,19 +50,19 @@ export class LoginComponent implements OnInit {
     container?.classList.remove("right-panel-active");
   }
 
-  get name(){
+  get name() {
     return this.signUpForm.get('name');
   }
-  get email(){
+  get email() {
     return this.loginForm.get('email');
   }
-  
-  get password(){
+
+  get password() {
     return this.loginForm.get('password');
   }
 
-  signIn(){
-    const {email,password}=this.loginForm.value;
+  signIn() {
+    const { email, password } = this.loginForm.value;
 
     if (email === '') {
       this.openSnackBar('Enter the Email', 'Undo');
@@ -74,9 +75,8 @@ export class LoginComponent implements OnInit {
     this.loginSpinnerActive = true;
     this.userService.isUser(email).subscribe(res => {
       console.log(res);
-      if (res.docs.length > 0)
-      {
-        this.authService.login(email, password).then((res)=>{
+      if (res.docs.length > 0) {
+        this.authService.login(email, password).then((res) => {
           console.log(res)
           this.getUserDetails(email);
           this.route.navigate(['userhome']);
@@ -85,10 +85,9 @@ export class LoginComponent implements OnInit {
           this.openSnackBar('Invalid Email or password', 'Undo');
           this.loginSpinnerActive = false;
         });
-        console.log(email,password);
+        console.log(email, password);
       }
-      else
-      {
+      else {
         this.openSnackBar('User does not exist', 'Retry');
         this.loginSpinnerActive = false;
         return;
@@ -97,8 +96,8 @@ export class LoginComponent implements OnInit {
 
   }
 
-  signUp(){
-    const {name,email,phoneNumber,password}=this.signUpForm.value;
+  signUp() {
+    const { name, email, phoneNumber, password } = this.signUpForm.value;
     if (name === '') {
       this.openSnackBar('Enter the UserName', 'Undo');
       return;
@@ -116,9 +115,9 @@ export class LoginComponent implements OnInit {
       return;
     }
     this.signUpSpinnerActive = true;
-    const userID = Math.floor(Date.now()/1000).toString();
-    let user: User = {email: email, id: userID, name: name, password: password, phoneNumber: phoneNumber}
-    this.authService.register(name,email,password).then((res)=>{
+    const userID = Math.floor(Date.now() / 1000).toString();
+    let user: User = { email: email, id: userID, name: name, password: password, phoneNumber: phoneNumber }
+    this.authService.register(name, email, password).then((res) => {
       console.log(res);
       this.userService.saveUser(user).then(res => {
         this.userService.saveUserDetails(user);

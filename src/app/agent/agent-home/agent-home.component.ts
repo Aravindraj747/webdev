@@ -28,7 +28,6 @@ export class AgentHomeComponent implements OnInit {
                 private firestoreService: FirestoreService,
                 private agentService: AgentService,
                 private authService: AuthenticationService) {
-        console.log('agenthome:',this.authService.isAgentLogin);
         this.firestore.collection<{url: string, title: string}>("youtubeVideos").valueChanges()
             .subscribe(res => {
                 console.log(res);

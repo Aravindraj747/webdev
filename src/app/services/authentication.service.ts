@@ -13,13 +13,9 @@ import { AgentService } from './agent.service';
 })
 export class AuthenticationService {
 
-  isUserLogin: boolean = false;
-  isAgentLogin: boolean = false;
-  isAdminLogin: boolean = false;
-
   currentUser$ = authState(getAuth(this.app));
 
-  constructor(private fireauth: AngularFireAuth, private app: FirebaseApp, private route: Router, private agentService: AgentService) { }
+  constructor(private fireauth: AngularFireAuth, private app: FirebaseApp, private route: Router, private agentService: AgentService,) { }
 
   currentUser: string
 
@@ -30,27 +26,23 @@ export class AuthenticationService {
   }
 
   agentLogout() {
-    return this.fireauth.signOut().then(() => {
-      this.isAgentLogin = false;
-      console.log('logout', this.isAgentLogin);
-    });
+    sessionStorage.removeItem('agentLogin');
+    return this.fireauth.signOut();
   }
 
   //Userlogin and logout and regitser
-
   login(email: string, password: string) {
     const auth = getAuth(this.app);
-    return signInWithEmailAndPassword(auth, email, password).then(() => {
-      this.isUserLogin = true;
-    });
+    return signInWithEmailAndPassword(auth, email, password);
   }
 
   logout() {
-    return this.fireauth.signOut().then(() => {
-      this.isUserLogin = false;
-    });
+    sessionStorage.removeItem('userLogin');
+    sessionStorage.removeItem('userData');
+    console.log('after', sessionStorage.getItem('userLogin'));
+    return this.fireauth.signOut();
   }
-
+  // User registration 
   register(name: string, email: string, password: string) {
     const auth = getAuth(this.app)
     return createUserWithEmailAndPassword(auth, email, password);
@@ -59,15 +51,12 @@ export class AuthenticationService {
   // AdminLogin
   adminLogin(email: string, password: string) {
     const auth = getAuth(this.app)
-    return signInWithEmailAndPassword(auth, email, password).then(() => {
-      this.isAdminLogin = true;
-    });
+    return signInWithEmailAndPassword(auth, email, password);
   }
 
   adminLogout() {
-    return this.fireauth.signOut().then(() => {
-      this.isAdminLogin = false;
-    });
+    sessionStorage.removeItem('adminLogin');
+    return this.fireauth.signOut();
   }
 
   getUser() {

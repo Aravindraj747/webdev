@@ -57,7 +57,7 @@ export class UsersService {
       });
   }
 
-  getAgentLogin() {
+  getUserLogin() {
       if (this.userLoggedIn === undefined) {
           this.userLoggedIn = sessionStorage.getItem('userLogin')!;
       }

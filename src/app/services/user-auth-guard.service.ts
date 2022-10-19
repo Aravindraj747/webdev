@@ -11,7 +11,7 @@ export class UserAuthGuardService implements CanActivate{
 
   constructor(private userService: UsersService, private route: Router) { }
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot):boolean | UrlTree | Observable<boolean | UrlTree > | Promise<boolean | UrlTree>{
-      if (this.userService.getAgentLogin() === 'true') {
+      if (this.userService.getUserLogin() === 'true') {
           return true;
       }
       this.route.navigate(['login']);

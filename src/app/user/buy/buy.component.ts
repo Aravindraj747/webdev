@@ -62,4 +62,7 @@ export class BuyComponent implements OnInit {
     });
     this.properties = propertyArray;
   }
+
+  openDialog(){
+  }
 }

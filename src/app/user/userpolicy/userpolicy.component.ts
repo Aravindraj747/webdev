@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {FirestoreService} from "../../services/firestore.service";
-import {Insurance} from "../../models/insurance";
-import {UsersService} from "../../services/users.service";
-import {User} from "../../models/user";
+import { FirestoreService } from "../../services/firestore.service";
+import { Insurance } from "../../models/insurance";
+import { UsersService } from "../../services/users.service";
+import { User } from "../../models/user";
 
 @Component({
   selector: 'app-userpolicy',
@@ -16,7 +16,7 @@ export class UserpolicyComponent implements OnInit {
   user: User;
 
   constructor(private firestoreService: FirestoreService,
-              private userService: UsersService) {
+    private userService: UsersService) {
     this.user = this.userService.getUserDetails()!;
     console.log(this.user);
   }

@@ -25,16 +25,18 @@
   line-height: 90px;
 }
 
-.wrapper .icon .toolpit{
+.wrapper .icon .toolpit {
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
 }
+
 /* toolbar */
-mat-toolbar{
-  display:flex;
-  justify-content:space-between;
-  background:white;
+mat-toolbar {
+  display: flex;
+  justify-content: space-between;
+  background: white;
 }
+
 /* logo */
 .logo {
   text-align: center;
@@ -49,9 +51,11 @@ mat-toolbar{
   height: 55px;
   border-radius: 50%;
 }
-mat-toolbar a{
+
+mat-toolbar a {
   text-decoration: none;
 }
+
 .logo span {
   font-weight: bold;
   margin-top: 15px;

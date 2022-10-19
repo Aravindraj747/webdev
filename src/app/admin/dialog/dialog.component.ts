@@ -29,18 +29,6 @@ export class DialogComponent implements OnInit {
   chooseFile(event: any) {
     this.uploadFile = event.target.files[0];
   }
-  // sendFile(){
-  //   const files =this.uploadFile
-  //       Promise.all(
-  //           files.map((item:any) => this.putStorageItem(item))
-  //       )
-  //           .then((url) => {
-  //               console.log(`All success`);
-  //           })
-  //           .catch((error) => {
-  //               console.log(`Some failed: `, error.message)
-  //           });
-  // }
   sendFile() {
     const storage = getStorage();
     const storageRef = ref(storage, this.uploadFile.name);

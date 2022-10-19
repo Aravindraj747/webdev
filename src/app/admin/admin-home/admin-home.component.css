@@ -1,32 +1,34 @@
-*{
+* {
   margin: 0;
   padding: 0;
-  box-sizing:border-box ;
+  box-sizing: border-box;
 }
-  .header a{
-    padding:6px 13px;
-    text-decoration: none;
-    color: black;
-    cursor: pointer;  
+
+.header a {
+  padding: 6px 13px;
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
 }
-.header a:hover{
+
+.header a:hover {
   background-color: black;
   color: white;
   border-radius: 5px;
 }
+
 /* viewbutton */
 .view-btn {
   text-decoration: none;
   width: 100%;
   margin-bottom: 5px;
-  /* display: flex;
-  align-items: center;
-  justify-content: center; */
 }
-.row .table a{
+
+.row .table a {
   cursor: pointer;
 }
-.content{
+
+.content {
   height: 100%;
   width: 100%;
   align-items: center;

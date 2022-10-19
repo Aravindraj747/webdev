@@ -21,7 +21,8 @@
                                 <td>{{ policy.createdDate.toDate() | date:'dd-MM-yyyy'}}</td>
                                 <td>{{ policy.insuranceAmount }}</td>
                                 <ng-template [ngIf]="policy.finalDocument !== ''">
-                                    <td><a style="text-decoration: none" [href]="policy.finalDocument" target="_blank">Download</a></td>
+                                    <td><a style="text-decoration: none" [href]="policy.finalDocument"
+                                            target="_blank">Download</a></td>
                                 </ng-template>
                                 <ng-template [ngIf]="policy.finalDocument === ''">
                                     <td><button disabled mat-raised-button>Download</button></td>
