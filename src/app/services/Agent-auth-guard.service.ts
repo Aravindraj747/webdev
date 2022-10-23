@@ -16,7 +16,7 @@ export class AgentAuthGuardService implements CanActivate {
     if (this.agentService.getAgentLogin() == 'true') {
       return true;
     }
-    this.route.navigate(['login']);
+    this.route.navigate(['agentlogin']);
     return false;
   }
 }
