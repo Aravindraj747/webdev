@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
+// Components
+
 import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
 import { AdminsidenavComponent } from './admin/adminsidenav/adminsidenav.component';
 import { AgentCreationComponent } from './admin/agent-creation/agent-creation.component';
@@ -26,6 +29,9 @@ import { RentComponent } from './user/rent/rent.component';
 import { UserHomeComponent } from './user/user-home/user-home.component';
 import { UserpolicyComponent } from './user/userpolicy/userpolicy.component';
 import { ClaimComponent } from "./agent/claim/claim.component";
+
+// Authguard
+
 import { AgentAuthGuardService } from './services/Agent-auth-guard.service';
 import { UserAuthGuardService } from './services/user-auth-guard.service'
 import { AdminauthguardGuard } from './services/adminauthguard.guard';

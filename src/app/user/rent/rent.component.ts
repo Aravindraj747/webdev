@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { FirestoreService } from 'src/app/services/firestore.service';
+import { Property } from "../../models/property";
 
 @Component({
   selector: 'app-rent',
@@ -9,7 +11,12 @@ import { FormControl } from '@angular/forms';
 export class RentComponent implements OnInit {
 
   disableSelect = new FormControl(false);
-  constructor() { }
+  filterLocation: string;
+  filterBHK: any;
+  filterPrice: any;
+  properties: Property[];
+
+  constructor(private firestoreService:FirestoreService) { }
 
   ngOnInit(): void {
   }
@@ -23,5 +30,17 @@ export class RentComponent implements OnInit {
     else {
       return value;
     }
+  }
+  filter() {
+    console.log(this.filterBHK, this.filterLocation, this.filterPrice);
+    this.properties = [];
+    let propertyArray: Property[] = [];
+    this.firestoreService.getPropertyByFilter('rent', this.filterPrice, this.filterLocation).get().subscribe(res => {
+      res.forEach(function (doc) {
+        propertyArray.push(<Property>doc.data());
+        console.log(doc.data());
+      });
+    });
+    this.properties = propertyArray;
   }
 }

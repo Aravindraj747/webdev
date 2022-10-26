@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
-import { LoginComponent } from 'src/app/components/login/login.component';
+import { Property } from "../../models/property";
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { FirestoreService } from 'src/app/services/firestore.service';
 
 @Component({
   selector: 'app-commercial',
@@ -11,9 +12,16 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 })
 export class CommercialComponent implements OnInit {
 
-  constructor(private authservice: AuthenticationService, private route: Router) { }
+  constructor(private authservice: AuthenticationService, 
+              private route: Router,
+              private firestoreService: FirestoreService) { }
 
   disableSelect = new FormControl(false);
+  filterLocation: string;
+  filterBHK: any;
+  filterPrice: any;
+  properties: Property[];
+
   ngOnInit(): void {
   }
   logout() {
@@ -29,5 +37,17 @@ export class CommercialComponent implements OnInit {
     else {
       return value;
     }
+  }
+  filter() {
+    console.log(this.filterBHK, this.filterLocation, this.filterPrice);
+    this.properties = [];
+    let propertyArray: Property[] = [];
+    this.firestoreService.getPropertyByFilter('commercial', this.filterPrice, this.filterLocation).get().subscribe(res => {
+      res.forEach(function (doc) {
+        propertyArray.push(<Property>doc.data());
+        console.log(doc.data());
+      });
+    });
+    this.properties = propertyArray;
   }
 }
