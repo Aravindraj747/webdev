@@ -19,6 +19,14 @@ export class RentComponent implements OnInit {
   constructor(private firestoreService:FirestoreService) { }
 
   ngOnInit(): void {
+    let propertyArray: Property[] = [];
+    this.firestoreService.getProperty('Rent').get().subscribe(res => {
+      res.forEach(function (doc) {
+        propertyArray.push(<Property>doc.data());
+        console.log(doc.data());
+      });
+    });
+    this.properties = propertyArray;
   }
   logout() {
 
@@ -35,7 +43,7 @@ export class RentComponent implements OnInit {
     console.log(this.filterBHK, this.filterLocation, this.filterPrice);
     this.properties = [];
     let propertyArray: Property[] = [];
-    this.firestoreService.getPropertyByFilter('rent', this.filterPrice, this.filterLocation).get().subscribe(res => {
+    this.firestoreService.getPropertyByFilter('Rent', this.filterPrice, this.filterLocation).get().subscribe(res => {
       res.forEach(function (doc) {
         propertyArray.push(<Property>doc.data());
         console.log(doc.data());

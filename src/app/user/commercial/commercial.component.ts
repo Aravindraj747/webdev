@@ -23,6 +23,14 @@ export class CommercialComponent implements OnInit {
   properties: Property[];
 
   ngOnInit(): void {
+    let propertyArray: Property[] = [];
+    this.firestoreService.getProperty('Commercial').get().subscribe(res => {
+      res.forEach(function (doc) {
+        propertyArray.push(<Property>doc.data());
+        console.log(doc.data());
+      });
+    });
+    this.properties = propertyArray;
   }
   logout() {
     this.authservice.logout().then(() => {
@@ -42,7 +50,7 @@ export class CommercialComponent implements OnInit {
     console.log(this.filterBHK, this.filterLocation, this.filterPrice);
     this.properties = [];
     let propertyArray: Property[] = [];
-    this.firestoreService.getPropertyByFilter('commercial', this.filterPrice, this.filterLocation).get().subscribe(res => {
+    this.firestoreService.getPropertyByFilter('Commercial', this.filterPrice, this.filterLocation).get().subscribe(res => {
       res.forEach(function (doc) {
         propertyArray.push(<Property>doc.data());
         console.log(doc.data());

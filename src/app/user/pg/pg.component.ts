@@ -21,6 +21,14 @@ export class PgComponent implements OnInit {
   constructor(private authservice: AuthenticationService, private route: Router,private firestoreService:FirestoreService) { }
 
   ngOnInit(): void {
+    let propertyArray: Property[] = [];
+    this.firestoreService.getProperty('Pg').get().subscribe(res => {
+      res.forEach(function (doc) {
+        propertyArray.push(<Property>doc.data());
+        console.log(doc.data());
+      });
+    });
+    this.properties = propertyArray;
   }
   logout() {
     this.authservice.logout().then(() => {
@@ -41,7 +49,7 @@ export class PgComponent implements OnInit {
     console.log(this.filterBHK, this.filterLocation, this.filterPrice);
     this.properties = [];
     let propertyArray: Property[] = [];
-    this.firestoreService.getPropertyByFilter('pg', this.filterPrice, this.filterLocation).get().subscribe(res => {
+    this.firestoreService.getPropertyByFilter('Pg', this.filterPrice, this.filterLocation).get().subscribe(res => {
       res.forEach(function (doc) {
         propertyArray.push(<Property>doc.data());
         console.log(doc.data());

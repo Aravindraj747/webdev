@@ -89,16 +89,38 @@
 </div>
     <!-- Only if user logged in -->
 <div class="container" *ngIf="isUserLogin">
-  <p style="margin-left:60px;margin-top:50px;font-weight: 500;font-size: 18px;font-family: 'Montserrat', sans-serif;">Insurance</p>
+  <p style="margin-left:60px;margin-top:50px;font-weight: 500;font-size: 18px;font-family: 'Montserrat', sans-serif;">Policies</p>
   <div class="policy">
+    <div class="icon">
+      <a [routerLink]="['/insurance']"
+               [queryParams]="{ type: 'insurance', vehicleType: 'car', createdBy: 'User', createdByName: user?.name, createdByID: user?.email}"
+        style="text-decoration: none;">
+        <span class="i">
+          <!-- <mat-icon class="mat">car</mat-icon> -->
+          <i class="fa fa-car" aria-hidden="true" style="font-size:50px;margin-left:25px;line-height: 90px;"></i>
+        </span>
+        <div class="toolpit" style="color: black;margin-top: 20px;margin-left: 35px;">Car</div>
+      </a>
+    </div>
     <div class="icon">
       <a [routerLink]="['/insurance']"
         [queryParams]="{ type: 'insurance', vehicleType: 'commercial', createdBy: 'User', createdByName: user?.name, createdByID: user?.email}"
         style="text-decoration: none;">
         <span class="i">
-          <mat-icon class="mat">how_to_reg</mat-icon>
+          <!-- <mat-icon class="mat">how_to_reg</mat-icon> -->
+          <i class='fas fa-motorcycle' style="font-size:50px;margin-left:18px;line-height: 90px;"></i>
         </span>
-        <div class="toolpit" style="color: black;margin-top: 35px;margin-left: 35px;">Policy</div>
+        <div class="toolpit" style="color: black;margin-top: 20px;margin-left: 15px;">Two Wheeler</div>
+      </a>
+    </div>
+    <div class="icon">
+      <a [routerLink]="['/insurance']"
+        [queryParams]="{ type: 'insurance', vehicleType: 'commercial', createdBy: 'User', createdByName: user?.name, createdByID: user?.email}"
+        style="text-decoration: none;">
+        <span class="i">
+          <mat-icon class="mat">domain</mat-icon>
+        </span>
+        <div class="toolpit" style="color: black;margin-top: 35px;margin-left: 15px;">Commercial</div>
       </a>
     </div>
   </div>

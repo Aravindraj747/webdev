@@ -24,7 +24,7 @@ export class BuyComponent implements OnInit {
 
   ngOnInit(): void {
     let propertyArray: Property[] = [];
-    this.firestoreService.getProperty('buy').get().subscribe(res => {
+    this.firestoreService.getProperty('Buy').get().subscribe(res => {
       res.forEach(function (doc) {
         propertyArray.push(<Property>doc.data());
         console.log(doc.data());
@@ -54,7 +54,7 @@ export class BuyComponent implements OnInit {
     console.log(this.filterBHK, this.filterLocation, this.filterPrice);
     this.properties = [];
     let propertyArray: Property[] = [];
-    this.firestoreService.getPropertyByFilter('buy', this.filterPrice, this.filterLocation).get().subscribe(res => {
+    this.firestoreService.getPropertyByFilter('Buy', this.filterPrice, this.filterLocation).get().subscribe(res => {
       res.forEach(function (doc) {
         propertyArray.push(<Property>doc.data());
         console.log(doc.data());

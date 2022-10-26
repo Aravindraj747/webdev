@@ -40,7 +40,11 @@
   margin-top: 30px;
 }
 .policy{
-  margin-left: 150px;
+  margin-left: 110px;
+  display: flex;
+}
+.policy .icon{
+  margin: 0 40px;
 }
 
 

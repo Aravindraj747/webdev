@@ -1,15 +1,33 @@
-<div *ngIf="insurance.rcImage.length != 0" style="display: flex">
+<!-- <div *ngIf="insurance.rcImage.length != 0" style="display: flex">
     <h3 mat-dialog-title> RC Book Photo</h3>
     <a [href]="insurance.rcImage" style="margin-left: 30px; text-decoration: none" target="_blank">Download</a>
+</div> -->
+<div *ngIf="insurance.rcImage.length != 0" style="display: flex">
+    <h3>RC Book Photo : <a [href]="insurance.rcImage">Download</a></h3>
+    <h3>Vehicle No : {{insurance.vehicleNumber}}</h3>
+    <h3>Address : {{insurance.address}}</h3>
 </div>
-<div *ngIf="insurance.vehicleImage.length != 0" style="display: flex; margin-top: 40px">
-    <h3 mat-dialog-title> Vehicle Photo</h3>
+<!-- <div *ngIf="insurance.vehicleImage.length != 0" style="display: block; margin-top: 40px">
+    <h3 mat-dialog-title> Vehicle Photo :</h3>
     <a [href]="insurance.vehicleImage" style="margin-left: 30px; text-decoration: none" target="_blank">Download</a>
+    <h3>vehicle No :</h3>
+    <p style="margin-left: 30px; text-decoration: none" target="_blank">{{insurance.vehicleNumber}}</p>
+    <h3>Address :</h3>
+    <p style="margin-left: 30px; text-decoration: none" target="_blank">{{insurance.address}}</p>
+</div> -->
+<div *ngIf="insurance.vehicleImage.length != 0" style="display: block; margin-top: 40px">
+    <h3>Vechicle photo : <a [href]="insurance.vehicleImage">Download</a></h3>
+    <h3>Vehicle No : {{insurance.vehicleNumber}}</h3>
+    <h3>Address : {{insurance.address}}</h3>
 </div>
-
-<div *ngIf="insurance.csrImage.length != 0" style="display: flex; margin-top: 40px">
+<!-- <div *ngIf="insurance.csrImage.length != 0" style="display: flex; margin-top: 40px">
     <h3 mat-dialog-title> CSR Photo</h3>
     <a [href]="insurance.csrImage" style="margin-left: 30px; text-decoration: none" target="_blank">Download</a>
+</div> -->
+<div *ngIf="insurance.csrImage.length != 0" style="display: flex; margin-top: 40px">
+    <h3>CSR Photo : <a [href]="insurance.csrImage">Download</a></h3>
+    <h3>Vehicle No : {{insurance.vehicleNumber}}</h3>
+    <h3>Address : {{insurance.address}}</h3>
 </div>
 <div style="display: flex">
     <mat-form-field class="example-full-width" appearance="fill">
