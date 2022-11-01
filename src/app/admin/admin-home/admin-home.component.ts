@@ -5,6 +5,8 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 import { DialogComponent } from '../dialog/dialog.component';
 import {FirestoreService} from "../../services/firestore.service";
 import {Insurance} from "../../models/insurance";
+import {InsuranceStatus} from "../../enum/insurance-status";
+import {DeclareAmountDialogComponent} from "../../components/declare-amount-dialog/declare-amount-dialog.component";
 
 @Component({
   selector: 'app-admin-home',
@@ -64,11 +66,19 @@ export class AdminHomeComponent implements OnInit {
     console.log(this.insurances);
   }
 
-  openDialog(insurance: Insurance){
-    return this.dialog.open(DialogComponent,{
-      data: {
-        insurance: insurance
-      }
-    });
+  openDialog(insurance: Insurance) {
+    if (insurance.currentState === InsuranceStatus.SUBMITTED) {
+      return this.dialog.open(DeclareAmountDialogComponent, {
+        data: {
+          insurance: insurance
+        }
+      });
+    } else {
+      return this.dialog.open(DialogComponent, {
+        data: {
+          insurance: insurance
+        }
+      });
+    }
   }
 }

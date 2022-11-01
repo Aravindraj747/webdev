@@ -66,6 +66,7 @@ import { UserpolicyComponent } from './user/userpolicy/userpolicy.component';
 import {MatCardModule} from "@angular/material/card";
 import {MatTabsModule} from "@angular/material/tabs";
 import { ClaimComponent } from './agent/claim/claim.component';
+import { DeclareAmountDialogComponent } from './components/declare-amount-dialog/declare-amount-dialog.component';
 
 @NgModule({
   declarations: [
@@ -97,7 +98,8 @@ import { ClaimComponent } from './agent/claim/claim.component';
     AgentProfileComponent,
     UserprofileComponent,
     UserpolicyComponent,
-    ClaimComponent
+    ClaimComponent,
+    DeclareAmountDialogComponent
   ],
   entryComponents: [DialogComponent],
     imports: [

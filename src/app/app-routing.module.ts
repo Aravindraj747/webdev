@@ -74,7 +74,7 @@ const routes: Routes = [
   { path: 'sellnow', component: SellnowComponent, canActivate: [AgentAuthGuardService] },
   { path: 'agent', component: AgentHomeComponent, canActivate: [AgentAuthGuardService] },
   { path: 'lead', component: LeadComponent, canActivate: [AgentAuthGuardService] },
-  { path: 'insurance', component: InsuranceComponent},
+  { path: 'insurance', component: InsuranceComponent },
   { path: 'agentprofile', component: AgentProfileComponent, canActivate: [AgentAuthGuardService] },
   { path: 'claim', component: ClaimComponent, canActivate: [AgentAuthGuardService] }
 ];

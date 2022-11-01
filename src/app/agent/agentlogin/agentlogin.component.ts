@@ -60,6 +60,7 @@ export class AgentloginComponent implements OnInit {
                     this.route.navigate(['/agenthome']);
                     console.log('navigation is not working')
                 }).catch(err => {
+                    console.log(err)
                     this.openSnackBar('Unable to login', 'Retry');
                     this.loginSpinnerActive = false;
                 })

@@ -15,13 +15,14 @@ export class UserHomeComponent implements OnInit {
 
   user: User;
 
-  constructor(private route: Router, private userService: UsersService, private authService: AuthenticationService, private userSerice:UsersService) {
+  constructor(private route: Router, private userService: UsersService, private authService: AuthenticationService) {
     this.user = this.userService.getUserDetails();
-    if(this.userSerice.getUserLogin()){
+    if(this.userService.getUserLogin()){
       this.isUserLogin=true;
     }
     console.log('home',this.isUserLogin);
   }
+
   ngOnInit(): void {
   }
 

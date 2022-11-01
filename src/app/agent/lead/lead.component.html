@@ -2,10 +2,13 @@
 <div class="container" style="margin-top:10px;margin-left:200px;">
     <h1 style="font-weight: bold;margin-left: 50px;">Insurance</h1>
     <div class="header" style="margin-left: 50px;">
-        <a href="">Car</a>
-        <a href="">Two Wheeler</a>
-        <a href="">Commercial</a>
-        <a href="" class="active">All Products</a>
+        <a *ngFor="let type of types">
+            <button [class.active-button]="selected === type" (click)="filterPolicy(type)" mat-button>{{ type }}</button>
+        </a>
+<!--        <a href="">Car</a>-->
+<!--        <a href="">Two Wheeler</a>-->
+<!--        <a href="">Commercial</a>-->
+<!--        <a href="" class="active">All Products</a>-->
     </div>
     <div class="row shadow-lg p-5 mb-5 bg-body rounded" style="margin-top:15px;max-width: 100%;margin-left: 50px;">
         <table class="table">
@@ -18,12 +21,12 @@
         <th>Mobile number</th>
         <th>Insurance name</th>
         <th>Plan name</th>
-        <th>Type</th>
+        <th>Amount</th>
         <th class="action">Actions</th>
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let policy of allPolicies">
+        <tr *ngFor="let policy of policies">
         <th scope="row">{{ policy.id }}</th>
         <td>{{ policy.customerName }}</td>
         <td>{{ policy.createdByName}}</td>
@@ -31,16 +34,38 @@
         <td>{{ policy.phoneNumber }}</td>
         <td>Bajaj</td>
         <td>{{ policy.policyType }}</td>
-        <td>{{ policy.type }}</td>
+        <td>{{ policy.insuranceAmount }}</td>
         <td>
 <!--            <button type="button" class="btn btn-primary"><span>Change</span></button>-->
-            <ng-template [ngIf]="policy.finalDocument === ''">
-                <button disabled mat-flat-button>Download</button>
+<!--            <ng-template [ngIf]="policy.finalDocument === ''">-->
+<!--                <button disabled mat-flat-button>Download</button>-->
+<!--            </ng-template>-->
+<!--            <ng-template [ngIf]="policy.finalDocument !== ''">-->
+<!--                <a [href]="policy.finalDocument" style="text-decoration: none; margin-left: 20px;" target="_blank">Download</a>-->
+<!--            </ng-template>-->
+
+            <ng-template [ngIf]="policy.currentState === 'AMOUNT_DECLARED'">
+                <!--Pay or Reject-->
+                <button mat-flat-button (click)="payNow(policy)" color="primary" style="left: 10px">Pay</button>
+                <button mat-flat-button (click)="reject(policy)" color="warn" style="left: 20px">Reject</button>
             </ng-template>
-            <ng-template [ngIf]="policy.finalDocument !== ''">
+            <ng-template [ngIf]="policy.currentState === 'SUBMITTED'">
+                <!--Waiting for the admin to declare amount-->
+                <span style="margin-left: 40px;">Submitted</span>
+            </ng-template>
+            <ng-template [ngIf]="policy.currentState === 'AMOUNT_PAID'">
+                <!--amount has been paid and waiting for the admin to upload final document-->
+                <span style="margin-left: 40px;">Amount Paid</span>
+            </ng-template>
+            <ng-template [ngIf]="policy.currentState === 'COMPLETED'">
+                <!--final document has been uploaded and available for download-->
                 <a [href]="policy.finalDocument" style="text-decoration: none; margin-left: 20px;" target="_blank">Download</a>
             </ng-template>
-<!--            <button type="button" class="btn btn-success"><span>Success</span></button></td>-->
+            <ng-template [ngIf]="policy.currentState === 'REJECTED'">
+                <!--Declined by the user-->
+                <span style="margin-left: 40px; color: red">Rejected</span>
+            </ng-template>
+            <!--<button type="button" class="btn btn-success"><span>Success</span></button></td>-->
         </tr>
         </tbody>
         </table>

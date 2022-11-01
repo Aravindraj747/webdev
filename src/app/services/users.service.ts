@@ -13,7 +13,9 @@ import {Agent} from "../models/agent";
 })
 export class UsersService {
 
-    user: User;
+    user: User = {
+        email: "", id: "", name: "", password: "", phoneNumber: ""
+    };
     userLoggedIn: string;
 
   get currentUserProfile$():Observable<ProfileUser | null>{

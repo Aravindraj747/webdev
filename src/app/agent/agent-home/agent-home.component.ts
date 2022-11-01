@@ -44,18 +44,19 @@ export class AgentHomeComponent implements OnInit {
 
     getPolicies() {
         let policyArray: Insurance[] = []
-        this.firestoreService.getPolicies(this.agent.agentID).get().then(res => {
+        this.firestoreService.getPolicies(this.agent.email).get().then(res => {
             res.forEach(function (doc) {
                 policyArray.push(<Insurance>doc.data());
                 console.log(doc.data());
             });
             this.totalPolicies = policyArray;
             this.totalPolicies.forEach(policy => {
-                this.totalAmount += parseInt(policy.insuranceAmount);
-                if (this.map.has(policy.policyType)) {
-                    this.map.set(policy.policyType, 1 + this.map.get(policy.policyType)!);
+                if (policy.insuranceAmount !== '')
+                    this.totalAmount += parseInt(policy.insuranceAmount);
+                if (this.map.has(policy.vehicleType)) {
+                    this.map.set(policy.vehicleType, 1 + this.map.get(policy.vehicleType)!);
                 } else {
-                    this.map.set(policy.policyType, 1);
+                    this.map.set(policy.vehicleType, 1);
                 }
             });
             console.log(this.map);

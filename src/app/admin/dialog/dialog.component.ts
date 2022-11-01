@@ -54,7 +54,12 @@ export class DialogComponent implements OnInit {
   saveDetails(downloadUrl: string) {
     this.insurance.finalDocument = downloadUrl;
     console.log(this.insurance);
-    this.firestoreService.updateInsurance(this.insurance).then(res => {
+    let data = {
+      'finalDocument': this.insurance.finalDocument,
+      'insuranceAmount': this.insurance.insuranceAmount,
+      'status': 'COMPLETED'
+    }
+    this.firestoreService.updateInsurance(this.insurance.id, data).then(res => {
       this.openSnackBar('Insurance Saved', 'close');
     }).then(err => {
       this.openSnackBar('Insurance Saved', 'Retry');

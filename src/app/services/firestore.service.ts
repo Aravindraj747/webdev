@@ -36,14 +36,8 @@ export class FirestoreService {
     return this.firestore.collection('property', ref => ref.where('type', '==', type));
   }
 
-  updateInsurance(insurance: Insurance) {
-    console.log(insurance.id);
-    let data = {
-      'finalDocument': insurance.finalDocument,
-      'insuranceAmount': insurance.insuranceAmount,
-      'status': 'COMPLETED'
-    }
-    return this.firestore.collection('insurance').doc(insurance.id).update(data);
+  updateInsurance(id: string, data: any) {
+    return this.firestore.collection('insurance').doc(id).update(data);
   }
 
   getPropertyByFilter(type: string, price: string, location: string) {

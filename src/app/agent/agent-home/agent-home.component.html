@@ -7,14 +7,15 @@
         <div class="flip flip-vertical">
           <div class="front">
             <h3 class="policy-title-text">Total Policies</h3>
-            <p class="policy-text">{{ totalPolicies.length }}</p>
+            <p class="policy-text" style="font-size: 25px">{{ totalPolicies.length }}</p>
             <div class="go-corner">
             </div>
           </div>
           <div class="back">
             <h2>Policies</h2>
             <p>CAR {{ map.get('car') || 0 }}</p>
-            <p>Two wheeler {{ map.get('Two wheeler') }}</p>
+            <p>Two wheeler {{ map.get('twoWheeler') }}</p>
+            <p>Commercial {{ map.get('commercial') }}</p>
           </div>
         </div>
 
@@ -26,7 +27,7 @@
       <div class="flip flip-vertical" style="left: 10px">
         <div class="front">
           <h3 class="policy-title-text">Total Premium</h3>
-          <p class="policy-text">{{ totalAmount }}</p>
+          <p class="policy-text"  style="font-size: 25px">{{ totalAmount }}</p>
           <div class="go-corner">
           </div>
         </div>

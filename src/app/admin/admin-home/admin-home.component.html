@@ -26,7 +26,15 @@
                 <td>{{ insurance.createdByName }}</td>
                 <td>{{ insurance.createdDate.toDate() | date:'dd-MM-yyyy'}}</td>
                 <td>{{ insurance.vehicleType }}</td>
-                <td><a class="view-btn" (click)="openDialog(insurance)">View</a></td>
+                <ng-template [ngIf]="insurance.currentState === 'SUBMITTED'">
+                    <td><a class="view-btn" (click)="openDialog(insurance)">Declare Amount</a></td>
+                </ng-template>
+                <ng-template [ngIf]="insurance.currentState === 'REJECTED'">
+                    <td><a class="view-btn" style="color: red" disabled>REJECTED</a></td>
+                </ng-template>
+                <ng-template [ngIf]="insurance.currentState !== 'REJECTED' && insurance.currentState !== 'SUBMITTED'">
+                    <td><a class="view-btn" (click)="openDialog(insurance)">View</a></td>
+                </ng-template>
             </tr>
             </tbody>
         </table>

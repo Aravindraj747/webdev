@@ -10,6 +10,7 @@ import firebase from "firebase/compat/app";
 import Timestamp = firebase.firestore.Timestamp;
 import {AgentService} from "../../services/agent.service";
 import {Agent} from "../../models/agent";
+import {InsuranceStatus} from "../../enum/insurance-status";
 
 enum InsuranceImageType {
     vehicleImage = 'vehicleImage',
@@ -49,6 +50,7 @@ export class InsuranceComponent implements OnInit {
         finalDocument: "",
         createdByID: "",
         customerName: "",
+        currentState: InsuranceStatus.SUBMITTED,
         status: "INCOMPLETE"
     };
 

@@ -1,0 +1,7 @@
+export enum InsuranceStatus {
+    SUBMITTED = 'SUBMITTED',
+    AMOUNT_DECLARED = 'AMOUNT_DECLARED',
+    AMOUNT_PAID = 'PAID',
+    ACCEPTED = 'ACCEPTED',
+    REJECTED = 'REJECTED',
+}

@@ -62,6 +62,7 @@ export class AgentCreationComponent implements OnInit {
                 console.log("Agent Saved");
                 this.openSnackBar("Agent Created Successfully", "Close");
                 this.signUpSpinnerActive = false;
+                this.resetToAgentCreationPage();
               }, err => {
                 this.openSnackBar("Error Occurred while saving agent", "Retry");
                 this.signUpSpinnerActive = false;
@@ -69,8 +70,31 @@ export class AgentCreationComponent implements OnInit {
               });
         }).catch(err => {
           console.log(err);
+          this.openSnackBar("Error Occurred while creating agent", "Retry");
           this.signUpSpinnerActive = false;
     });
+  }
+
+  resetToAgentCreationPage() {
+    this.agent = {
+      accountNumber: "",
+      address: "",
+      agentID: "",
+      bankAccountHolderName: "",
+      bankCity: "",
+      bankName: "",
+      bankPinCode: "",
+      city: "",
+      creationDate: Timestamp.now(),
+      email: "",
+      ifscCode: "",
+      name: "",
+      password: "",
+      phoneNumber: "",
+      pinCode: "",
+      state: ""
+    }
+    this.step = '1'
   }
 
   openSnackBar(message: string, action: string) {

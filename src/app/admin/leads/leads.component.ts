@@ -25,6 +25,7 @@ export class LeadsComponent implements OnInit {
   ngOnInit(): void {
 
     let policyArray: Insurance[] = []
+    console.log('working')
     this.firestoreService.getPoliciesCreatedBy('Agent').get().then(res => {
       res.forEach(function (doc) {
         policyArray.push(<Insurance>doc.data());
@@ -32,13 +33,16 @@ export class LeadsComponent implements OnInit {
       });
       this.agentPolicies = policyArray;
       this.policies = this.agentPolicies;
+    }).catch(err => {
+      console.log(err);
     });
 
     let userPolicyArray: Insurance[] = []
     this.firestoreService.getPoliciesCreatedBy('User').get().then(res => {
       res.forEach(function (doc) {
         userPolicyArray.push(<Insurance>doc.data());
-        console.log(doc.data());
+        console
+            .log(doc.data());
       });
       this.userPolicies = userPolicyArray;
     });
