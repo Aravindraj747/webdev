@@ -15,18 +15,41 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let policy of allPolicies">
+                            <tr *ngFor="let policy of policies">
                                 <th scope="row">{{ policy.id }}</th>
                                 <td>{{ policy.policyType }}</td>
                                 <td>{{ policy.createdDate.toDate() | date:'dd-MM-yyyy'}}</td>
                                 <td>{{ policy.insuranceAmount }}</td>
-                                <ng-template [ngIf]="policy.finalDocument !== ''">
+                                <!-- <ng-template [ngIf]="policy.finalDocument !== ''">
                                     <td><a style="text-decoration: none" [href]="policy.finalDocument"
                                             target="_blank">Download</a></td>
                                 </ng-template>
                                 <ng-template [ngIf]="policy.finalDocument === ''">
                                     <td><button disabled mat-raised-button>Download</button></td>
+                                </ng-template> -->
+                                <td>
+                                <ng-template [ngIf]="policy.currentState === 'AMOUNT_DECLARED'">
+                                    <!--Pay or Reject-->
+                                    <button mat-flat-button (click)="payNow(policy)" color="primary" style="left: 10px">Pay</button>
+                                    <button mat-flat-button (click)="reject(policy)" color="warn" style="left: 20px">Reject</button>
                                 </ng-template>
+                                <ng-template [ngIf]="policy.currentState === 'SUBMITTED'">
+                                    <!--Waiting for the admin to declare amount-->
+                                    <span >Submitted</span>
+                                </ng-template>
+                                <ng-template [ngIf]="policy.currentState === 'AMOUNT_PAID'">
+                                    <!--amount has been paid and waiting for the admin to upload final document-->
+                                    <span >Amount Paid</span>
+                                </ng-template>
+                                <ng-template [ngIf]="policy.currentState === 'COMPLETED'">
+                                    <!--final document has been uploaded and available for download-->
+                                    <a [href]="policy.finalDocument" style="text-decoration: none;" target="_blank">Download</a>
+                                </ng-template>
+                                <ng-template [ngIf]="policy.currentState === 'REJECTED'">
+                                    <!--Declined by the user-->
+                                    <span style="color: red">Rejected</span>
+                                </ng-template>
+                            </td>
                             </tr>
                         </tbody>
                     </table>

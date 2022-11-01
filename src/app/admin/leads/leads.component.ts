@@ -4,6 +4,8 @@ import {Insurance} from "../../models/insurance";
 import {FirestoreService} from "../../services/firestore.service";
 import {DialogComponent} from "../dialog/dialog.component";
 import {MatDialog} from "@angular/material/dialog";
+import { InsuranceStatus } from 'src/app/enum/insurance-status';
+import { DeclareAmountDialogComponent } from 'src/app/components/declare-amount-dialog/declare-amount-dialog.component';
 
 @Component({
   selector: 'app-leads',
@@ -48,12 +50,20 @@ export class LeadsComponent implements OnInit {
     });
   }
 
-  openDialog(insurance: Insurance){
-    return this.dialog.open(DialogComponent,{
-      data: {
-        insurance: insurance
-      }
-    });
+  openDialog(insurance: Insurance) {
+    if (insurance.currentState === InsuranceStatus.SUBMITTED) {
+      return this.dialog.open(DeclareAmountDialogComponent, {
+        data: {
+          insurance: insurance
+        }
+      });
+    } else {
+      return this.dialog.open(DialogComponent, {
+        data: {
+          insurance: insurance
+        }
+      });
+    }
   }
 
   filterPolicies(type: string) {
