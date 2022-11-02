@@ -35,3 +35,8 @@
   justify-content: center;
   position: fixed;
 }
+
+.active-button {
+  background: black;
+  color: white;
+}

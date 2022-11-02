@@ -20,6 +20,7 @@ export class LeadsComponent implements OnInit {
 
   types:any[]=["Agent","User"];
   policies: Insurance[] = []
+  selected: string = 'Agent';
 
   constructor(private firestoreService: FirestoreService,
               private dialog: MatDialog) { }
@@ -67,6 +68,7 @@ export class LeadsComponent implements OnInit {
   }
 
   filterPolicies(type: string) {
+    this.selected = type;
     if (type === 'Agent') {
       this.policies = this.agentPolicies;
     } else {

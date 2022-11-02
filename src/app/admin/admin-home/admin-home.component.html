@@ -4,7 +4,7 @@
 <div class="container" style="margin-left:100px;margin-top: 10px;">
     <div class="header">
         <a *ngFor="let type of types">
-            <button (click)="filterPolicies(type)" mat-button>{{ type }}</button>
+            <button [class.active-button]="selected === type" (click)="filterPolicies(type)" mat-button>{{ type }}</button>
         </a>
     </div>
     <div class="row shadow-lg mb-5 bg-body rounded" style="margin-top:25px">
@@ -16,23 +16,28 @@
                 <th>Agent Name / User Name</th>
                 <th>Policy date</th>
                 <th>Insurance type</th>
+                <th>Amount</th>
                 <th>Actions</th>
             </tr>
             </thead>
             <tbody>
             <tr *ngFor="let insurance of insurances">
                 <th scope="row">{{ insurance.id }}</th>
-                <td>{{ insurance.vehicleName }}</td>
+                <td>{{ insurance.customerName }}</td>
                 <td>{{ insurance.createdByName }}</td>
                 <td>{{ insurance.createdDate.toDate() | date:'dd-MM-yyyy'}}</td>
                 <td>{{ insurance.vehicleType }}</td>
+                <td>{{ insurance.insuranceAmount }}</td>
                 <ng-template [ngIf]="insurance.currentState === 'SUBMITTED'">
                     <td><a class="view-btn" (click)="openDialog(insurance)">Declare Amount</a></td>
+                </ng-template>
+                <ng-template [ngIf]="insurance.currentState === 'AMOUNT_DECLARED'">
+                    <td><a class="view-btn" disabled>Waiting for acceptance</a></td>
                 </ng-template>
                 <ng-template [ngIf]="insurance.currentState === 'REJECTED'">
                     <td><a class="view-btn" style="color: red" disabled>REJECTED</a></td>
                 </ng-template>
-                <ng-template [ngIf]="insurance.currentState !== 'REJECTED' && insurance.currentState !== 'SUBMITTED'">
+                <ng-template [ngIf]="insurance.currentState !== 'REJECTED' && insurance.currentState !== 'SUBMITTED' && insurance.currentState !== 'AMOUNT_DECLARED'">
                     <td><a class="view-btn" (click)="openDialog(insurance)">View</a></td>
                 </ng-template>
             </tr>

@@ -19,6 +19,7 @@ export class AdminHomeComponent implements OnInit {
   types: any[] = ["ALL", "COMPLETED", "INCOMPLETE"];
 
   insurances: Insurance[] = [];
+  selected: string = 'ALL';
 
   constructor(private authService: AuthenticationService,
               private route: Router,
@@ -50,6 +51,7 @@ export class AdminHomeComponent implements OnInit {
   }
 
   filterPolicies(status: string) {
+    this.selected = status;
     if (status === 'ALL') {
       this.getAllPolicies();
       return
