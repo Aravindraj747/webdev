@@ -27,10 +27,14 @@
         <nav class="main-nav float-right d-none d-lg-block">
           <ul>
             <li class="active"><a href="#intro">Home</a></li>
+            <li><a href="#explore">Explore</a></li>
+            <li><a href="" *ngIf="isUserLogin"><span (click)="viewPolicy()">My Policy</span></a></li>
             <li><a href="#footer">Contact Us</a></li>
+            <li><a href="#about">About Us</a></li>
             <li><a href="#services">Service</a></li>
-            <li><a href="login">login</a></li>
-            <li><a href="#about">about Us</a></li>
+            <li><a href="" *ngIf="isUserLogin"><span (click)="viewProfile()">Profile</span></a></li>
+            <li><a *ngIf="!isUserLogin" href="login">login</a></li>
+            <li *ngIf="isUserLogin"><a><span style="cursor: pointer;" (click)="logout()">logout</span></a></li>
           </ul>
         </nav><!-- .main-nav -->
         
@@ -48,7 +52,7 @@
             <h2>An opportunity<br>to get life cover &<br> return<br>Start today!<br><br><span id=typed></span></h2>
             <!-- <span id="typed"></span> -->
             <div>
-              <a (click)="explore()" class="btn-get-started scrollto">Explore Now!</a>
+              <!-- <a (click)="explore()" style="cursor:pointer" class="btn-get-started scrollto">Explore Now!</a> -->
             </div>
           </div>
     
@@ -61,11 +65,108 @@
     </section><!-- #intro -->
   
     <main id="main">
-  
+
+            <!--==========================
+        Policy section
+      ============================-->
+
+      <div class="container_buy" id="explore">
+        <h1 style="display: flex;justify-content: center; font-weight: 600;  font-family: 'Montserrat', sans-serif;">Get Started With</h1>
+        <p style="margin-top:50px;display: flex;justify-content: center;font-size: 18px;  font-family: 'Montserrat', sans-serif;">Explore the real estate option in top cities</p>
+        <div class="wrapper" style="margin-top: 20px;">
+          <div class="icon" style="left: 0%;">
+            <a href="buy" style="text-decoration: none;">
+              <span>
+                <mat-icon class="mat">home</mat-icon>
+              </span>
+              <div class="toolpit" style="color: black;margin-top: 15px;margin-left: 35px;">Buy</div>
+            </a>
+          </div>
+          <div class="icon">
+            <a href="rent" style="text-decoration: none;">
+              <span class="i">
+                <mat-icon class="mat">home</mat-icon>
+              </span>
+              <div class="toolpit" style="color: black;margin-top: 15px;margin-left: 35px;">Rent</div>
+            </a>
+          </div>
+          <div class="icon">
+            <a href="plot" style="text-decoration: none;">
+              <span>
+                <mat-icon class="mat">landscape</mat-icon>
+              </span>
+              <div class="toolpit" style="color: black;margin-top: 15px;margin-left: 20px;">Plot/Land</div>
+            </a>
+          </div>
+          <div class="icon">
+            <a href="commercial" style="text-decoration: none;">
+              <span>
+                <mat-icon class="mat">location_city</mat-icon>
+              </span>
+              <div class="toolpit" style="color: black;margin-top: 15px; margin-left: 10px;">Commercial</div>
+            </a>
+          </div>
+          <div class="icon">
+            <a href="lease" style="text-decoration: none;">
+              <span>
+                <mat-icon class="mat">home</mat-icon>
+              </span>
+              <div class="toolpit" style="color: black;margin-top: 15px;margin-left: 30px;">Lease</div>
+            </a>
+          </div>
+          <div class="icon buy">
+            <a href="pg" style="text-decoration: none;">
+              <span>
+                <mat-icon class="mat"> local_hotel</mat-icon>
+              </span>
+              <div class="toolpit" style="color: black;margin-top: 15px;margin-left: 40px;">PG</div>
+            </a>
+          </div>
+        </div>
+      </div>
+          <!-- Only if user logged in -->
+      <div class="container_policy" *ngIf="isUserLogin">
+        <p style="display: flex;justify-content: center;font-weight: 500;font-size: 18px;font-family: 'Montserrat', sans-serif;">Policies</p>
+        <div class="policy">
+          <div class="icon">
+            <a [routerLink]="['/insurance']"
+                     [queryParams]="{ type: 'insurance', vehicleType: 'car', createdBy: 'User', createdByName: user?.name, createdByID: user?.email}"
+              style="text-decoration: none;">
+              <span class="i">
+                <!-- <mat-icon class="mat">car</mat-icon> -->
+                <i class="fa fa-car" aria-hidden="true" style="font-size:50px;margin-left:10px;line-height: 90px;"></i>
+              </span>
+              <div class="toolpit" style="color: black;margin-top: 20px;margin-left: 35px;">Car</div>
+            </a>
+          </div>
+          <div class="icon">
+            <a [routerLink]="['/insurance']"
+              [queryParams]="{ type: 'insurance', vehicleType: 'commercial', createdBy: 'User', createdByName: user?.name, createdByID: user?.email}"
+              style="text-decoration: none;">
+              <span class="i">
+                <!-- <mat-icon class="mat">how_to_reg</mat-icon> -->
+                <i class='fas fa-motorcycle' style="font-size:50px;margin-left:8px;line-height: 90px;"></i>
+              </span>
+              <div class="toolpit" style="color: black;margin-top: 20px;margin-left: 5px;">Two Wheeler</div>
+            </a>
+          </div>
+          <div class="icon">
+            <a [routerLink]="['/insurance']"
+              [queryParams]="{ type: 'insurance', vehicleType: 'commercial', createdBy: 'User', createdByName: user?.name, createdByID: user?.email}"
+              style="text-decoration: none;">
+              <span class="i">
+                <mat-icon class="mat" style="font-size:50px;margin-left:10px;margin-top: 20px;">domain</mat-icon>
+              </span>
+              <div class="toolpit" style="color: black;margin-top: 85px;margin-left: 10px;">Commercial</div>
+            </a>
+          </div>
+        </div>
+      </div>
+      
       <!--==========================
         About Us Section
       ============================-->
-      <section id="about">
+      <section id="about" style="background:#f5f8fd">
   
         <div class="container">
           <div class="row">
@@ -95,7 +196,7 @@
       <!--==========================
         Services Section
       ============================-->
-      <section id="services" class="section-bg">
+      <section id="services" class="section-bg" style="background-color:#fff;">
         <div class="container">
   
           <header class="section-header">

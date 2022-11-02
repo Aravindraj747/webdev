@@ -15,6 +15,7 @@ export class UserprofileComponent implements OnInit {
   
   constructor(private userservice:UsersService ,private route:Router, private authservice: AuthenticationService) {
     this.user = userservice.getUserDetails();
+    console.log('policy');
   }
 
   ngOnInit(): void {

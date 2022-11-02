@@ -81,7 +81,7 @@ export class LoginComponent implements OnInit {
           this.getUserDetails(email);
           // this.userService.user.name = email;
           this.userService.userLoggedIn = 'true';
-          this.route.navigate(['userhome']);
+          this.route.navigate(['home']);
         }, err => {
           console.log('error', err);
           this.openSnackBar('Invalid Email or password', 'Undo');

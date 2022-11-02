@@ -4,6 +4,7 @@ import { UsersService } from 'src/app/services/users.service';
 import {Storage,ref,uploadBytesResumable,getDownloadURL} from '@angular/fire/storage'
 import { getStorage } from 'firebase/storage';
 import { Router } from '@angular/router';
+import { User } from "../../models/user";
 
 
 
@@ -16,16 +17,26 @@ export class HomeComponent implements OnInit {
 
   user$=this.authservice.currentUser$;
 
+  isUserLogin: boolean= false;
+
+  user: User;
+
   public file:any={}
   constructor(private authservice: AuthenticationService,
               private userservice: UsersService,
               public storage: Storage,
               private route: Router) {
+                if(this.userservice.getUserLogin()){
+                  this.isUserLogin=true;
+                }
   }
   ngOnInit(): void {
   }
   logout(){
-    this.authservice.logout();
+    this.authservice.logout().then(res => {
+      this.isUserLogin = false;
+      this.route.navigate(['home']);
+    })
   }
   chooseFile(event:any){
     this.file=event.target.files[0];
@@ -51,7 +62,11 @@ export class HomeComponent implements OnInit {
     }
     )
     }
-    explore(){
-      return this.route.navigate(['userhome']);
+    viewProfile() {
+      return this.route.navigate(['userprofile']);
+    }
+  
+    viewPolicy() {
+      this.route.navigate(['userpolicy']);
     }
 }

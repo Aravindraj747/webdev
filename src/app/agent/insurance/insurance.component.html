@@ -20,7 +20,7 @@
                                               (change)="chooseCSR($event)"></span>
                             <input [ngModelOptions]="{standalone: true}" [(ngModel)]="insurance.policyNumber" type="text" placeholder="Policy number">
                         </ng-template>
-                        <button (submit)="submitInsurance('Third Party Policy')" type="submit">CREATE</button>
+                        <button (submit)="submitInsurance('Third Party Policy')" type="submit">SUBMIT</button>
                     </form>
                 </mat-tab>
                 <mat-tab label="Package Policy">
@@ -42,7 +42,7 @@
                                               (change)="chooseCSR($event)"></span>
                             <input [ngModelOptions]="{standalone: true}" [(ngModel)]="insurance.policyNumber" type="text" placeholder="Policy number">
                         </ng-template>
-                        <button (submit)="submitInsurance('Package Policy')" type="submit">CREATE</button>
+                        <button (submit)="submitInsurance('Package Policy')" type="submit">SUBMIT</button>
                     </form>
                 </mat-tab>
             </mat-tab-group>
