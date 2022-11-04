@@ -34,9 +34,21 @@ p {
 	margin: 20px 0 30px;
 }
 
+/* eye icon */
 span {
-	font-size: 12px;
+	position: relative;
+	left: 120px;
+	transform: translate(0,-50%);
+	top: -6%;
+	cursor:pointer;
+	/* font-size: 12px; */
 }
+
+mat-icon{
+	font-size: 20px;
+	color: #7a797e;
+}
+
 
 a {
 	color: #333;

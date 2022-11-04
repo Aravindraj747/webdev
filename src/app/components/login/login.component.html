@@ -6,7 +6,8 @@
 			<input type="text" placeholder="Name" class="form-control" name="name"  required formControlName="name"/>
 			<input type="email" placeholder="Email" class="form-control" name="email"  required formControlName="email"/>
 			<input type="number" placeholder="Phone Number" class="form-control" name="phoneNumber"  required formControlName="phoneNumber"/>
-			<input type="password" placeholder="Password" class="form-control" name="password" required formControlName="password"/>
+			<input type="password" #x placeholder="Password" class="form-control" name="password" required formControlName="password"/>
+			<span><mat-icon (click)="x.type=x.type=='password'?'text':'password'" >remove_red_eye</mat-icon></span>
 			<button >Sign Up</button>
 		</form>
 		<mat-spinner *ngIf="signUpSpinnerActive" class="mat-spinner" diameter="60"></mat-spinner>
@@ -16,7 +17,8 @@
 			<h1>Sign in</h1>
 			<input type="email" placeholder="Email" class="form-control" name="email"  required formControlName="email"/>
 
-			<input type="password" placeholder="Password" class="form-control" name="password" required formControlName="password"/>
+			<input type="password" #y placeholder="Password" class="form-control" name="password" required formControlName="password"/>
+			<span><mat-icon (click)="y.type=y.type=='password'?'text':'password'" >remove_red_eye</mat-icon></span>
 <!--			<a href="#">Forgot your password?</a>-->
 			<button [disabled]="loginSpinnerActive" type="submit">Sign In</button>
 		</form>

@@ -15,7 +15,6 @@ import { User } from "../../models/user";
 })
 export class LoginComponent implements OnInit {
 
-
   loginForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', Validators.required),
@@ -60,7 +59,6 @@ export class LoginComponent implements OnInit {
   get password() {
     return this.loginForm.get('password');
   }
-
   signIn() {
     const { email, password } = this.loginForm.value;
 
