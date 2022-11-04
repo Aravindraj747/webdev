@@ -24,4 +24,5 @@ export interface Insurance {
     customerName: string;
     status: string;
     currentState: string;
+    insuranceCompany: string;
 }

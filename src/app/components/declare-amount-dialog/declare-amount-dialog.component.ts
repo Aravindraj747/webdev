@@ -29,7 +29,8 @@ export class DeclareAmountDialogComponent implements OnInit {
   submit() {
     let data = {
       'insuranceAmount': this.insurance.insuranceAmount,
-      'currentState': InsuranceStatus.AMOUNT_DECLARED
+      'currentState': InsuranceStatus.AMOUNT_DECLARED,
+      'insuranceCompany': this.insurance.insuranceCompany
     }
     this.firestoreService.updateInsurance(this.insurance.id, data).then(res => {
       this.openSnackBar('Insurance amount Saved', 'close');

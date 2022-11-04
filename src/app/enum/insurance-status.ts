@@ -4,4 +4,5 @@ export enum InsuranceStatus {
     AMOUNT_PAID = 'PAID',
     ACCEPTED = 'ACCEPTED',
     REJECTED = 'REJECTED',
+    COMPLETED = 'COMPLETED'
 }

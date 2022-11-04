@@ -63,7 +63,7 @@ export class HomeComponent implements OnInit {
     )
     }
     viewProfile() {
-      return this.route.navigate(['userprofile']);
+      this.route.navigate(['userprofile']);
     }
   
     viewPolicy() {

@@ -5,6 +5,7 @@ import { MatSnackBar } from "@angular/material/snack-bar";
 import { MAT_DIALOG_DATA } from "@angular/material/dialog";
 import {Insurance} from "../../models/insurance";
 import {FirestoreService} from "../../services/firestore.service";
+import {InsuranceStatus} from "../../enum/insurance-status";
 
 @Component({
   selector: 'app-dialog',
@@ -57,7 +58,8 @@ export class DialogComponent implements OnInit {
     let data = {
       'finalDocument': this.insurance.finalDocument,
       'insuranceAmount': this.insurance.insuranceAmount,
-      'status': 'COMPLETED'
+      'status': 'COMPLETED',
+      'currentState': InsuranceStatus.COMPLETED
     }
     this.firestoreService.updateInsurance(this.insurance.id, data).then(res => {
       this.openSnackBar('Insurance Saved', 'close');

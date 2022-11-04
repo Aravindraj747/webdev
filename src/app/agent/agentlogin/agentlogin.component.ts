@@ -57,7 +57,7 @@ export class AgentloginComponent implements OnInit {
                     // console.log(res.user);
                     this.getAgentDetails(email);
                     console.log('admin got')
-                    this.route.navigate(['/agenthome']);
+                    this.route.navigate(['/agenthome'], { queryParams: { email: email } });
                     console.log('navigation is not working')
                 }).catch(err => {
                     console.log(err)

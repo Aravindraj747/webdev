@@ -28,11 +28,11 @@
           <ul>
             <li class="active"><a href="#intro">Home</a></li>
             <li><a href="#explore">Explore</a></li>
-            <li><a href="" *ngIf="isUserLogin"><span (click)="viewPolicy()">My Policy</span></a></li>
+            <li><a *ngIf="isUserLogin"><span (click)="viewPolicy()">My Policy</span></a></li>
             <li><a href="#footer">Contact Us</a></li>
             <li><a href="#about">About Us</a></li>
             <li><a href="#services">Service</a></li>
-            <li><a href="" *ngIf="isUserLogin"><span (click)="viewProfile()">Profile</span></a></li>
+            <li><a *ngIf="isUserLogin"><span (click)="viewProfile()">Profile</span></a></li>
             <li><a *ngIf="!isUserLogin" href="login">login</a></li>
             <li *ngIf="isUserLogin"><a><span style="cursor: pointer;" (click)="logout()">logout</span></a></li>
           </ul>

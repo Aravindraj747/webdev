@@ -4,7 +4,7 @@
 <div class="container" style="margin-top:10px;margin-left: 100px;">
   <div class="header">
     <a *ngFor="let type of types">
-      <button (click)="filterPolicies(type)" mat-button>{{ type }}</button>
+      <button [class.active-button]="selected === type" (click)="filterPolicies(type)" mat-button>{{ type }}</button>
     </a>
   </div>
   <div class="row shadow-lg p-3 mb-5 bg-body rounded" style="margin-top:25px;width: 95%;">

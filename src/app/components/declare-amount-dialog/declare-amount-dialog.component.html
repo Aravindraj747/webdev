@@ -31,6 +31,12 @@
 </div>
 <div style="display: flex">
     <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Insurance Company</mat-label>
+        <input [(ngModel)]="insurance.insuranceCompany" matInput placeholder="Ex. Bajaj">
+    </mat-form-field>
+</div>
+<div style="display: flex">
+    <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Insurance Amount</mat-label>
         <input [(ngModel)]="insurance.insuranceAmount" matInput placeholder="Ex. 10000">
     </mat-form-field>
