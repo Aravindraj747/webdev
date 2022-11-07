@@ -49,6 +49,7 @@ export class AgentloginComponent implements OnInit {
         }
         this.loginSpinnerActive = true;
         console.log(email);
+        console.log(password);
         this.agentService.checkIfAgent(email).subscribe(res => {
             this.agentService.isAgent = 'true';
             console.log(res);

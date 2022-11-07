@@ -16,7 +16,7 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 export class AdminhomeComponent implements OnInit {
 
     typeList: any[] = ["Buy", "Rent", "Land", "Commercial", "Lease", "PG"];
-    property: Property = {address: "", amount: 0, bhk: 0, date: "", ownerName: "", photo: "", sqFeet: 0, type: ""};
+    property: Property = {address: "", amount:0 , bhk:0 , date: "", ownerName: "", photo: "", sqFeet:0 , type: ""};
     spinnerActive: boolean = false;
     photo: any = {}
 

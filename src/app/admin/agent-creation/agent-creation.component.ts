@@ -43,6 +43,9 @@ export class AgentCreationComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  goToStep1(){
+    this.step = '1';
+  }
   goToStep2() {
     this.step = '2';
   }
@@ -50,6 +53,7 @@ export class AgentCreationComponent implements OnInit {
   goToStep3() {
     this.step = '3';
   }
+
 
   createAgent(){
     this.signUpSpinnerActive = true;

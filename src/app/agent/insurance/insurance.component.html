@@ -6,13 +6,18 @@
             <mat-tab-group style="margin-top: -100px">
                 <mat-tab label="Third Party Policy">
                     <form [class.spinnerOverlay]="spinnerActive" (submit)="submitInsurance('Third Party Policy')">
-
-                        <input [ngModelOptions]="{standalone: true}" [(ngModel)]="insurance.customerName" type="text" placeholder="Name as per RC" name="name" required />
-                        <input [ngModelOptions]="{standalone: true}" [(ngModel)]="insurance.vehicleNumber" type="text" placeholder="Vehicle number">
-                        <input [ngModelOptions]="{standalone: true}" [(ngModel)]="insurance.address" type="text" placeholder="Address as per RC">
-                        <input [ngModelOptions]="{standalone: true}" [(ngModel)]="insurance.emailID" type="text" placeholder="Email ID">
-                        <input [ngModelOptions]="{standalone: true}" [(ngModel)]="insurance.phoneNumber" type="text" placeholder="Phone Number">
-                        <span>Vehicle Image <input class="input_file" type="file" placeholder="Vehicle image"
+                        <p style="margin-top:10px;font-weight: 600;">Insurance Vechicle Type : {{insurance.vehicleType}}</p>
+                        <label style="margin-top: 10px;">Name as per RC</label>
+                        <input [ngModelOptions]="{standalone: true}" [(ngModel)]="insurance.customerName" type="text"  name="name" required />
+                        <label >Vehicle Number</label>
+                        <input [ngModelOptions]="{standalone: true}" [(ngModel)]="insurance.vehicleNumber" type="text" >
+                        <label >Address as per RC</label>
+                        <input [ngModelOptions]="{standalone: true}" [(ngModel)]="insurance.address" type="text" >
+                        <label >Email ID</label>
+                        <input [ngModelOptions]="{standalone: true}" [(ngModel)]="insurance.emailID" type="text" >
+                        <label >PhoneNumber</label>
+                        <input [ngModelOptions]="{standalone: true}" [(ngModel)]="insurance.phoneNumber" type="text" >
+                        <span style="margin-top: 10px;">Vehicle Image <input class="input_file" type="file" placeholder="Vehicle image"
                                                    (change)="chooseVehicle($event)"></span>
                         <!-- Claim -->
                         <ng-template [ngIf]="insuranceType === 'Claim'">
@@ -25,20 +30,25 @@
                 </mat-tab>
                 <mat-tab label="Package Policy">
                     <form [class.spinnerOverlay]="spinnerActive" (submit)="submitInsurance('Package Policy')">
-
-                        <input [ngModelOptions]="{standalone: true}" [(ngModel)]="insurance.vehicleName" type="text" placeholder="Name" name="name" required />
-                        <input [ngModelOptions]="{standalone: true}" [(ngModel)]="insurance.vehicleNumber" type="text" placeholder="Vehicle number">
-                        <input [ngModelOptions]="{standalone: true}" [(ngModel)]="insurance.address" type="text" placeholder="Address as per RC">
-                        <input [ngModelOptions]="{standalone: true}" [(ngModel)]="insurance.emailID" type="text" placeholder="Email ID">
-                        <input [ngModelOptions]="{standalone: true}" [(ngModel)]="insurance.phoneNumber" type="text" placeholder="Phone Number">
+                        <p style="font-weight: 600;">Insurance Vechicle Type : {{insurance.vehicleType}}</p>
+                        <label>Name</label>
+                        <input [ngModelOptions]="{standalone: true}" [(ngModel)]="insurance.vehicleName" type="text"  name="name" required />
+                        <label >Vehicle Number</label>
+                        <input [ngModelOptions]="{standalone: true}" [(ngModel)]="insurance.vehicleNumber" type="text" >
+                        <label >Address</label>
+                        <input [ngModelOptions]="{standalone: true}" [(ngModel)]="insurance.address" type="text" >
+                        <label >Email ID</label>
+                        <input [ngModelOptions]="{standalone: true}" [(ngModel)]="insurance.emailID" type="text" >
+                        <label >PhoneNumber</label>
+                        <input [ngModelOptions]="{standalone: true}" [(ngModel)]="insurance.phoneNumber" type="text" >
 
                         <span class="rc">RC Photocopy<input class="input_file" type="file" placeholder="RC"
                                                             (change)="chooseRC($event)"></span>
-                        <span>Vehicle Image <input class="input_file" type="file" placeholder="Vechicle image"
+                        <span style="margin-top: 10px;">Vehicle Image <input class="input_file" type="file" placeholder="Vechicle image"
                                                    (change)="chooseVehicle($event)"></span>
                         <!-- Claim -->
                         <ng-template [ngIf]="insuranceType === 'Claim'">
-                    <span>CSR Photocopy<input class="input_file" type="file" arial-placeholder="CSR copy"
+                    <span >CSR Photocopy<input class="input_file" type="file" arial-placeholder="CSR copy"
                                               (change)="chooseCSR($event)"></span>
                             <input [ngModelOptions]="{standalone: true}" [(ngModel)]="insurance.policyNumber" type="text" placeholder="Policy number">
                         </ng-template>

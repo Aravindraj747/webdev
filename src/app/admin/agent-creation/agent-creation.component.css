@@ -28,7 +28,7 @@ h1 {
 	position: relative;
 	overflow: hidden;
     width: 500px;
-    height: 500px;
+    height: 600px;
 }
 
 .form-container {
@@ -58,6 +58,10 @@ button:active {
 	transform: scale(0.95);
 }
 
+.next{
+	margin-left: 10px;
+}
+
 button:focus {
 	outline: none;
 }
@@ -71,6 +75,10 @@ form {
 	padding: 0 50px;
 	height: 100%;
 	text-align: center;
+}
+
+label{
+	font-weight: 400;
 }
 
 input {

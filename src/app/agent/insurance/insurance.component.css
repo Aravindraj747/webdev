@@ -27,7 +27,7 @@ h1 {
 	position: relative;
 	overflow: hidden;
     width: 600px;
-    height: 700px;
+    height: 750px;
 }
 
 .form-container {
@@ -77,6 +77,10 @@ button:active {
 	transform: scale(0.95);
 }
 
+label{
+	font-weight: 400;
+}
+
 button:focus {
 	outline: none;
 }
@@ -86,6 +90,7 @@ button:focus {
 }
 .rc input{
     margin-left: 10px;
+	margin-top: 10px;
 }
 
 .mat-spinner {

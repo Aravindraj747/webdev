@@ -5,10 +5,14 @@
         <form *ngIf="step === '1'" [class.spinnerOverlay]="signUpSpinnerActive" action="#"
               (ngSubmit)="goToStep2()">
             <h1 style="margin-bottom: 30px">Agent Details</h1>
-            <input [(ngModel)]="agent.name" type="text" placeholder="Name" class="form-control" name="name" required/>
-            <input [(ngModel)]="agent.email" type="email" placeholder="Email" class="form-control" name="email" required/>
-            <input [(ngModel)]="agent.phoneNumber" type="number" placeholder="Phone number" class="form-control" name="phoneNumber" required/>
-            <input [(ngModel)]="agent.password" type="password" placeholder="Password" class="form-control" name="password" required/>
+            <label style="left: 0%;">Name</label>
+            <input [(ngModel)]="agent.name" type="text"  class="form-control" name="name" required/>
+            <label >Email</label>
+            <input [(ngModel)]="agent.email" type="email"  class="form-control" name="email" required/>
+            <label >PhoneNumber</label>
+            <input [(ngModel)]="agent.phoneNumber" type="number"  class="form-control" name="phoneNumber" required/>
+            <label >Password</label>
+            <input [(ngModel)]="agent.password" type="password"  class="form-control" name="password" required/>
             <button type="submit">Next</button>
             <mat-spinner *ngIf="signUpSpinnerActive" class="mat-spinner" diameter="60"></mat-spinner>
         </form>
@@ -16,27 +20,42 @@
         <form *ngIf="step === '2'" [class.spinnerOverlay]="signUpSpinnerActive" action="#"
               (ngSubmit)="goToStep3()">
             <h1 style="margin-bottom: 30px">Agent Address</h1>
-            <input [(ngModel)]="agent.address" type="text" placeholder="Address" class="form-control" name="address" required/>
-            <input [(ngModel)]="agent.city" type="text" placeholder="City" class="form-control" name="city" required/>
-            <input [(ngModel)]="agent.state" type="text" placeholder="State" class="form-control" name="state" required/>
-            <input [(ngModel)]="agent.pinCode" type="number" placeholder="PinCode" class="form-control" name="pinCode" required/>
-            <button type="submit">Next</button>
+            <label >Address</label>
+            <input [(ngModel)]="agent.address" type="text"  class="form-control" name="address" required/>
+            <label >City</label>
+            <input [(ngModel)]="agent.city" type="text"  class="form-control" name="city" required/>
+            <label >State</label>
+            <input [(ngModel)]="agent.state" type="text"  class="form-control" name="state" required/>
+            <label >PinCode</label>
+            <input [(ngModel)]="agent.pinCode" type="number"  class="form-control" name="pinCode" required/>
+            <div class="button">
+              <button (click)="goToStep1()">Back</button>
+              <button type="submit" class="next">Next</button>
+            </div>
             <mat-spinner *ngIf="signUpSpinnerActive" class="mat-spinner" diameter="60"></mat-spinner>
         </form>
 
         <form *ngIf="step === '3'" [class.spinnerOverlay]="signUpSpinnerActive" action="#"
               (ngSubmit)="createAgent()">
-            <h1 style="margin-bottom: 30px">Agent Bank Details</h1>
-            <input [(ngModel)]="agent.bankAccountHolderName" type="text" placeholder="Account Holder Name" class="form-control" name="accountHolderName"
+            <h1 style="margin-bottom: 10px">Agent Bank Details</h1>
+              <label >HolderName</label>
+            <input [(ngModel)]="agent.bankAccountHolderName" type="text"  class="form-control" name="accountHolderName"
                    required/>
-            <input [(ngModel)]="agent.bankName" type="text" placeholder="Bank Name" class="form-control" name="bankName" required/>
-            <input [(ngModel)]="agent.accountNumber" type="number" placeholder="Account number" class="form-control" name="accountNumber" required
+              <label >BankName</label>
+            <input [(ngModel)]="agent.bankName" type="text"  class="form-control" name="bankName" required/>
+              <label >AccountNumber</label>
+            <input [(ngModel)]="agent.accountNumber" type="number"  class="form-control" name="accountNumber" required
                    />
-            <input [(ngModel)]="agent.bankCity" type="text" placeholder="Bank City" class="form-control" name="bankCity" required
+              <label >BankCity</label>
+            <input [(ngModel)]="agent.bankCity" type="text"  class="form-control" name="bankCity" required
                    />
-            <input [(ngModel)]="agent.ifscCode" type="text" placeholder="Bank IFSC Code" class="form-control" name="bankIFSCCode" required
+              <label >IFSCCode</label>
+            <input [(ngModel)]="agent.ifscCode" type="text"  class="form-control" name="bankIFSCCode" required
                    />
-            <button type="submit">Save</button>
+                   <div class="button">
+                     <button (click)="goToStep2()">Back</button>
+                     <button type="submit" class="next">Next</button>
+                   </div>
         </form>
         <mat-spinner *ngIf="signUpSpinnerActive" class="mat-spinner" diameter="60"></mat-spinner>
     </div>
