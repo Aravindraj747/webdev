@@ -32,7 +32,7 @@ export class LeadComponent implements OnInit {
     this.agent = agentService.getAgentDetails();
     this.map.set('Two Wheeler', 'twoWheeler');
     this.map.set('Commercial', 'commercial');
-    this.map.set('Car', 'car')
+    this.map.set('Car', 'car');
   }
 
   ngOnInit(): void {

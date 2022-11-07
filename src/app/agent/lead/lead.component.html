@@ -22,6 +22,7 @@
         <th>Insurance name</th>
         <th>Plan name</th>
         <th>Amount</th>
+        <th>Value</th>
         <th class="action">Actions</th>
         </tr>
         </thead>
@@ -35,6 +36,11 @@
         <td>Bajaj</td>
         <td>{{ policy.policyType }}</td>
         <td>{{ policy.insuranceAmount }}</td>
+        <td>
+            <ng-template [ngIf]="policy.policyType === 'Package Policy'">
+                <span>{{ policy.insuranceValue }}</span>
+            </ng-template>
+        </td>
         <td>
 <!--            <button type="button" class="btn btn-primary"><span>Change</span></button>-->
 <!--            <ng-template [ngIf]="policy.finalDocument === ''">-->
@@ -66,6 +72,7 @@
                 <span style="margin-left: 40px; color: red">Rejected</span>
             </ng-template>
             <!--<button type="button" class="btn btn-success"><span>Success</span></button></td>-->
+            </td>
         </tr>
         </tbody>
         </table>

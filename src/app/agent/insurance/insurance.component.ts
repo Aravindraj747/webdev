@@ -52,7 +52,8 @@ export class InsuranceComponent implements OnInit {
         customerName: "",
         currentState: InsuranceStatus.SUBMITTED,
         status: "INCOMPLETE",
-        insuranceCompany: ''
+        insuranceCompany: '',
+        insuranceValue:''
     };
 
     rcImageFile: any = undefined;

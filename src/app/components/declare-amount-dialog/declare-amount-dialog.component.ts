@@ -15,22 +15,32 @@ export class DeclareAmountDialogComponent implements OnInit {
 
   insurance: Insurance;
 
+  type: String;
+
+
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,
               private route: Router,
               private _snackBar: MatSnackBar,
               private firestoreService: FirestoreService) {
     console.log(data);
     this.insurance = data['insurance'];
+    this.type=this.insurance.policyType;
+    console.log(this.type);
   }
+  
 
   ngOnInit(): void {
   }
 
   submit() {
+    if(this.insurance.insuranceValue == undefined){
+      this.insurance.insuranceValue='0';
+    }
     let data = {
       'insuranceAmount': this.insurance.insuranceAmount,
       'currentState': InsuranceStatus.AMOUNT_DECLARED,
-      'insuranceCompany': this.insurance.insuranceCompany
+      'insuranceCompany': this.insurance.insuranceCompany,
+      'insuranceValue' : this.insurance.insuranceValue,
     }
     this.firestoreService.updateInsurance(this.insurance.id, data).then(res => {
       this.openSnackBar('Insurance amount Saved', 'close');

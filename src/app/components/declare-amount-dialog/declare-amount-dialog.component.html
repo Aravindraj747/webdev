@@ -41,6 +41,12 @@
         <input [(ngModel)]="insurance.insuranceAmount" matInput placeholder="Ex. 10000">
     </mat-form-field>
 </div>
+<div *ngIf="this.type == 'Package Policy' " style="display:flex;">
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Insurance Value</mat-label>
+        <input [(ngModel)]="insurance.insuranceValue" matInput placeholder="Ex. 10000">
+    </mat-form-field>
+</div>
 <mat-dialog-actions>
     <button mat-button mat-dialog-close>Cancel</button>
     <button mat-flat-button color="primary" mat-dialog-close (click)="submit()">Submit</button>
