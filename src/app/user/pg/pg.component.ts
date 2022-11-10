@@ -37,6 +37,10 @@ export class PgComponent implements OnInit {
     })
   }
 
+  clearAll(){
+    window.location.reload();
+  }
+
   formatLabel(value: number) {
     if (value >= 1000) {
       return Math.round(value / 1000) + 'K';

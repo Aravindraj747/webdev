@@ -4,7 +4,7 @@ export interface Property {
     date: string;
     address: string;
     sqFeet: number;
-    bhk: number;
+    details: string;
     amount: number;
     photo: string;
 }

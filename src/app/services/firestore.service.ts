@@ -40,15 +40,15 @@ export class FirestoreService {
     return this.firestore.collection('insurance').doc(id).update(data);
   }
 
-  getPropertyByFilter(type: string, price: string, location: string) {
+  getPropertyByFilter(type: string, price: number, location: string) {
     return this.firestore.collection('property', ref => {
       if (type !== undefined && type !== '') {
-        ref.where('type', '==', type)
+        return ref.where('type', '==', type);
       }
       if (location !== undefined && location !== '') {
-        ref.where('location', '==', location);
+        ref.where('address', '==', location);
       }
-      if (price !== undefined && price !== '0') {
+      if (price !== undefined) {
         ref.where('amount', '<=', price)
       }
       return ref;

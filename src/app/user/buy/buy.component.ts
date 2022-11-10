@@ -48,10 +48,12 @@ export class BuyComponent implements OnInit {
     }
   }
 
-  clearAll() {}
+  clearAll() {
+    window.location.reload();
+  }
 
   filter() {
-    console.log(this.filterBHK, this.filterLocation, this.filterPrice);
+    console.log(this.filterLocation, this.filterPrice);
     this.properties = [];
     let propertyArray: Property[] = [];
     this.firestoreService.getPropertyByFilter('Buy', this.filterPrice, this.filterLocation).get().subscribe(res => {

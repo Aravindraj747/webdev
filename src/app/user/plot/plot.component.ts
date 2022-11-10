@@ -44,6 +44,11 @@ export class PlotComponent implements OnInit {
       return value;
     }
   }
+
+  clearAll(){
+    window.location.reload();
+  }
+
   filter() {
     console.log(this.filterBHK, this.filterLocation, this.filterPrice);
     this.properties = [];

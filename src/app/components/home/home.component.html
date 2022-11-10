@@ -33,7 +33,7 @@
             <li><a href="#about">About Us</a></li>
             <li><a href="#services">Service</a></li>
             <li><a *ngIf="isUserLogin"><span (click)="viewProfile()">Profile</span></a></li>
-            <li><a *ngIf="!isUserLogin" href="login">login</a></li>
+            <!-- <li><a *ngIf="!isUserLogin" href="login">login</a></li> -->
             <li *ngIf="isUserLogin"><a><span style="cursor: pointer;" (click)="logout()">logout</span></a></li>
           </ul>
         </nav><!-- .main-nav -->
@@ -338,6 +338,12 @@
     
               <div class="copyright">
                   &copy; Copyright <strong>HAYAT AMN</strong>. All Rights Reserved
+                </div>
+                <div class="terms">
+                  <a href="https://merchant.razorpay.com/policy/KdUeJ1wzGPMSnA/terms">Terms and Condition</a>
+                  <a href="https://merchant.razorpay.com/policy/KdUeJ1wzGPMSnA/privacy">Privacy Policy</a>
+                  <a href="https://merchant.razorpay.com/policy/KdUeJ1wzGPMSnA/refund">Refund Policy</a>
+                  <a href="https://merchant.razorpay.com/policy/KdUeJ1wzGPMSnA/shipping">Shipping Policy</a>
                 </div>
                 <div class="credits">
                   Developed and Designed by <a href="https://bairacorp.in/"><strong style="color:white;">BAIRACORP</strong></a>

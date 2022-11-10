@@ -17,7 +17,7 @@
                         <input [ngModelOptions]="{standalone: true}" [(ngModel)]="insurance.emailID" type="text" >
                         <label >PhoneNumber</label>
                         <input [ngModelOptions]="{standalone: true}" [(ngModel)]="insurance.phoneNumber" type="text" >
-                        <span style="margin-top: 10px;">Vehicle Image <input class="input_file" type="file" placeholder="Vehicle image"
+                        <span style="margin-top: 10px;">RC Image <input class="input_file" type="file" placeholder="Vehicle image"
                                                    (change)="chooseVehicle($event)"></span>
                         <!-- Claim -->
                         <ng-template [ngIf]="insuranceType === 'Claim'">

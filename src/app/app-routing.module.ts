@@ -57,12 +57,12 @@ const routes: Routes = [
   // Users
 
   { path: 'userhome', component: UserHomeComponent },
-  { path: 'buy', component: BuyComponent, canActivate: [UserAuthGuardService] },
-  { path: 'rent', component: RentComponent, canActivate: [UserAuthGuardService] },
-  { path: 'lease', component: LeaseComponent, canActivate: [UserAuthGuardService] },
-  { path: 'commercial', component: CommercialComponent, canActivate: [UserAuthGuardService] },
-  { path: 'plot', component: PlotComponent, canActivate: [UserAuthGuardService] },
-  { path: 'pg', component: PgComponent, canActivate: [UserAuthGuardService] },
+  { path: 'buy', component: BuyComponent },
+  { path: 'rent', component: RentComponent },
+  { path: 'lease', component: LeaseComponent },
+  { path: 'commercial', component: CommercialComponent },
+  { path: 'plot', component: PlotComponent },
+  { path: 'pg', component: PgComponent },
   { path: 'userprofile', component: UserprofileComponent, canActivate: [UserAuthGuardService] },
   { path: 'userpolicy', component: UserpolicyComponent, canActivate: [UserAuthGuardService] },
 

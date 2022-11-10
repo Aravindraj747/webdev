@@ -46,6 +46,10 @@ export class LeaseComponent implements OnInit {
     }
   }
 
+  clearAll(){
+    window.location.reload();
+  }
+
   filter() {
     console.log(this.filterBHK, this.filterLocation, this.filterPrice);
     this.properties = [];

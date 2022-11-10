@@ -14,7 +14,7 @@
                     <option disabled>Select type</option>
                     <option *ngFor="let type of typeList" [value]="type">{{type}}</option>
                 </select>
-                <label >Owner Name</label>
+                <label >Owner Name / Project Name</label>
                 <input [ngModelOptions]="{standalone: true}" [(ngModel)]="property.ownerName"
                        type="text" name="name" required />
                 <label >Date</label>
@@ -25,8 +25,8 @@
                 <label >Sq Feet</label>
                 <input [ngModelOptions]="{standalone: true}"  [(ngModel)]="property.sqFeet"
                        type="number"  name="name" required />
-                <label >BHK</label>
-                <input [ngModelOptions]="{standalone: true}" [(ngModel)]="property.bhk"
+                <label >Details</label>
+                <input [ngModelOptions]="{standalone: true}" [(ngModel)]="property.details"
                        type="text"  name="name" required />
                 <label >Amount</label>
                 <input [ngModelOptions]="{standalone: true}" [(ngModel)]="property.amount"
