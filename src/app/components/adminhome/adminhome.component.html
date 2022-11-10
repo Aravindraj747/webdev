@@ -23,13 +23,13 @@
                 <input [ngModelOptions]="{standalone: true}" [(ngModel)]="property.address"
                        type="text"  name="name" required />
                 <label >Sq Feet</label>
-                <input [ngModelOptions]="{standalone: true}"  [(ngModel)]="property.sqFeet"
+                <input (change)="setValue('sqFeet', $event)"
                        type="number"  name="name" required />
                 <label >Details</label>
                 <input [ngModelOptions]="{standalone: true}" [(ngModel)]="property.details"
                        type="text"  name="name" required />
                 <label >Amount</label>
-                <input [ngModelOptions]="{standalone: true}" [(ngModel)]="property.amount"
+                <input (change)="setValue('amount', $event)"
                        type="number"  name="name" required />
                 <span class="photo">Photocopy<input (change)="choosePhoto($event)" class="input_file" type="file" placeholder="Image"></span>
                 <button type="submit">Save</button>

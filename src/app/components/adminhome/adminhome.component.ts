@@ -32,11 +32,19 @@ export class AdminhomeComponent implements OnInit {
         this.photo = event.target.files[0];
     }
 
+    setValue(param: string, event: any) {
+        console.log(param, event);
+        console.log(event.target.valueAsNumber);
+        // @ts-ignore
+        this.property[param] = event.target.valueAsNumber;
+    }
+
     save() {
         // TODO: Add empty checks
         // upload image
-        this.spinnerActive = true;
-        this.putStorageItem(this.photo);
+        console.log(this.property);
+        // this.spinnerActive = true;
+        // this.putStorageItem(this.photo);
     }
 
     putStorageItem(file: any) {

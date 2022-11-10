@@ -57,6 +57,7 @@ export class BuyComponent implements OnInit {
     this.properties = [];
     let propertyArray: Property[] = [];
     this.firestoreService.getPropertyByFilter('Buy', this.filterPrice, this.filterLocation).get().subscribe(res => {
+      console.log(res);
       res.forEach(function (doc) {
         propertyArray.push(<Property>doc.data());
         console.log(doc.data());

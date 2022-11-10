@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
-import {AngularFirestore} from "@angular/fire/compat/firestore";
+import {AngularFirestore, DocumentData} from "@angular/fire/compat/firestore";
 import {Insurance} from "../models/insurance";
 import { Agent } from "../models/agent";
 import {Property} from "../models/property";
 import {Claim} from "../models/claim";
+import firebase from "firebase/compat";
+import Query = firebase.database.Query;
 
 @Injectable({
   providedIn: 'root'
@@ -42,16 +44,21 @@ export class FirestoreService {
 
   getPropertyByFilter(type: string, price: number, location: string) {
     return this.firestore.collection('property', ref => {
+      // @ts-ignore
+      let query: Query<DocumentData> = ref;
       if (type !== undefined && type !== '') {
-        return ref.where('type', '==', type);
+        console.log('adding type', type);
+        query = query.where('type', '==', type);
       }
       if (location !== undefined && location !== '') {
-        ref.where('address', '==', location);
+        query = query.where('address', '==', location);
       }
       if (price !== undefined) {
-        ref.where('amount', '<=', price)
+        query = query.where('amount', '<=', price)
       }
-      return ref;
+      console.log('ref', ref);
+      console.log('query', query);
+      return query;
     })
   }
 

@@ -10,6 +10,8 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 import {ActivatedRoute} from "@angular/router";
 import firebase from "firebase/compat/app";
 import Timestamp = firebase.firestore.Timestamp;
+import {getSortHeaderNotContainedWithinSortError} from "@angular/material/sort/sort-errors";
+import {InsuranceStatus} from "../../enum/insurance-status";
 
 @Component({
   selector: 'app-agent-home',
@@ -23,6 +25,7 @@ export class AgentHomeComponent implements OnInit {
     agent: Agent;
     totalAmount: number = 0;
     map: Map<String, number>;
+    amountMap: Map<String, number>;
 
     ngOnInit(): void {
     }
@@ -61,6 +64,7 @@ export class AgentHomeComponent implements OnInit {
         })
         this.agent = this.agentService.getAgentDetails();
         this.map = new Map<String, number>();
+        this.amountMap = new Map<String, number>();
         console.log(this.map);
         console.log(this.agent);
         if (this.agent != null) {
@@ -77,15 +81,27 @@ export class AgentHomeComponent implements OnInit {
             });
             this.totalPolicies = policyArray;
             this.totalPolicies.forEach(policy => {
-                if (policy.insuranceAmount !== '')
+                if (policy.vehicleType === 'twoWheeler') {
+                    console.log('Two Wheeler', policy);
+                }
+                if (policy.insuranceAmount !== '' && policy.status === 'COMPLETED' && policy.currentState !== InsuranceStatus.REJECTED) {
                     this.totalAmount += parseInt(policy.insuranceAmount);
+                }
                 if (this.map.has(policy.vehicleType)) {
                     this.map.set(policy.vehicleType, 1 + this.map.get(policy.vehicleType)!);
                 } else {
                     this.map.set(policy.vehicleType, 1);
                 }
+
+                if (this.amountMap.has(policy.vehicleType) && policy.insuranceAmount !== '' && policy.currentState !== InsuranceStatus.REJECTED) {
+                    this.amountMap.set(policy.vehicleType, parseInt(policy.insuranceAmount) + this.amountMap.get(policy.vehicleType)!);
+                } else if (policy.insuranceAmount !== '' && policy.currentState !== InsuranceStatus.REJECTED){
+                    this.amountMap.set(policy.vehicleType, parseInt(policy.insuranceAmount));
+                }
             });
             console.log(this.map);
+            console.log(this.amountMap);
+
         });
     }
 }

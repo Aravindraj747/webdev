@@ -47,8 +47,8 @@ export class UserpolicyComponent implements OnInit {
   options = {
     "key": "rzp_live_0FD1FY1bVAtKpp",
     "amount": "200",
-    "name": "Haymant",
-    "description": "Web Development",
+    "name": "Hayatamn",
+    "description": "Insurance",
     "image": "https://www.abhijitgatade.com/assets/img/favicon.png",
     "order_id": "",
     "handler": function (response: any) {
